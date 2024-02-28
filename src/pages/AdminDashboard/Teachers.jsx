@@ -126,13 +126,13 @@ function Teachers() {
                     <td>
                       <button
                         onClick={() => toggleTeacherStatus(index)}
-                        className={`bg-transparent border rounded-md px-3 py-1 mt-0 text-sm ${
+                        className={`border rounded-md px-3 py-1 mt-0 text-sm ${
                           teacher.status
-                            ? "border-green-500 bg-green-500 text-white"
-                            : "border-red-500 bg-red-500 text-white"
+                            ? "border-red-500 bg-red-500 text-white"
+                            : "border-green-500 bg-green-500 text-white"
                         }`}
                       >
-                        {teacher.status ? "Enable" : "Disable"}
+                        {teacher.status ? "Disable" : "Enable"}
                       </button>
                     </td>
                     <td>

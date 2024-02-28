@@ -87,7 +87,7 @@ const Exam = () => {
                     id="exam-branch"
                     value={examBranch}
                     onChange={(e) => setExamBranch(e.target.value)}
-                    className="border border-gray-400 rounded px-3 py-2 w-full"
+                    className="border border-gray-400 rounded px-3 py-2 w-full bg-white"
                   />
                 </div>
                 <div className="">
@@ -102,7 +102,7 @@ const Exam = () => {
                     id="exam-year"
                     value={examYear}
                     onChange={(e) => setExamYear(e.target.value)}
-                    className="border border-gray-400 rounded px-3 py-2 w-full"
+                    className="border border-gray-400 rounded px-3 py-2 w-full bg-white"
                   />
                 </div>
                 <div className="">
@@ -117,7 +117,7 @@ const Exam = () => {
                     id="exam-type"
                     value={examType}
                     onChange={(e) => setExamType(e.target.value)}
-                    className="border border-gray-400 rounded px-3 py-2 w-full"
+                    className="border border-gray-400 rounded px-3 py-2 w-full bg-white"
                   />
                 </div>
                 <div className="">
@@ -132,7 +132,7 @@ const Exam = () => {
                     id="exam-subject"
                     value={examSubject}
                     onChange={(e) => setExamSubject(e.target.value)}
-                    className="border border-gray-400 rounded px-3 py-2 w-full"
+                    className="border border-gray-400 rounded px-3 py-2 w-full bg-white"
                   />
                 </div>
                 <div className="">
@@ -147,7 +147,7 @@ const Exam = () => {
                     id="exam-timing"
                     value={examTiming}
                     onChange={(e) => setExamTiming(e.target.value)}
-                    className="border border-gray-400 rounded px-3 py-2 w-full"
+                    className="border border-gray-400 rounded px-3 py-2 w-full bg-white"
                   />
                 </div>
                 <div className="">
@@ -162,7 +162,7 @@ const Exam = () => {
                     id="exam-marks"
                     value={examMarks}
                     onChange={(e) => setExamMarks(e.target.value)}
-                    className="border border-gray-400 rounded px-3 py-2 w-full"
+                    className="border border-gray-400 rounded px-3 py-2 w-full bg-white"
                   />
                 </div>
                 <div className="">

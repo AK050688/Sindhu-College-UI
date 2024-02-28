@@ -132,13 +132,13 @@ function Student() {
                     <td>
                       <button
                         onClick={() => toggleRowStatus(index)}
-                        className={`bg-transparent border rounded-md px-3 py-1 mt-0 text-sm ${
+                        className={`border rounded-md px-3 py-1 mt-0 text-sm ${
                           student.status
-                            ? "border-green-500 bg-green-500 text-white"
-                            : "border-red-500 bg-red-500 text-white"
+                            ? "border-red-500 bg-red-500 text-white"
+                            : "border-green-500 bg-green-500 text-white"
                         }`}
                       >
-                        {student.status ? "Enable" : "Disable"}
+                        {student.status ? "Disable" : "Enable"}
                       </button>
                     </td>
                     <td>
