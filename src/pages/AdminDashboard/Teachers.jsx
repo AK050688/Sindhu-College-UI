@@ -1,4 +1,4 @@
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaTrash } from "react-icons/fa";
 import Navbar from "../../components/AdminDashboard/Navbar";
 import { useEffect, useState } from "react";
 
@@ -126,7 +126,7 @@ function Teachers() {
                     <td>
                       <button
                         onClick={() => toggleTeacherStatus(index)}
-                        className={`border rounded-md px-3 py-1 mt-0 text-sm ${
+                        className={`border rounded-md px-3 py-1 mt-0 text-xs ${
                           teacher.status
                             ? "border-red-500 bg-red-500 text-white"
                             : "border-green-500 bg-green-500 text-white"
@@ -137,10 +137,10 @@ function Teachers() {
                     </td>
                     <td>
                       <button
-                        onClick={() => deleteRow(teacher.index)}
-                        className="bg-red-500 text-sm text-white px-3 py-1 rounded-md ml-2 mt-0"
+                        onClick={() => deleteRow(teacher.rollNo)}
+                        className="border-0 text-xs text-red-700 px-3 py-1 rounded-md ml-2 mt-0"
                       >
-                        Delete
+                        <FaTrash className="mr-1" />
                       </button>
                     </td>
                   </tr>

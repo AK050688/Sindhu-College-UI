@@ -1,30 +1,89 @@
-import { useState } from "react";
-import { FiX } from "react-icons/fi";
+import { useEffect, useState } from "react";
 import Navbar from "../../components/AdminDashboard/Navbar";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import CourseFormModel from "../../components/AdminDashboard/CourseFormModel";
+import CourseEditModel from "../../components/AdminDashboard/CourseEditModel";
+import "../../styles/AdminDashboard/Courses.css"
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
   const [showForm, setShowForm] = useState(false);
-  const [courseName, setCourseName] = useState("");
-  const [courseFee, setCourseFee] = useState("");
-  const [courseYear, setCourseYear] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [isDelete, setIsDelete] = useState(false);
+  const [showEditForm, setShowEditForm] = useState(false);
+  const [editCourseData, setEditCourseData] = useState(null);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newCourse = {
-      name: courseName,
-      fee: courseFee,
-      year: courseYear
-    };
-    setCourses([...courses, newCourse]);
-    setCourseName("");
-    setCourseFee("");
-    setCourseYear("");
-    setShowForm(false);
+  useEffect(() => {
+    handleGetData();
+  }, []);
+
+  const handleGetData = () => {
+    const token = localStorage.getItem("token");
+    fetch(
+      "https://university-project-paresh.onrender.com/University/Course/allCourses",
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("courseData", data.courses);
+        setCourses(data.courses);
+      })
+      .catch((error) => {
+        console.error("Error fetching student data:", error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
-  const handleCloseForm = () => {
-    setShowForm(false);
+  const handleEditCourse = (courseId, updatedCourseData) => {
+    setCourses(
+      courses.map((course) => {
+        if (course._id === courseId) {
+          return { ...course, ...updatedCourseData };
+        }
+        return course;
+      })
+    );
+  };
+
+  const deleteRow = (courseId) => {
+    fetch(
+      `https://university-project-paresh.onrender.com/University/Course/deleteCourse/${courseId}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Deleted course:", data);
+        toast.success(data.message);
+        setIsDelete(true);
+        setTimeout(() => setIsDelete(false), 1000);
+      })
+      .catch((error) => {
+        console.error("Error deleting course:", error);
+        toast.error("Failed to delete course. Please try again later.");
+        setIsDelete(false);
+      })
+      .finally(() => {
+        setLoading(false);
+        setIsDelete(false);
+      });
+  };
+
+  const addCourse = (newCourse) => {
+    console.log("new", newCourse);
+    setCourses([...courses, newCourse.courseDetails]);
   };
 
   return (
@@ -32,10 +91,11 @@ const Courses = () => {
       <div className="h-[60px] bg-black">
         <Navbar />
       </div>
-
-      <div className="mx-auto p-1">
+      <ToastContainer />
+      <div className="mx-auto">
         <div className="w-full mt-3 flex justify-between items-center p-2 bg-white rounded-lg shadow-md border-0 border-black">
-          <h1 className="text-lg font-bold mb-2 mx-auto">Course Page</h1>
+        <div></div>
+          {/* <h1 className="text-lg font-bold mb-2 mx-auto">Course Page</h1> */}
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-[15%] mt-0"
             onClick={() => setShowForm(true)}
@@ -44,102 +104,80 @@ const Courses = () => {
           </button>
         </div>
         {showForm && (
-          <div className="fixed inset-0 flex items-center justify-center bg-slate-800 border border-slate-400 rounded-md p-10 shadow-lg backdrop-filter backdrop-blur-sm bg-opacity-30 text-white">
-            <div className="p-6 rounded shadow-lg w-[600px] bg-black">
-              <div className="flex justify-between">
-                <div className="flex items-center ml-52">
-                  <h2 className="text-2xl font-bold mx-auto">Add Course</h2>
-                </div>
-                <div className="flex items-center">
-                  <button
-                    className="hover:text-gray-800 text-2xl text-white mt-0 bg-black"
-                    onClick={handleCloseForm}
-                  >
-                    <FiX />
-                  </button>
-                </div>
-              </div>
+          <CourseFormModel onAddCourse={addCourse} setShowForm={setShowForm} />
+        )}
 
-              <form onSubmit={handleSubmit}>
-                <div className="mb-4">
-                  <label
-                    htmlFor="course-name"
-                    className="block font-bold mb-2 text-left"
-                  >
-                    Course Name:
-                  </label>
-                  <input
-                    type="text"
-                    id="course-name"
-                    value={courseName}
-                    onChange={(e) => setCourseName(e.target.value)}
-                    className="border border-gray-400 rounded px-3 py-2 w-full bg-white"
-                  />
-                </div>
-                <div className="mb-4">
-                  <label
-                    htmlFor="courseFee"
-                    className="block font-bold mb-2 text-left"
-                  >
-                    Course Fee:
-                  </label>
-                  <input
-                    type="number"
-                    id="course-fee"
-                    value={courseFee}
-                    onChange={(e) => setCourseFee(e.target.value)}
-                    className="border border-gray-400 rounded px-3 py-2 w-full"
-                  />
-                </div>
-                <div className="mb-4">
-                  <label
-                    htmlFor="course-date"
-                    className="block font-bold mb-2 text-left"
-                  >
-                    Course Year:
-                  </label>
-                  <input
-                    type="date"
-                    id="course-date"
-                    value={courseYear}
-                    onChange={(e) => setCourseYear(e.target.value)}
-                    className="border border-gray-400 rounded px-3 py-2 w-full"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                >
-                  Save
-                </button>
-              </form>
+        {showEditForm && (
+          <CourseEditModel
+            courseId={editCourseData._id}
+            initialCourseData={editCourseData}
+            onEditCourse={(courseId, updatedCourseData) =>
+              handleEditCourse(courseId, updatedCourseData)
+            }
+            setShowEditForm={setShowEditForm}
+          />
+        )}
+        <div className="student-heading">
+          <div className="min-h-[90px] rounded flex justify-center items-center">
+            <h1 className="text-3xl font-semibold text-blue-600">
+              All Courses Lists
+            </h1>
+          </div>
+        </div>
+
+        {loading ? (
+          <div className="spinner-border spinner-border-sm" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        ) : (
+          <div className="table-container">
+            <div className="table-section">
+              <table>
+                <thead>
+                  <tr>
+                    <th>S.No</th>
+                    <th>Course Name</th>
+                    <th>Course Fees</th>
+                    <th>Year</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {courses?.map((course, index) => (
+                    <tr key={index}>
+                      <td>{index + 1}</td>
+                      <td>{course.courseName}</td>
+                      <td>{course.courseFees}</td>
+                      <td>{course.year}</td>
+                      <td>
+                        <button
+                          className="bg-green-500 text-white p-1 rounded-md"
+                          onClick={() => {
+                            setEditCourseData(course);
+                            setShowEditForm(true);
+                          }}
+                        >
+                          Edit
+                        </button>
+                      </td>
+                      {!isDelete && (
+                        <td>
+                          <botton
+                            className="bg-red-500 text-white p-2 rounded-md cursor-pointer"
+                            onClick={() => deleteRow(course._id)}
+                          >
+                            Delete
+                          </botton>
+                        </td>
+                      )}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         )}
-        <div className="mt-4">
-          {courses.map((course, index) => (
-            <div
-              key={index}
-              className="bg-gray-100 p-4 mb-4 rounded shadow flex justify-between text-center"
-            >
-              <div>
-                <span className="font-bold">{course.name} </span>
-                <br />
-                <span>Course Name</span>
-              </div>
-              <div>
-                <span className="font-bold">{course.fee}</span>
-                <br />
-                <span>Course Fee</span>
-              </div>
-              <div>
-                <span className="font-bold">{course.year}</span>
-                <br />
-                <span>Course Year</span>{" "}
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   );

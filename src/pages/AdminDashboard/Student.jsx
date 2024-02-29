@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaTrash } from "react-icons/fa";
 import "./student.css";
 import Navbar from "../../components/AdminDashboard/Navbar";
 
@@ -10,6 +10,11 @@ function Student() {
   console.log(rowStatus);
 
   useEffect(() => {
+    handleGetData();
+  }, []);
+
+  const handleGetData = () => {
+    setLoading(true);
     const token = localStorage.getItem("token");
     fetch(
       "https://university-project-paresh.onrender.com/University/Admin/allStudents",
@@ -35,7 +40,7 @@ function Student() {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  };
 
   const toggleRowStatus = (index) => {
     const updatedTeachers = [...students];
@@ -133,7 +138,7 @@ function Student() {
                     <td>
                       <button
                         onClick={() => toggleRowStatus(index)}
-                        className={`border rounded-md px-3 py-1 mt-0 text-sm ${
+                        className={`border rounded-md px-3 py-1 mt-0 text-xs ${
                           student.status
                             ? "border-red-500 bg-red-500 text-white"
                             : "border-green-500 bg-green-500 text-white"
@@ -145,9 +150,9 @@ function Student() {
                     <td>
                       <button
                         onClick={() => deleteRow(student.rollNo)}
-                        className="bg-red-500 text-sm text-white px-3 py-1 rounded-md ml-2 mt-0"
+                        className="border-0 text-xs text-red-700 px-3 py-1 rounded-md ml-2 mt-0"
                       >
-                        Delete
+                        <FaTrash className="mr-1" />
                       </button>
                     </td>
                   </tr>
