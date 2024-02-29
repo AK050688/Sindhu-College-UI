@@ -1,85 +1,125 @@
-/* Admission Styles */
-.admission {
+/* AdmissionForm.css */
+
+.admission-form-section {
+  background-color: #27292a;
   margin-top: 50px;
+  padding: 40px;
+}
+
+.admission-form {
+  text-align: center;
+  padding: 15px;
+  background-color: #161616;
+  border-radius: 20px;
+  box-shadow: 0px 10px 20px rgb(244, 201, 83);
   width: 90%;
-  margin: auto;
-  margin-top: 80px;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
 }
 
-.admission-category {
-  background: linear-gradient(45deg, #3498db, #8e44ad);
-  color: #fff;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  animation: fadeInUp 1s ease-in-out;
+.admission-form h2 {
   margin-bottom: 30px;
-  transition: transform 0.3s ease;
-  border: 2px solid #3498db;
-  overflow-x: auto;
+  color: rgb(244, 201, 83);
+  font-size: 28px;
+  font-weight: 700;
 }
 
-.admission-category:hover {
-  transform: scale(1.02);
-  border-color: #8e44ad;
-}
-
-.admission-category h2 {
-  font-size: 24px;
-  font-weight: bold;
+.form-group {
   margin-bottom: 20px;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 15px;
-}
-
-table th,
-table td {
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
   text-align: left;
 }
 
-table th {
-  background-color: #3498db;
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.grid-container-three {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.grid-item {
+  width: 100%;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
   color: #fff;
-  font-weight: bold;
+  font-size: 16px;
 }
 
-table tr:hover {
-  background-color: #3498db;
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: #2b2b2b;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
   color: #fff;
+  margin-top: 8px;
+  box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
-  .admission-category {
-    padding: 15px;
-    border-radius: 10px;
+textarea {
+  height: 100px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  background-color: #3b3b3b;
+}
+
+.admission-form-section button {
+  width: 50%;
+  background-color: rgb(255, 213, 5);
+  color: black;
+  padding: 15px;
+  border: 1px solid #b3aa48;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+button:hover {
+  background-color: #b3aa48;
+  color: black;
+}
+
+@media screen and (max-width: 768px) {
+  .admission-form {
+    width: 90%;
+    max-width: none;
+    padding: 30px;
   }
 
-  .admission-category h2 {
-    font-size: 20px;
-  }
-
-  table {
-    font-size: 14px;
+  input[type="text"],
+  input[type="email"],
+  textarea,
+  button {
+    padding: 12px;
   }
 }
 
-@media (max-width: 576px) {
-  .admission-category {
-    padding: 10px;
-    margin-bottom: 20px;
+@media screen and (max-width: 480px) {
+  .admission-form {
+    padding: 20px;
   }
 
-  .admission-category h2 {
-    font-size: 18px;
-  }
-
-  table {
-    font-size: 12px;
+  .admission-form h2 {
+    font-size: 24px;
   }
 }

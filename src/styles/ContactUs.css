@@ -2,18 +2,18 @@
 
 .contact-us-section {
   background-color: #27292a;
-  margin-top: 60px;
-  padding: 30px;
+  margin-top: 50px;
+  padding: 40px;
 }
 
 .contact-us {
   text-align: center;
-  padding: 20px;
+  padding: 15px;
   background-color: #161616;
   border-radius: 20px;
   box-shadow: 0px 10px 20px rgb(244, 201, 83);
   width: 90%;
-  max-width: 400px;
+  max-width: 500px; 
   margin: 0 auto;
   position: relative;
   overflow: hidden;
@@ -29,6 +29,16 @@
 .form-group {
   margin-bottom: 20px;
   text-align: left;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.grid-item {
+  width: 100%;
 }
 
 label {
@@ -52,6 +62,10 @@ textarea {
   margin-top: 8px;
   box-sizing: border-box;
 }
+textarea{
+  height: 100px;
+}
+
 
 input[type="text"]:focus,
 input[type="email"]:focus,
@@ -65,10 +79,9 @@ textarea {
 
 button {
   width: 100%;
-  background-color: rgb(244, 201, 83);
-  color: #161616;
+  color: #b3aa48;
   padding: 15px;
-  border: none;
+  border: 1px solid #b3aa48;
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -80,6 +93,7 @@ button {
 
 button:hover {
   background-color: #b3aa48;
+  color: black;
 }
 
 @media screen and (max-width: 768px) {

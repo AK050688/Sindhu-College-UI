@@ -1,3 +1,5 @@
+/* Updated ContactUs.js */
+
 import React from "react";
 import "../styles/ContactUs.css";
 import Footer from "../components/Home/Footer";
@@ -13,13 +15,15 @@ const ContactUs = () => {
               <label htmlFor="name">Name</label>
               <input type="text" id="name" name="name" required />
             </div>
-            <div className="form-group">
-              <label htmlFor="email">Email Address</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-            <div className="form-group">
-              <label htmlFor="subject">Subject</label>
-              <input type="text" id="subject" name="subject" required />
+            <div className="form-group grid-container">
+              <div className="grid-item">
+                <label htmlFor="exam">Exam</label>
+                <input type="text" id="exam" name="exam" required />
+              </div>
+              <div className="grid-item">
+                <label htmlFor="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required />
+              </div>
             </div>
             <div className="form-group">
               <label htmlFor="message">Message</label>

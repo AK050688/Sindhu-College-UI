@@ -1,157 +1,307 @@
-import React from "react";
+import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../styles/Admission.css";
 import Footer from "../components/Home/Footer";
 
-const Admission = () => {
+const AdmissionForm = () => {
+  const [formData, setFormData] = useState({
+    Name: "",
+    fatherName: "",
+    motherName: "",
+    email: "",
+    mobileNo: "",
+    address: "",
+    state: "",
+    country: "",
+    cityORVillage: "",
+    pin: "",
+    gender: "",
+    DOB: "",
+    bloodGroup: "",
+    tenth_passoutYear: "",
+    AadharNumber: "",
+    courseTaken: "",
+    branchName: "",
+    busService: "",
+    hostelService: ""
+  });
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("formData", formData);
+    setLoading(true);
+
+    fetch(
+      "https://university-project-paresh.onrender.com/University/Admission/submitAdmissionForm",
+      {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("data", data);
+        setLoading(false);
+        toast.success("Form submitted successfully!");
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.error("Error:", error);
+        toast.error("Failed to submit form!");
+      });
+  };
+
   return (
     <>
-      <div class="admission">
-        <div class="admission-category">
-          <h2>Modern Group Of Nursing</h2>
-          <table>
-            <tr>
-              <th></th>
-              <th>Course</th>
-              <th>Eligibility</th>
-              <th>Duration</th>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Auxiliary Nursing & Midwifery(ANM)</td>
-              <td>10+2 (Arts/ Science/Commerce.)</td>
-              <td>2 Years</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>General Nursing & Midwifery(GNM)</td>
-              <td>10+2 (Arts/ Science/Commerce.)</td>
-              <td>3 Years</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Bachelor of Science in Nursing (B.Sc.Nursing)</td>
-              <td>10+2 (PCB With Eng.)</td>
-              <td>4 Years</td>
-            </tr>
-          </table>
-        </div>
+      <div className="admission-form-section">
+        <div className="admission-form">
+          <h2>Admission Form</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group grid-container">
+              <div className="grid-item">
+                <label htmlFor="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="Name"
+                  value={formData.Name}
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="grid-item">
+                <label htmlFor="email">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+            <div className="form-group grid-container">
+              <div className="grid-item">
+                <label htmlFor="fatherName">Father's Name</label>
+                <input
+                  type="text"
+                  id="fatherName"
+                  name="fatherName"
+                  value={formData.fatherName}
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="grid-item">
+                <label htmlFor="motherName">Mother's Name</label>
+                <input
+                  type="text"
+                  id="motherName"
+                  name="motherName"
+                  value={formData.motherName}
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+            <div className="form-group grid-container-three">
+              <div className="grid-item">
+                <label htmlFor="mobileNo">Mobile Number</label>
+                <input
+                  type="text"
+                  id="mobileNo"
+                  name="mobileNo"
+                  value={formData.mobileNo}
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="grid-item">
+                <label htmlFor="tenth_passoutYear">Year of 10th Passout</label>
+                <input
+                  type="text"
+                  id="tenth_passoutYear"
+                  name="tenth_passoutYear"
+                  value={formData.tenth_passoutYear}
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="grid-item">
+                <label htmlFor="AadharNumber">Aadhar Number</label>
+                <input
+                  type="text"
+                  id="AadharNumber"
+                  name="AadharNumber"
+                  value={formData.AadharNumber}
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+            <div className="form-group grid-container">
+              <div className="grid-item">
+                <label htmlFor="address">Address</label>
+                <input
+                  type="text"
+                  id="address"
+                  name="address"
+                  value={formData.address}
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="grid-item">
+                <label htmlFor="state">State</label>
+                <input
+                  type="text"
+                  id="state"
+                  name="state"
+                  value={formData.state}
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+            <div className="form-group grid-container-three">
+              <div className="grid-item">
+                <label htmlFor="country">Country</label>
+                <input
+                  type="text"
+                  id="country"
+                  name="country"
+                  value={formData.country}
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="grid-item">
+                <label htmlFor="cityORVillage">City or Village</label>
+                <input
+                  type="text"
+                  id="cityORVillage"
+                  name="cityORVillage"
+                  value={formData.cityORVillage}
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="grid-item">
+                <label htmlFor="pin">PIN</label>
+                <input
+                  type="text"
+                  id="pin"
+                  name="pin"
+                  value={formData.pin}
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+            <div className="form-group grid-container-three">
+              <div className="grid-item">
+                <label htmlFor="gender">Gender</label>
+                <input
+                  type="text"
+                  id="gender"
+                  name="gender"
+                  value={formData.gender}
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="grid-item">
+                <label htmlFor="DOB">Date of Birth</label>
+                <input
+                  type="text"
+                  id="DOB"
+                  name="DOB"
+                  value={formData.DOB}
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="grid-item">
+                <label htmlFor="bloodGroup">Blood Group</label>
+                <input
+                  type="text"
+                  id="bloodGroup"
+                  name="bloodGroup"
+                  value={formData.bloodGroup}
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
 
-        <div class="admission-category">
-          <h2>Modern Group Of Pharmacy</h2>
-          <table>
-            <tr>
-              <th></th>
-              <th>Course</th>
-              <th>Eligibility</th>
-              <th>Duration</th>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Diploma in Pharmacy (D.Pharm)</td>
-              <td>10+2 (PCBM)</td>
-              <td>2 Years</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Bachelor of Pharmacy (B.Pharm)</td>
-              <td>10+2 (PCBM)</td>
-              <td>4 Years</td>
-            </tr>
-          </table>
-        </div>
-
-        <div class="admission-category">
-          <h2>Modern Group Of Paramedical Sciences</h2>
-          <table>
-            <tr>
-              <th></th>
-              <th>Course</th>
-              <th>Eligibility</th>
-              <th>Duration</th>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Certificate in Medical Dresser (CMD)/Dresser</td>
-              <td>Matriculation</td>
-              <td>1 Year</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>
-                Diploma in Operation Theatre Assistant (DOTA)/ Diploma in
-                O.T.Asst.
-              </td>
-              <td>10+2 (PCB)</td>
-              <td>2 Years</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Diploma in Dental Mechanical (CDM)</td>
-              <td>10+2 (PCB)</td>
-              <td>2 Years</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>
-                Diploma in Medical Laboratory Technology (DMLT)/Lab Technician
-              </td>
-              <td>10+2 (PCB)</td>
-              <td>2 Years</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Diploma in Medical Radiography(DMR)/x-ray Technician</td>
-              <td>10+2 (PCBM)</td>
-              <td>2 Years</td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td>Diploma in Physiotherapy Technician (DPT)/Physiotherapy</td>
-              <td>10+2 (PCB)</td>
-              <td>2 Years</td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td>Diploma in Sanitary Inspector (DSI)/Sanitary Inspector</td>
-              <td>10+2 (PCB)</td>
-              <td>2 Years</td>
-            </tr>
-            <tr>
-              <td>8</td>
-              <td>Diploma in ECG Technology (DECG)</td>
-              <td>10+2 (PCB)</td>
-              <td>2 Years</td>
-            </tr>
-            <tr>
-              <td>9</td>
-              <td>Bachelor of Physiotherapy (BPT)</td>
-              <td>10+2 (PCB)</td>
-              <td>4 Years</td>
-            </tr>
-            <tr>
-              <td>10</td>
-              <td>Bachelor of Occupational Therapy (BOT)</td>
-              <td>10+2 (PCB)</td>
-              <td>4 Years</td>
-            </tr>
-            <tr>
-              <td>11</td>
-              <td>Bachelor of Hospital Management (BHM)</td>
-              <td>10+2 (PCB)</td>
-              <td>4 Years</td>
-            </tr>
-            <tr>
-              <td>12</td>
-              <td>Bachelor in Medical Laboratory Technology (BMLT)</td>
-              <td>10+2 (PCB)</td>
-              <td>4 Years</td>
-            </tr>
-          </table>
+            <div className="form-group grid-container">
+              <div className="grid-item">
+                <label htmlFor="courseTaken">Course Taken</label>
+                <input
+                  type="text"
+                  id="courseTaken"
+                  name="courseTaken"
+                  value={formData.courseTaken}
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="grid-item">
+                <label htmlFor="branchName">Branch Name</label>
+                <input
+                  type="text"
+                  id="branchName"
+                  name="branchName"
+                  value={formData.branchName}
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+            <div className="form-group grid-container">
+              <div className="grid-item">
+                <label htmlFor="busService">Bus Service</label>
+                <input
+                  type="text"
+                  id="busService"
+                  name="busService"
+                  value={formData.busService}
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="grid-item">
+                <label htmlFor="hostelService">Hostel Service</label>
+                <input
+                  type="text"
+                  id="hostelService"
+                  name="hostelService"
+                  value={formData.hostelService}
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+            <button type="submit" disabled={loading}>
+              {loading ? "Submitting..." : "Submit"}
+            </button>
+          </form>
         </div>
       </div>
       <Footer />
+      <ToastContainer />
     </>
   );
 };
 
-export default Admission;
+export default AdmissionForm;
