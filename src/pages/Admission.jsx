@@ -52,7 +52,7 @@ const AdmissionForm = () => {
       .then((data) => {
         console.log("data", data);
         setLoading(false);
-        toast.success(data.message, {
+        toast.success("Form submitted successfully!", {
           toastClassName: "toast-success",
           bodyClassName: "toast-body"
         });
