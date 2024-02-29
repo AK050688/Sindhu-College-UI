@@ -54,6 +54,7 @@ const Sidebar = ({ children }) => {
           <div className="top_section">
             <img
               src="https://yt3.googleusercontent.com/BD6jdwY4iosy_AvzawaKCceFVt-5otehbbOgLWIlL_EVpAf1iXadeNQEuMzUEokKNPQy8QKq5A=s900-c-k-c0x00ffffff-no-rj"
+              alt=""
               style={{ display: isOpen ? "block" : "none" }}
               className="logo w-20 h-20 rounded-full"
             />

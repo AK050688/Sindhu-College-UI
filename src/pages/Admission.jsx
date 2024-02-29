@@ -52,12 +52,18 @@ const AdmissionForm = () => {
       .then((data) => {
         console.log("data", data);
         setLoading(false);
-        toast.success("Form submitted successfully!");
+        toast.success(data.message, {
+          toastClassName: "toast-success",
+          bodyClassName: "toast-body"
+        });
       })
       .catch((error) => {
         setLoading(false);
-        console.error("Error:", error);
-        toast.error("Failed to submit form!");
+        console.error("Error:", error.message);
+        toast.error("Failed to submit form!", {
+          toastClassName: "toast-error",
+          bodyClassName: "toast-body"
+        });
       });
   };
 

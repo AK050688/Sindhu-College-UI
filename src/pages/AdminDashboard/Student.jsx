@@ -7,6 +7,7 @@ function Student() {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [rowStatus, setRowStatus] = useState({});
+  console.log(rowStatus);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
