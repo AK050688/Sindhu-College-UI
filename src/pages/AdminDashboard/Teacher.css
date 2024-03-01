@@ -20,9 +20,9 @@ thead th {
   text-align: center;
 }
 
-tbody tr:nth-child(even) {
+/* tbody tr:nth-child(even) {
   background-color: #c7ddf6;
-}
+} */
 
 tbody tr:hover {
   background-color: #97c1f1;

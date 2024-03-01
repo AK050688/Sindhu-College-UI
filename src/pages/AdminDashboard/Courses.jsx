@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CourseFormModel from "../../components/AdminDashboard/CourseFormModel";
 import CourseEditModel from "../../components/AdminDashboard/CourseEditModel";
-import "../../styles/AdminDashboard/Courses.css"
+import "../../styles/AdminDashboard/Courses.css";
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
@@ -92,9 +92,9 @@ const Courses = () => {
         <Navbar />
       </div>
       <ToastContainer />
-      <div className="mx-auto">
-        <div className="w-full mt-3 flex justify-between items-center p-2 bg-white rounded-lg shadow-md border-0 border-black">
-        <div></div>
+      <div className="mx-auto bg-cover bg-login h-[82vh]">
+        <div className="w-full mt-3 flex justify-between items-center p-2 rounded-lg shadow-md border-0 border-black">
+          <div></div>
           {/* <h1 className="text-lg font-bold mb-2 mx-auto">Course Page</h1> */}
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-[15%] mt-0"

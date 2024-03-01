@@ -3,24 +3,51 @@ import Navbar from "../../components/AdminDashboard/Navbar";
 
 const Notification = () => {
   const [formData, setFormData] = useState({
-    title: "",
-    subject: "",
-    date: "",
-    discription: ""
+    Title: "",
+    Subject: "",
+    // date: "",
+    Discription: ""
   });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
-  };
+    setLoading(true);
 
+    fetch(
+      "https://university-project-paresh.onrender.com/University/Notification/notifications",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.message) {
+          console.log(data);
+          alert(`${data.message}`);
+          setFormData({
+            Title: "",
+            Subject: "",
+            Discription: ""
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
   return (
     <>
       <div className=" h-[60px] bg-black">
@@ -39,28 +66,31 @@ const Notification = () => {
               <input
                 type="text"
                 id="title"
-                name="title"
-                value={formData.title}
+                name="Title"
+                value={formData.Title}
                 onChange={handleChange}
                 className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full text-black bg-white"
                 required
               />
             </div>
             <div className="flex flex-col w-1/2 pl-4 mb-4">
-              <label htmlFor="subject" className="text-sm font-medium text-left">
+              <label
+                htmlFor="subject"
+                className="text-sm font-medium text-left"
+              >
                 Subject
               </label>
               <input
                 type="text"
                 id="subject"
-                name="subject"
-                value={formData.subject}
+                name="Subject"
+                value={formData.Subject}
                 onChange={handleChange}
                 className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full text-black bg-white"
                 required
               />
             </div>
-            <div className="flex flex-col w-1/2 pr-4 mb-4">
+            {/* <div className="flex flex-col w-1/2 pr-4 mb-4">
               <label htmlFor="date" className="text-sm font-medium text-left">
                 Date
               </label>
@@ -72,8 +102,8 @@ const Notification = () => {
                 onChange={handleChange}
                 className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full text-black"
               />
-            </div>
-            <div className="flex flex-col w-1/2 pl-4 mb-4">
+            </div> */}
+            <div className="flex flex-col w-full mb-4">
               <label
                 htmlFor="discription"
                 className="text-sm font-medium text-left"
@@ -83,8 +113,8 @@ const Notification = () => {
               <textarea
                 type="text"
                 id="discription"
-                name="discription"
-                value={formData.discription}
+                name="Discription"
+                value={formData.Discription}
                 onChange={handleChange}
                 className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full text-black bg-white"
                 required
@@ -94,7 +124,13 @@ const Notification = () => {
               type="submit"
               className="text-black py-2 px-4 rounded-md  ml-auto w-full bg-blue-600 hover:bg-blue-300"
             >
-              Save
+              {loading ? (
+                <div className="spinner-border spinner-border-sm" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              ) : (
+                "Save"
+              )}
             </button>
           </form>
         </div>

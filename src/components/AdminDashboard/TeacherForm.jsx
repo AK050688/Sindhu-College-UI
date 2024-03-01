@@ -5,7 +5,7 @@ import Select from "react-select";
 const TeacherForm = () => {
   const [formData, setFormData] = useState({
     Name: "",
-    guardianName: "",
+    guardian_Name: "",
     email: "",
     mobileNo: "",
     address: "",
@@ -14,7 +14,7 @@ const TeacherForm = () => {
     pin: "",
     gender: "",
     bloodGroup: "",
-    department: "",
+    Department: "",
     joiningDate: ""
   });
 
@@ -41,7 +41,7 @@ const TeacherForm = () => {
     const token = localStorage.getItem("token");
 
     fetch(
-      "https://university-project-paresh.onrender.com/University/Student/signUp",
+      "https://university-project-paresh.onrender.com/University/Teacher/signUp",
       {
         method: "POST",
         headers: {
@@ -53,7 +53,7 @@ const TeacherForm = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        console.log("TeacherRegistration", data.TeacherDetails);
         if (data.message) {
           localStorage.setItem("TeacherToken", data.accessToken);
           alert(`${data.message}`);
@@ -107,8 +107,8 @@ const TeacherForm = () => {
             <input
               type="text"
               id="guardianName"
-              name="guardianName"
-              value={formData.guardianName}
+              name="guardian_Name"
+              value={formData.guardian_Name}
               onChange={handleInputChange}
               className="mt-1 p-2 w-full border border-gray-300  text-black rounded-md bg-white"
             />
@@ -256,8 +256,8 @@ const TeacherForm = () => {
             <input
               type="text"
               id="department"
-              name="department"
-              value={formData.department}
+              name="Department"
+              value={formData.Department}
               onChange={handleInputChange}
               className="mt-1 p-2 w-full border border-gray-300  text-black rounded-md bg-white"
             />
