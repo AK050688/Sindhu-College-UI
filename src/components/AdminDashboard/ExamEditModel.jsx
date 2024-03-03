@@ -37,7 +37,7 @@ const ExamEditModel = ({
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log("Updated Exam:", data);
+        // console.log("Updated Exam:", data);
         onEditExam(examId, formData);
         toast.success("Exam updated successfully");
         setShowEditForm(false);

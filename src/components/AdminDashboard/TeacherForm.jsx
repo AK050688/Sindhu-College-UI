@@ -53,7 +53,7 @@ const TeacherForm = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log("TeacherRegistration", data.TeacherDetails);
+        // console.log("TeacherRegistration", data.TeacherDetails);
         if (data.message) {
           localStorage.setItem("TeacherToken", data.accessToken);
           alert(`${data.message}`);

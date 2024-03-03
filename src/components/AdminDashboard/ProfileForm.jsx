@@ -26,7 +26,7 @@ const RegisterForm = () => {
       )
         .then((res) => res.json())
         .then((data) => {
-          console.log("data", data.result);
+          // console.log("data", data.result);
           setFormData(data.result);
         })
         .catch((error) => {

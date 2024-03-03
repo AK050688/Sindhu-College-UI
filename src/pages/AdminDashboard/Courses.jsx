@@ -31,7 +31,7 @@ const Courses = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log("courseData", data.courses);
+        // console.log("courseData", data.courses);
         setCourses(data.courses);
       })
       .catch((error) => {
@@ -65,7 +65,7 @@ const Courses = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log("Deleted course:", data);
+        // console.log("Deleted course:", data);
         toast.success(data.message);
         setIsDelete(true);
         setTimeout(() => setIsDelete(false), 1000);
@@ -82,7 +82,7 @@ const Courses = () => {
   };
 
   const addCourse = (newCourse) => {
-    console.log("new", newCourse);
+    // console.log("new", newCourse);
     setCourses([...courses, newCourse.courseDetails]);
   };
 
@@ -163,12 +163,12 @@ const Courses = () => {
                       </td>
                       {!isDelete && (
                         <td>
-                          <botton
+                          <button
                             className="bg-red-500 text-white p-2 rounded-md cursor-pointer"
                             onClick={() => deleteRow(course._id)}
                           >
                             Delete
-                          </botton>
+                          </button>
                         </td>
                       )}
                     </tr>

@@ -31,7 +31,7 @@ const CourseFormModel = ({ onAddCourse, setShowForm }) => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log("data", data);
+        // console.log("data", data);
         onAddCourse(data);
         toast.success("Course added successfully");
         setShowForm(false);

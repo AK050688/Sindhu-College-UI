@@ -54,7 +54,7 @@ function Dashboard() {
         ]);
 
         const data = await Promise.all(responses.map((res) => res.json()));
-        console.log(data);
+        // console.log(data);
 
         setStudentCount(data[0].Students.length);
         setTeacherCount(data[1].Teachers.length);

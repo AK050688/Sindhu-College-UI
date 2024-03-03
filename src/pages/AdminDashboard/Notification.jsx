@@ -32,7 +32,7 @@ const Notification = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data.message) {
-          console.log(data);
+          // console.log(data);
           alert(`${data.message}`);
           setFormData({
             Title: "",

@@ -36,7 +36,7 @@ const ExamFormModel = ({ onAddExam, setShowForm }) => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log("data", data);
+        // console.log("data", data);
         onAddExam(data);
         toast.success("Exam added successfully");
         setShowForm(false);

@@ -19,7 +19,7 @@ function Teachers() {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log("teacherData", data.Teachers);
+        // console.log("teacherData", data.Teachers);
         setTeachers(data.Teachers);
       })
       .catch((error) => {

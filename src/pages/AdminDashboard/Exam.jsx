@@ -26,7 +26,7 @@ const Exam = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log("examData", data);
+        // console.log("examData", data);
         setExams(data);
       })
       .catch((error) => {
@@ -60,7 +60,7 @@ const Exam = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log("Deleted exam:", data);
+        // console.log("Deleted exam:", data);
         alert(`${data.message}`);
       })
       .catch((error) => {
@@ -72,7 +72,7 @@ const Exam = () => {
   };
 
   const addExam = (newExam) => {
-    console.log("new", newExam);
+    // console.log("new", newExam);
     setExams([...exams, newExam.examDetails]);
   };
 
@@ -161,12 +161,12 @@ const Exam = () => {
                         </button>
                       </td>
                       <td>
-                        <botton
+                        <button
                           className="bg-red-500 text-white px-3 py-1 rounded-md cursor-pointer"
                           onClick={() => deleteRow(exam._id)}
                         >
                           Delete
-                        </botton>
+                        </button>
                       </td>
                     </tr>
                   ))}

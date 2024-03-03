@@ -19,7 +19,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    // console.log(formData);
     setLoading(true);
 
     fetch(
@@ -34,7 +34,7 @@ function Login() {
     )
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.message) {
           localStorage.setItem("token", res.accessToken);
           alert(`${res.message}`);

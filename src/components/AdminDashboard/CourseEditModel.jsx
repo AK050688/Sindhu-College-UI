@@ -37,7 +37,7 @@ const CourseEditModel = ({
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log("Updated course:", data);
+        // console.log("Updated course:", data);
         onEditCourse(courseId, formData);
         toast.success("Course updated successfully");
         setShowEditForm(false);
