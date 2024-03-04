@@ -1,10 +1,13 @@
+import React, { useState, useEffect } from "react";
 import { FaSearch, FaTrash } from "react-icons/fa";
 import Navbar from "../../components/AdminDashboard/Navbar";
-import { useEffect, useState } from "react";
+import TeacherModal from "../../components/AdminDashboard/TeacherModal";
+import "../../styles/AdminDashboard/Teacher.css";
 
 function Teachers() {
   const [teachers, setTeachers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedTeacher, setSelectedTeacher] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -19,25 +22,22 @@ function Teachers() {
     )
       .then((response) => response.json())
       .then((data) => {
-        // console.log("teacherData", data.Teachers);
         setTeachers(data.Teachers);
       })
       .catch((error) => {
-        console.error("Error fetching student data:", error);
+        console.error("Error fetching teacher data:", error);
       })
       .finally(() => {
         setLoading(false);
       });
   }, []);
 
-  // const toggleTeacherStatus = (index) => {
-  //   const updatedTeachers = [...teachers];
-  //   updatedTeachers[index].status = !updatedTeachers[index].status;
-  //   setTeachers(updatedTeachers);
-  // };
-
-  const deleteRow = (rollNo) => {
+  const deleteTeacher = (rollNo) => {
     setTeachers(teachers.filter((teacher) => teacher.rollNo !== rollNo));
+  };
+
+  const handleRowClick = (teacher) => {
+    setSelectedTeacher(teacher);
   };
 
   return (
@@ -45,17 +45,13 @@ function Teachers() {
       <div className="h-[60px] bg-black">
         <Navbar />
       </div>
-      <div className="bg-login bg-cover h-[90vh]">
-        <div className="student-heading">
-          <div className="min-h-[90px] rounded flex justify-center items-center">
-            <h1 className="text-3xl font-semibold text-blue-600">
-              All Teachers List
-            </h1>
-          </div>
-        </div>
-        <section className="flex flex-col md:flex-row justify-between items-center px-4 py-4">
-          <div className="flex items-center mb-4 md:mb-0 gap-4">
-            <label htmlFor="rowsPerPage" className="text-white">
+      <div className="bg-login bg-cover h-[91vh]">
+        <section className="flex flex-col md:flex-row justify-between items-center p-2 rounded-lg mb-4 border-0 border-white">
+          <h1 className="text-3xl font-semibold text-white text-left">
+            All Teacher Lists
+          </h1>
+          <div className="flex items-center gap-4">
+            <label htmlFor="rowsPerPage" className="text-white text-lg">
               Rows per page:
             </label>
             <select
@@ -107,13 +103,16 @@ function Teachers() {
                     <th>Blood Group</th>
                     <th>Department</th>
                     <th>Joining Date</th>
-                    {/* <th>Enable/Disable</th> */}
                     <th>Delete</th>
                   </tr>
                 </thead>
                 <tbody>
                   {teachers.map((teacher, index) => (
-                    <tr key={index} className="bg-transparent">
+                    <tr
+                      key={index}
+                      className="bg-transparent"
+                      onClick={() => handleRowClick(teacher)}
+                    >
                       <td>{index + 1}</td>
                       <td>{teacher.Name}</td>
                       <td>{teacher.guardian_Name}</td>
@@ -124,21 +123,9 @@ function Teachers() {
                       <td>{teacher.bloodGroup}</td>
                       <td>{teacher.Department}</td>
                       <td>{teacher.joiningDate}</td>
-                      {/* <td>
-                      <button
-                        onClick={() => toggleTeacherStatus(index)}
-                        className={`border rounded-md px-3 py-1 mt-0 text-xs ${
-                          teacher.status
-                            ? "border-red-500 bg-red-500 text-white"
-                            : "border-green-500 bg-green-500 text-white"
-                        }`}
-                      >
-                        {teacher.status ? "Disable" : "Enable"}
-                      </button>
-                    </td> */}
                       <td>
                         <button
-                          onClick={() => deleteRow(teacher.rollNo)}
+                          onClick={() => deleteTeacher(teacher.rollNo)}
                           className="border-0 text-xs text-red-700 px-3 py-1 rounded-md ml-2 mt-0"
                         >
                           <FaTrash className="mr-1" />
@@ -150,6 +137,13 @@ function Teachers() {
               </table>
             </div>
           </div>
+        )}
+
+        {selectedTeacher && (
+          <TeacherModal
+            teacher={selectedTeacher}
+            onClose={() => setSelectedTeacher(null)}
+          />
         )}
       </div>
     </div>

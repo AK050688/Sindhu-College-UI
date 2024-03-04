@@ -1,10 +1,12 @@
 import React from "react";
 import "../styles/AboutUs.css";
 import Footer from "../components/Home/Footer";
+import Navbar from "../components/Home/Navbar";
 
 const AboutUs = () => {
   return (
     <>
+      <Navbar />
       <div className="about-us-container-section">
         <h1 className="section-heading">
           Welcome to Sindhu College of Education

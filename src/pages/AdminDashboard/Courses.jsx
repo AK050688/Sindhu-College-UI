@@ -92,10 +92,11 @@ const Courses = () => {
         <Navbar />
       </div>
       <ToastContainer />
-      <div className="mx-auto bg-cover bg-login h-[82vh]">
-        <div className="w-full mt-3 flex justify-between items-center p-2 rounded-lg shadow-md border-0 border-black">
-          <div></div>
-          {/* <h1 className="text-lg font-bold mb-2 mx-auto">Course Page</h1> */}
+      <div className="mx-auto bg-cover bg-login h-[90vh]">
+        <div className="flex flex-col md:flex-row justify-between items-center p-2 rounded-lg shadow-md border-0 border-black">
+          <h1 className="text-xl font-bold text-white text-left">
+            All Courses Lists
+          </h1>
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-[15%] mt-0"
             onClick={() => setShowForm(true)}
@@ -117,13 +118,13 @@ const Courses = () => {
             setShowEditForm={setShowEditForm}
           />
         )}
-        <div className="student-heading">
+        {/* <div className="student-heading">
           <div className="min-h-[90px] rounded flex justify-center items-center">
             <h1 className="text-3xl font-semibold text-blue-600">
               All Courses Lists
             </h1>
           </div>
-        </div>
+        </div> */}
 
         {loading ? (
           <div className="spinner-border spinner-border-sm" role="status">

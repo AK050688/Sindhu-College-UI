@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
+// Student.js
+import React, { useState, useEffect } from "react";
 import { FaSearch, FaTrash } from "react-icons/fa";
-import "./student.css";
+import "../../styles/AdminDashboard/student.css";
 import Navbar from "../../components/AdminDashboard/Navbar";
+import StudentModal from "../../components/AdminDashboard/StudentModal";
 
 function Student() {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [rowStatus, setRowStatus] = useState({});
-  console.log(rowStatus);
+  const [selectedStudent, setSelectedStudent] = useState(null);
 
   useEffect(() => {
     handleGetData();
@@ -28,25 +29,17 @@ function Student() {
       .then((response) => response.json())
       .then((data) => {
         setStudents(data.Students);
-        const initialRowStatus = {};
-        data.Students.forEach((student) => {
-          initialRowStatus[student.rollNo] = true;
-        });
-        setRowStatus(initialRowStatus);
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching student data:", error);
-      })
-      .finally(() => {
         setLoading(false);
       });
   };
 
-  // const toggleRowStatus = (index) => {
-  //   const updatedTeachers = [...students];
-  //   updatedTeachers[index].status = !updatedTeachers[index].status;
-  //   setStudents(updatedTeachers);
-  // };
+  const handleRowClick = (student) => {
+    setSelectedStudent(student);
+  };
 
   const deleteRow = (rollNo) => {
     setStudents(students.filter((student) => student.rollNo !== rollNo));
@@ -57,18 +50,13 @@ function Student() {
       <div className="h-[60px] bg-black">
         <Navbar />
       </div>
-      <div className="bg-login bg-cover h-[90vh]">
-        <div className="student-heading">
-          <div className="min-h-[90px] rounded flex justify-center items-center">
-            <h1 className="text-3xl font-semibold text-blue-600">
-              All Student Lists
-            </h1>
-          </div>
-        </div>
-
-        <section className="flex flex-col md:flex-row justify-between items-center px-4 py-4">
-          <div className="flex items-center mb-4 md:mb-0 gap-4">
-            <label htmlFor="rowsPerPage" className="text-white">
+      <div className="bg-login bg-cover h-[91vh]">
+        <section className="flex flex-col md:flex-row justify-between items-center p-2 rounded-lg mb-4 border-0 border-white">
+          <h1 className="text-3xl font-semibold text-white text-left">
+            All Student Lists
+          </h1>
+          <div className="flex items-center gap-4">
+            <label htmlFor="rowsPerPage" className="text-white text-lg">
               Rows per page:
             </label>
             <select
@@ -119,13 +107,16 @@ function Student() {
                     <th>Course Taken</th>
                     <th>Branch Name</th>
                     <th>Admission Year</th>
-                    {/* <th>Enable/Disable</th> */}
                     <th>Delete</th>
                   </tr>
                 </thead>
                 <tbody>
                   {students.map((student, index) => (
-                    <tr key={index} className="bg-transparent">
+                    <tr
+                      key={index}
+                      className="bg-transparent"
+                      onClick={() => handleRowClick(student)} // Handle row click
+                    >
                       <td>{student.rollNo}</td>
                       <td>{student.Name}</td>
                       <td>{student.fatherName}</td>
@@ -135,22 +126,10 @@ function Student() {
                       <td>{student.courseTaken}</td>
                       <td>{student.branchName}</td>
                       <td>{student.admissionYear}</td>
-                      {/* <td>
-                      <button
-                        onClick={() => toggleRowStatus(index)}
-                        className={`border rounded-md px-3 py-1 mt-0 text-xs ${
-                          student.status
-                            ? "border-red-500 bg-red-500 text-white"
-                            : "border-green-500 bg-green-500 text-white"
-                        }`}
-                      >
-                        {student.status ? "Disable" : "Enable"}
-                      </button>
-                    </td> */}
                       <td>
                         <button
                           onClick={() => deleteRow(student.rollNo)}
-                          className="border-0 text-xs text-red-700 px-3 py-1 rounded-md ml-2 mt-0"
+                          className="border-0 text-red-700 rounded-md border-white"
                         >
                           <FaTrash className="mr-1" />
                         </button>
@@ -161,6 +140,13 @@ function Student() {
               </table>
             </div>
           </div>
+        )}
+
+        {selectedStudent && (
+          <StudentModal
+            student={selectedStudent}
+            onClose={() => setSelectedStudent(null)}
+          />
         )}
       </div>
     </div>

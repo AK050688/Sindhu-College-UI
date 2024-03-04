@@ -3,7 +3,7 @@ import { useState } from "react";
 import { FaTh, FaBars, FaUserAlt, FaCommentAlt } from "react-icons/fa";
 import { MdNotificationsActive } from "react-icons/md";
 import { GrCertificate } from "react-icons/gr";
-import "./Sidebar.css";
+import "../../styles/AdminDashboard/Sidebar.css";
 import { NavLink } from "react-router-dom";
 import { PiExamFill } from "react-icons/pi";
 
@@ -49,7 +49,7 @@ const Sidebar = ({ children }) => {
   ];
   return (
     <>
-      <div className="flex h-[100vh]">
+      <div className="flex mt-0">
         <div style={{ width: isOpen ? "230px" : "50px" }} className="sidebar">
           <div className="top_section">
             <img

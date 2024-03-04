@@ -72,10 +72,10 @@ function Dashboard() {
 
   return (
     <>
-      <div className="h-[60px] bg-black">
+      <div className=" bg-black">
         <Navbar />
       </div>
-      <div className="bg-cover bg-login h-[84vh]">
+      <div className="bg-cover bg-login h-[87.6vh]">
         <div className="grid grid-cols-6 justify-center gap-4 w-full p-10 pt-2">
           <div className="bg-gray-800 text-white rounded-lg flex flex-row items-center p-8">
             <FaUserGraduate size={50} />

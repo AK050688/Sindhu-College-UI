@@ -1,10 +1,12 @@
 import React from "react";
 import "../styles/Faculty.css";
 import Footer from "../components/Home/Footer";
+import Navbar from "../components/Home/Navbar";
 
 const Faculty = () => {
   return (
     <>
+      <Navbar />
       <div className="faculty">
         <h2>Faculty Information</h2>
         <h3>D. L. Ed. Department Faculty List</h3>

@@ -3,6 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../styles/Admission.css";
 import Footer from "../components/Home/Footer";
+import Navbar from "../components/Home/Navbar";
 
 const AdmissionForm = () => {
   const [formData, setFormData] = useState({
@@ -69,6 +70,7 @@ const AdmissionForm = () => {
 
   return (
     <>
+      <Navbar />
       <div className="admission-form-section">
         <div className="admission-form">
           <h2>Admission Form</h2>

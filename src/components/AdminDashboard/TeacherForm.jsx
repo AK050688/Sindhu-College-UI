@@ -75,7 +75,7 @@ const TeacherForm = () => {
   ];
 
   return (
-    <div className="max-w-2xl mx-auto mt-6 rounded-3xl text-white border border-slate-400 p-[1.6%] shadow-lg backdrop-filter backdrop-blur-xs bg-opacity-30 relative">
+    <div className="max-w-2xl mx-auto mt-3 mb-3 rounded-3xl text-white border border-slate-400 p-[1.6%] shadow-lg backdrop-filter backdrop-blur-xs bg-opacity-30 relative">
       <form onSubmit={handleSubmit} className="space-y-1">
         <h1 className="text-center text-blue-500 text-3xl">
           Student Registration Form

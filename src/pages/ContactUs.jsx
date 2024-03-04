@@ -3,10 +3,12 @@
 import React from "react";
 import "../styles/ContactUs.css";
 import Footer from "../components/Home/Footer";
+import Navbar from "../components/Home/Navbar";
 
 const ContactUs = () => {
   return (
     <>
+      <Navbar />
       <div className="contact-us-section">
         <div className="contact-us">
           <h2>Contact Form</h2>

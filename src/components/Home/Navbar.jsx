@@ -13,9 +13,12 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${menuOpen ? "menu-open" : ""}`}>
       <div className="logo" onClick={() => (window.location.href = "/")}>
-        <img src="https://github.com/AyushiVashisth/eduction-website/assets/107119119/32465243-060d-415d-98ab-70a8eed08a5d" alt="Logo" />
+        <img
+          src="https://github.com/AyushiVashisth/eduction-website/assets/107119119/32465243-060d-415d-98ab-70a8eed08a5d"
+          alt="Logo"
+        />
         <span className="website-name">
-          <Link to="/" style={{ textDecoration: "none", fontSize:"16px" }}>
+          <Link to="/" style={{ textDecoration: "none", fontSize: "16px" }}>
             SINDHU COLLEGE OF EDUCATION
           </Link>
         </span>
@@ -49,9 +52,6 @@ const Navbar = () => {
         </li>
         <li>
           <a href="/login">Login</a>
-        </li>
-        <li>
-          <a href="/admin-dashboard">Admin Dashboard</a>
         </li>
       </ul>
     </nav>

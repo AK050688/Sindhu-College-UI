@@ -1,10 +1,12 @@
 import React from "react";
 import "../styles/OurCampus.css";
 import Footer from "../components/Home/Footer";
+import Navbar from "../components/Home/Navbar";
 
 const OurCampus = () => {
   return (
     <>
+      <Navbar />
       <div className="our-campus">
         <h2>Our Campus</h2>
         <div className="image-grid">

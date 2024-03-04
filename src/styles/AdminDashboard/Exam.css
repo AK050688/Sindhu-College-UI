@@ -1,0 +1,52 @@
+.table-container {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  color: white;
+  font-weight: 700;
+}
+
+thead th {
+  background-color: #4a90e2;
+  color: white;
+  padding: 12px;
+  font-weight: bolder;
+}
+
+.table-container tr:hover {
+  background-color: none;
+}
+
+.table-container th,
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.table-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+tbody tr:hover {
+  box-shadow: 0 0 10px rgba(243, 240, 240, 0.905);
+  transition: box-shadow 0.3s ease;
+}
+.table-container button {
+  width: 50%;
+  padding: 5px;
+  font-size: 10px;
+  margin-top: 0px;
+}

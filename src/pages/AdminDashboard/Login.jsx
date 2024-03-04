@@ -53,21 +53,21 @@ function Login() {
       password: ""
     });
   };
-  
 
   const { userName, password } = formData;
 
   return (
-    <div
-      className="text-white h-[100vh] flex justify-center items-center bg-cover bg-login"
-    >
-      <div className="bg-slate-800 border border-slate-400 rounded-md p-16 shadow-lg backdrop-filter backdrop-blur-sm bg-opacity-10 relative">
+    <div className="text-white h-[100vh] flex justify-center items-center bg-cover bg-login">
+      <div className="bg-slate-800 border border-slate-400 rounded-lg p-8 shadow-lg backdrop-filter backdrop-blur-sm bg-opacity-10 relative">
         <h1 className="text-4xl text-white font-bold text-center mb-6">
           Login
         </h1>
         <form action="" onSubmit={handleSubmit}>
           <div className="relative my-4">
-            <label htmlFor="username" className="block text-md text-white mb-2 text-left">
+            <label
+              htmlFor="username"
+              className="block text-md text-white mb-2 text-left"
+            >
               Username
             </label>
             <input
@@ -81,7 +81,10 @@ function Login() {
             <FaUserCircle className="absolute top-0 right-1" />
           </div>
           <div className="relative my-4">
-            <label htmlFor="password" className="block text-md text-white mb-2">
+            <label
+              htmlFor="password"
+              className="block text-md text-white text-left mb-2"
+            >
               Password
             </label>
             <input
@@ -89,14 +92,14 @@ function Login() {
               id="password"
               name="password"
               value={password}
-              className="block w-72 py-[5%] rounded-lg px-0 text-sm text-white border-1  border-white bg-white appearance-none dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:text-white focus:border-blue-600 peer"
+              className="block w-72 py-[5%] rounded-lg px-0 text-sm border-1  border-white bg-white appearance-none dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:text-white focus:border-blue-600 peer text-black"
               onChange={handleChange}
             />
             <IoLockOpenOutline className="absolute top-0 right-1" />
           </div>
           <div className="flex justify-between items-center ">
             <div className="flex gap-2 items-center">
-              <input type="checkbox" className="-mt-2"/>
+              <input type="checkbox" className="-mt-2" />
               <label htmlFor="remember"> Remember me</label>
             </div>
             <span className="text-blue-500 -mt-2">Forgot password?</span>

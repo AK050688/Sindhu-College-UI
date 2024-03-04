@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Navbar from "../../components/AdminDashboard/Navbar";
 import ExamFormModel from "../../components/AdminDashboard/ExamFormModel copy";
 import ExamEditModel from "../../components/AdminDashboard/ExamEditModel";
+import "../../styles/AdminDashboard/Exam.css";
 
 const Exam = () => {
   const [exams, setExams] = useState([]);
@@ -82,15 +83,16 @@ const Exam = () => {
         <Navbar />
       </div>
 
-      <div className="mx-auto p-1 bg-cover bg-login h-[84vh]">
-        <div className="w-full flex justify-between items-center p-4">
-          <div></div>
-          {/* <h1 className="text-lg font-bold mb-2 mx-auto">Course Page</h1> */}
+      <div className="mx-auto p-1 bg-cover bg-login h-[90vh]">
+        <div className="flex flex-col md:flex-row justify-between items-center p-2 rounded-lg shadow-md border-0 border-black">
+          <h1 className="text-xl font-bold text-white text-left">
+            All Exam Lists
+          </h1>
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-[15%] mt-0"
             onClick={() => setShowForm(true)}
           >
-            Add Exam
+            Add Course
           </button>
         </div>
 
@@ -108,13 +110,13 @@ const Exam = () => {
             setShowEditForm={setShowEditForm}
           />
         )}
-        <div className="student-heading">
+        {/* <div className="student-heading">
           <div className="min-h-[90px] rounded flex justify-center items-center">
             <h1 className="text-3xl font-semibold text-blue-600">
               All Exam Lists
             </h1>
           </div>
-        </div>
+        </div> */}
 
         {loading ? (
           <div className="spinner-border spinner-border-sm" role="status">
@@ -151,7 +153,7 @@ const Exam = () => {
                       <td>{exam.examDate}</td>
                       <td>
                         <button
-                          className="bg-green-500 text-white px-3 py-1 rounded-md"
+                          className="bg-green-500 text-white rounded-md"
                           onClick={() => {
                             setEditExamData(exam);
                             setShowEditForm(true);
@@ -162,7 +164,7 @@ const Exam = () => {
                       </td>
                       <td>
                         <button
-                          className="bg-red-500 text-white px-3 py-1 rounded-md cursor-pointer"
+                          className="bg-red-500 text-white rounded-md cursor-pointer"
                           onClick={() => deleteRow(exam._id)}
                         >
                           Delete

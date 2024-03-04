@@ -77,14 +77,17 @@ const StudentForm = () => {
     { value: "other", label: "Others" }
   ];
   return (
-    <div className="max-w-2xl mx-auto rounded-3xl text-white border border-slate-400 p-3 shadow-lg backdrop-filter backdrop-blur-xs bg-opacity-30 relative">
+    <div className="max-w-2xl mx-auto rounded-3xl text-white border border-slate-400 p-6 shadow-lg backdrop-filter backdrop-blur-xs bg-opacity-30 relative">
       <form onSubmit={handleSubmit} className="space-y-1">
         {/* <h1 className="text-center text-blue-500 text-lg">
           Student Registration Form
         </h1> */}
         <div className="flex w-full gap-3">
           <div className="w-1/3">
-            <label htmlFor="name" className="block text-sm font-medium text-left">
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-left"
+            >
               Name
             </label>
             <input
@@ -98,7 +101,10 @@ const StudentForm = () => {
             />
           </div>
           <div className="w-1/3">
-            <label htmlFor="fatherName" className="block text-sm font-medium text-left">
+            <label
+              htmlFor="fatherName"
+              className="block text-sm font-medium text-left"
+            >
               Father&apos;s Name
             </label>
             <input
@@ -112,7 +118,10 @@ const StudentForm = () => {
             />
           </div>
           <div className="w-1/3">
-            <label htmlFor="motherName" className="block text-sm font-medium text-left">
+            <label
+              htmlFor="motherName"
+              className="block text-sm font-medium text-left"
+            >
               Mother&apos;s Name
             </label>
             <input
@@ -128,7 +137,10 @@ const StudentForm = () => {
         </div>
         <div className="flex w-full gap-3">
           <div className="w-1/3">
-            <label htmlFor="email" className="block text-sm font-medium text-left">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-left"
+            >
               Email
             </label>
             <input
@@ -142,7 +154,10 @@ const StudentForm = () => {
             />
           </div>
           <div className="w-1/3">
-            <label htmlFor="mobileNo" className="block text-sm font-medium text-left">
+            <label
+              htmlFor="mobileNo"
+              className="block text-sm font-medium text-left"
+            >
               Mobile No
             </label>
             <input
@@ -156,7 +171,10 @@ const StudentForm = () => {
             />
           </div>
           <div className="w-1/3">
-            <label htmlFor="address" className="block text-sm font-medium text-left">
+            <label
+              htmlFor="address"
+              className="block text-sm font-medium text-left"
+            >
               Address
             </label>
             <input
@@ -189,7 +207,10 @@ const StudentForm = () => {
             />
           </div>
           <div className="w-1/3">
-            <label htmlFor="state" className="block text-sm font-medium text-left">
+            <label
+              htmlFor="state"
+              className="block text-sm font-medium text-left"
+            >
               State
             </label>
             <input
@@ -203,7 +224,10 @@ const StudentForm = () => {
             />
           </div>
           <div className="w-1/3">
-            <label htmlFor="country" className="block text-sm font-medium text-left">
+            <label
+              htmlFor="country"
+              className="block text-sm font-medium text-left"
+            >
               Country
             </label>
             <input
@@ -219,7 +243,10 @@ const StudentForm = () => {
         </div>
         <div className="flex w-full gap-3">
           <div className="w-1/3">
-            <label htmlFor="gender" className="block text-sm font-medium text-left">
+            <label
+              htmlFor="gender"
+              className="block text-sm font-medium text-left"
+            >
               Gender
             </label>
             <Select
@@ -231,7 +258,10 @@ const StudentForm = () => {
             />
           </div>
           <div className="w-1/3">
-            <label htmlFor="bloodGroup" className="block text-sm font-medium text-left">
+            <label
+              htmlFor="bloodGroup"
+              className="block text-sm font-medium text-left"
+            >
               Blood Group
             </label>
             <input
@@ -245,7 +275,10 @@ const StudentForm = () => {
             />
           </div>
           <div className="w-1/3">
-            <label htmlFor="rollNo" className="block text-sm font-medium text-left">
+            <label
+              htmlFor="rollNo"
+              className="block text-sm font-medium text-left"
+            >
               Roll No
             </label>
             <input
@@ -261,7 +294,10 @@ const StudentForm = () => {
         </div>
         <div className="flex w-full gap-3">
           <div className="w-1/3">
-            <label htmlFor="courseTaken" className="block text-sm font-medium text-left">
+            <label
+              htmlFor="courseTaken"
+              className="block text-sm font-medium text-left"
+            >
               Course Taken
             </label>
             <input
@@ -275,7 +311,10 @@ const StudentForm = () => {
             />
           </div>
           <div className="w-1/3">
-            <label htmlFor="branchName" className="block text-sm font-medium text-left">
+            <label
+              htmlFor="branchName"
+              className="block text-sm font-medium text-left"
+            >
               Branch Name
             </label>
             <input
@@ -312,7 +351,10 @@ const StudentForm = () => {
             className="w-[50%] mx-auto bg-blue-300 text-black p-2 rounded-md hover:bg-blue-700 transition duration-300 ml-40"
           >
             {loading ? (
-              <div className="spinner-border spinner-border-sm text-xs" role="status">
+              <div
+                className="spinner-border spinner-border-sm text-xs"
+                role="status"
+              >
                 <span className="visually-hidden">Loading...</span>
               </div>
             ) : (

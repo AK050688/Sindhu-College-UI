@@ -43,5 +43,8 @@
 }
 .bg-login {
   background-image: url('../src/assets/bg.jpg');
+  background-size: cover;
+  
 }
+
 
