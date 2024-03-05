@@ -6,6 +6,7 @@ import { GrCertificate } from "react-icons/gr";
 import "../../styles/AdminDashboard/Sidebar.css";
 import { NavLink } from "react-router-dom";
 import { PiExamFill } from "react-icons/pi";
+import { RiCalendarFill, RiMoneyDollarCircleFill } from "react-icons/ri";
 
 const Sidebar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,6 +46,16 @@ const Sidebar = ({ children }) => {
       path: "/exam",
       name: "Exam",
       icon: <PiExamFill />
+    },
+    {
+      path: "/calendar",
+      name: "Calendar",
+      icon: <RiCalendarFill />
+    },
+    {
+      path: "/fees",
+      name: "Fees",
+      icon: <RiMoneyDollarCircleFill />
     }
   ];
   return (

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "../../components/AdminDashboard/Navbar";
-import ExamFormModel from "../../components/AdminDashboard/ExamFormModel copy";
-import ExamEditModel from "../../components/AdminDashboard/ExamEditModel";
+import ExamFormModel from "../../components/AdminDashboard/Exam/ExamFormModel copy";
+import ExamEditModel from "../../components/AdminDashboard/Exam/ExamEditModel";
 import "../../styles/AdminDashboard/Exam.css";
 
 const Exam = () => {

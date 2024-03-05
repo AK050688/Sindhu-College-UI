@@ -3,7 +3,7 @@ import Navbar from "../../components/AdminDashboard/Navbar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import NotificationFormModel from "../../components/AdminDashboard/NotificationFormModel";
-import NotificationEditModel from "../../components/AdminDashboard/NotificationEditModel";
+import NotificationEditModel from "../../components/AdminDashboard/Notification/NotificationEditModel";
 
 const Notification = () => {
   const [notification, setNotification] = useState([]);

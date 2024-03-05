@@ -1,0 +1,54 @@
+.calendar-container {
+  color: white;
+  overflow-x: auto;
+}
+
+.calendar-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.calendar-container .sidebar {
+  flex: 1 1 20%;
+  padding: 15px;
+  border-radius: 4px;
+  background: none;
+}
+
+.calendar-container .sidebar h5 {
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.calendar-container .calendar {
+  flex: 1 1 100%;
+  /* flex-wrap: wrap; */
+  /* margin-left: 15px; */
+  /* margin-right: 30px; */
+}
+.event-date:hover{
+    background-color: lightblue;
+}
+
+.calendar-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.calendar-container .event-item {
+  background-color: rgb(49, 169, 244); 
+  margin: 10px 0;
+  border-radius: 2px;
+  padding: 5px;
+  font-size: 10px;
+}
+
+.calendar-container .event-title {
+  font-weight: bold;
+}
+
+.calendar-container .event-date {
+  display: block;
+  font-size: 0.8rem;
+  color: #ffffff; 
+}
