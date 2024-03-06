@@ -109,7 +109,7 @@ function Student() {
           <h1 className="text-3xl font-semibold text-white text-center md:text-left mb-4 md:mb-0 md:mr-4 md:ml-0">
             All Student Lists
           </h1>
-          <div className="flex flex-col md:flex-row items-center md:gap-4">
+          <div className="flex flex-col md:flex-row items-center md:gap-4 -mt-2">
             <label htmlFor="rowsPerPage" className="text-white text-lg">
               Rows per page:
             </label>
@@ -125,7 +125,7 @@ function Student() {
             </select>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center mt-4 md:mt-0">
+          <div className="flex flex-col md:flex-row items-center md:mt-0">
             <div className="relative">
               <input
                 type="search"
@@ -139,7 +139,7 @@ function Student() {
                 <FaSearch />
               </div>
             </div>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300 mt-2 md:mt-0">
+            <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300 mt-1 md:mt-0">
               Search
             </button>
           </div>
