@@ -3,6 +3,7 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow-x: auto;
+  background-color: transparent;
 }
 
 .table-container table {
@@ -44,32 +45,24 @@ tbody tr:hover {
   box-shadow: 0 0 10px rgba(243, 240, 240, 0.905);
   transition: box-shadow 0.3s ease;
 }
-.pagination {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
 
-.pagination button {
-  border: none;
-  color: white;
-  padding: 10px 15px;
+.attendance-options thead th:nth-child(5) {
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 5px;
-  width: 3%;
+}
+.attendance-options {
+  display: flex;
+  justify-content: space-around;
 }
 
-.pagination button:hover {
-  background-color: #4a90e2;
+.attendance-radio {
+  display: flex;
+  align-items: center;
 }
 
-.pagination span {
-  margin: 0 10px;
+.attendance-radio input {
+  margin-right: 5px;
+  margin-top: -12px;
+}
+.attendance-radio label {
+  font-size: 10px;
 }

@@ -1,6 +1,13 @@
 //Sidebar.jsx
 import { useState } from "react";
-import { FaTh, FaBars, FaUserAlt, FaCommentAlt } from "react-icons/fa";
+import {
+  FaTh,
+  FaBars,
+  FaUserAlt,
+  FaCommentAlt,
+  FaUserCheck,
+  FaFileAlt
+} from "react-icons/fa";
 import { MdNotificationsActive } from "react-icons/md";
 import { GrCertificate } from "react-icons/gr";
 import "../../styles/AdminDashboard/Sidebar.css";
@@ -56,6 +63,16 @@ const Sidebar = ({ children }) => {
       path: "/fees",
       name: "Fees",
       icon: <RiMoneyDollarCircleFill />
+    },
+    {
+      path: "/attendance",
+      name: "Attendance",
+      icon: <FaUserCheck />
+    },
+    {
+      path: "/assignment",
+      name: "Assignment",
+      icon: <FaFileAlt />
     }
   ];
   return (

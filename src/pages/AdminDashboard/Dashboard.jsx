@@ -72,53 +72,50 @@ function Dashboard() {
 
   return (
     <>
-      <div className=" bg-black">
+      <div className="bg-black">
         <Navbar />
       </div>
-      <div className="bg-cover bg-login h-[87.6vh]">
-        <div className="grid grid-cols-6 justify-center gap-4 w-full p-10 pt-2">
-          <div className="bg-gray-800 text-white rounded-lg flex flex-row items-center p-8">
-            <FaUserGraduate size={50} />
-            <div className="ml-4">
-              <span className="text-lg">Student Registered</span>
-              <span className="text-xl block">{studentCount}</span>
+      <div className="bg-cover bg-login h-screen md:h-[87.6vh]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 justify-center gap-4 w-full p-4 md:p-8 lg:p-16 xl:p-32 pt-14">
+          {[
+            {
+              icon: <FaUserGraduate size={70} />,
+              label: "Student Registered",
+              count: studentCount
+            },
+            {
+              icon: <FaChalkboardTeacher size={70} />,
+              label: "Teacher Registered",
+              count: teacherCount
+            },
+            {
+              icon: <FaBell size={70} />,
+              label: "Notification",
+              count: notificationCount
+            },
+            {
+              icon: <FaClipboardList size={80} />,
+              label: "Admission Forms",
+              count: admissionCount
+            },
+            { icon: <FaBook size={70} />, label: "Course", count: courseCount },
+            {
+              icon: <FaClipboardCheck size={70} />,
+              label: "Exam",
+              count: examCount
+            }
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="bg-gray-800 text-white rounded-lg flex flex-col items-center p-4 md:p-12"
+            >
+              <div>{item.icon}</div>
+              <div className="mt-4">
+                <span className="text-xl">{item.label}</span>
+                <span className="text-xl block">{item.count}</span>
+              </div>
             </div>
-          </div>
-          <div className="bg-gray-800 text-white rounded-lg flex flex-row items-center p-8">
-            <FaChalkboardTeacher size={50} />
-            <div className="ml-4">
-              <span className="text-lg">Teacher Registered</span>
-              <span className="text-xl block">{teacherCount}</span>
-            </div>
-          </div>
-          <div className="bg-gray-800 text-white rounded-lg flex flex-row items-center p-4">
-            <FaBell size={50} />
-            <div className="ml-4">
-              <span className="text-lg">Notification</span>
-              <span className="text-xl block">{notificationCount}</span>
-            </div>
-          </div>
-          <div className="bg-gray-800 text-white rounded-lg flex flex-row items-center p-4">
-            <FaClipboardList size={50} />
-            <div className="ml-4">
-              <span className="text-lg">Admission Forms</span>
-              <span className="text-xl block">{admissionCount}</span>
-            </div>
-          </div>
-          <div className="bg-gray-800 text-white rounded-lg flex flex-row items-center p-8">
-            <FaBook size={50} />
-            <div className="ml-4">
-              <span className="text-lg">Course </span>
-              <span className="text-xl block">{courseCount}</span>
-            </div>
-          </div>
-          <div className="bg-gray-800 text-white rounded-lg flex flex-row items-center p-8">
-            <FaClipboardCheck size={50} />
-            <div className="ml-4">
-              <span className="text-lg">Exam </span>
-              <span className="text-xl block">{examCount}</span>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </>

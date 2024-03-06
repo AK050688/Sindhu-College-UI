@@ -20,6 +20,8 @@ import ProfileForm from "../../components/AdminDashboard/ProfileForm";
 import Exam from "../AdminDashboard/Exam";
 import Calendar from "../AdminDashboard/Calendar";
 import Fees from "../AdminDashboard/Fees";
+import Attendance from "../AdminDashboard/Attendance";
+import Assignment from "../AdminDashboard/Assignment";
 
 const Allroutes = () => {
   return (
@@ -118,6 +120,22 @@ const Allroutes = () => {
           element={
             <Sidebar>
               <Fees />
+            </Sidebar>
+          }
+        />
+        <Route
+          path="/attendance"
+          element={
+            <Sidebar>
+              <Attendance />
+            </Sidebar>
+          }
+        />
+        <Route
+          path="/assignment"
+          element={
+            <Sidebar>
+              <Assignment />
             </Sidebar>
           }
         />

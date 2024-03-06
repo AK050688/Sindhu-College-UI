@@ -15,7 +15,6 @@ const LandingPage = () => {
 
     return () => clearInterval(intervalId);
   }, []);
-  
 
   return (
     <div className="landing-page">
