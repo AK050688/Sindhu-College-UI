@@ -5,6 +5,7 @@ import "../../styles/AdminDashboard/Attendance.css";
 
 function Attendance() {
   const [students, setStudents] = useState([]);
+  const [percentage, setPercentage] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -13,19 +14,20 @@ function Attendance() {
 
   const handleGetData = () => {
     setLoading(true);
-    const token = localStorage.getItem("token");
     fetch(
-      "https://university-project-paresh.onrender.com/University/Admin/allStudents",
+      "https://university-project-paresh.onrender.com/University/Student/getAttendanceReport/65c0da0ea77027ead7edc5fe",
       {
         method: "GET",
         headers: {
-          Authorization: `Bearer ${token}`
+          "Content-Type": "application/json"
         }
       }
     )
       .then((response) => response.json())
       .then((data) => {
-        setStudents(data.Students);
+        console.log(data);
+        setStudents(data.attendance);
+        setPercentage(data.attendancePercentage);
         setLoading(false);
       })
       .catch((error) => {
@@ -33,6 +35,13 @@ function Attendance() {
         setLoading(false);
       });
   };
+  const totalStudents = students.length;
+  const presentStudents = students.filter(
+    (student) => student.present === true
+  ).length;
+  const absentStudents = students.filter(
+    (student) => student.present === false
+  ).length;
 
   return (
     <div className="student-container">
@@ -84,9 +93,9 @@ function Attendance() {
                   <tr>
                     <th>SNo.</th>
                     <th>Roll No.</th>
-                    <th>Name</th>
-                    <th>Course Taken</th>
-                    <th>Branch Name</th>
+                    <th>Date</th>
+                    {/* <th>Course Taken</th> */}
+                    {/* <th>Branch Name</th> */}
                     <th className="text-center">Attendance</th>
                   </tr>
                 </thead>
@@ -94,10 +103,8 @@ function Attendance() {
                   {students.map((student, index) => (
                     <tr key={index} className="bg-transparent">
                       <td>{index + 1}</td>
-                      <td>{student.rollNo}</td>
-                      <td>{student.Name}</td>
-                      <td>{student.courseTaken}</td>
-                      <td>{student.branchName}</td>
+                      <td>{student._id}</td>
+                      <td>{student.date}</td>
                       <td className="attendance-options">
                         <div className="attendance-radio">
                           <input
@@ -105,6 +112,8 @@ function Attendance() {
                             id={`present-${index}`}
                             name={`attendance-${index}`}
                             value="present"
+                            checked={student.present === true}
+                            readOnly
                           />
                           <label htmlFor={`present-${index}`}>Present</label>
                         </div>
@@ -114,6 +123,8 @@ function Attendance() {
                             id={`absent-${index}`}
                             name={`attendance-${index}`}
                             value="absent"
+                            checked={student.present === false}
+                            readOnly
                           />
                           <label htmlFor={`absent-${index}`}>Absent</label>
                         </div>
@@ -125,6 +136,24 @@ function Attendance() {
             </div>
           </div>
         )}
+        <div className="summary-container">
+          <div className="summary">
+            <p>
+              Total Students: <span>{totalStudents}</span>
+            </p>
+            <p>
+              Present Students: <span>{presentStudents}</span>
+            </p>
+            <p>
+              Absent Students: <span>{absentStudents}</span>
+            </p>
+          </div>
+          <div>
+            <p>
+              Percentage Students: <span>{percentage}</span>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

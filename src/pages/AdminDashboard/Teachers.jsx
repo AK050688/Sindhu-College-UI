@@ -8,8 +8,9 @@ import {
 import Navbar from "../../components/AdminDashboard/Navbar";
 import TeacherModal from "../../components/AdminDashboard/TeacherModal";
 import "../../styles/AdminDashboard/Teacher.css";
-import { ToastContainer, toast } from "react-toastify";
+// import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 function Teachers() {
   const [teachers, setTeachers] = useState([]);
@@ -53,33 +54,56 @@ function Teachers() {
 
   const deleteTeacher = (id) => {
     setLoading(true);
-    console.log("id", id);
-    fetch(
-      `https://university-project-paresh.onrender.com/University/Admin/deleteTeacher/${id}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json"
+    if (window.confirm(`Are you sure you want to delete this student?`)) {
+      setLoading(true);
+      console.log("id", id);
+      fetch(
+        `https://university-project-paresh.onrender.com/University/Admin/deleteTeacher/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json"
+          }
         }
-      }
-    )
-      .then((response) => response.json())
+      )
+        .then((response) => response.json())
+        .then((response) => {
+          console.log(response);
+          handleGetData();
+        })
+        .catch((error) => {
+          console.error("Error deleting student:", error);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }
+  };
+
+  const handleDisableStudent = (id) => {
+    axios
+      .put(
+        `https://university-project-paresh.onrender.com/University/Admin/disableTeacher/${id}`
+      )
       .then((response) => {
-        console.log(response);
-        toast.success(response.message);
+        handleGetData();
       })
       .catch((error) => {
-        console.error("Error deleting student:", error);
-        toast.error("Failed to delete course. Please try again later.");
-      })
-      .finally(() => {
-        setLoading(false);
+        console.error("Error disabling student:", error);
       });
   };
 
-  const handlePaidClick = (rollNo) => {
-    // Implement functionality for marking student as paid
-    // You can perform API request here to mark the student as paid
+  const handleEnableStudent = (id) => {
+    axios
+      .put(
+        `https://university-project-paresh.onrender.com/University/Admin/enableTeacher/${id}`
+      )
+      .then((response) => {
+        handleGetData();
+      })
+      .catch((error) => {
+        console.error("Error enabling student:", error);
+      });
   };
 
   const indexOfLastRow = currentPage * rowsPerPage;
@@ -102,7 +126,7 @@ function Teachers() {
       <div className="h-[60px] bg-black">
         <Navbar />
       </div>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
       <div className="bg-login bg-cover h-[91vh]">
         <section className="flex flex-col md:flex-row justify-between items-center p-2 rounded-lg mb-4 border-0 border-white mt-3">
           <h1 className="text-3xl font-semibold text-white text-center md:text-left mb-4 md:mb-0 md:mr-4 md:ml-0">
@@ -165,13 +189,19 @@ function Teachers() {
                     <th>Department</th>
                     <th>Joining Date</th>
                     <th>Delete</th>
+                    <th>Disable</th>
+                    <th>Enable</th>
                   </tr>
                 </thead>
                 <tbody>
                   {currentRows.map((teacher, index) => (
                     <tr
                       key={index}
-                      className="bg-transparent"
+                      className={
+                        teacher.accountStatus === "Disabled"
+                          ? "disabled-row"
+                          : ""
+                      }
                       onClick={() => handleRowClick(teacher)}
                     >
                       <td>{index + 1}</td>
@@ -193,6 +223,28 @@ function Teachers() {
                           className="border-0 text-red-700 rounded-md border-white"
                         >
                           <FaTrash className="mr-1" />
+                        </button>
+                      </td>
+                      <td>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleDisableStudent(teacher._id);
+                          }}
+                          className="border-0 text-red-700 rounded-md border-white"
+                        >
+                          Disable
+                        </button>
+                      </td>
+                      <td>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleEnableStudent(teacher._id);
+                          }}
+                          className="border-0 text-red-700 rounded-md border-white"
+                        >
+                          Enable
                         </button>
                       </td>
                     </tr>

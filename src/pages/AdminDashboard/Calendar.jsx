@@ -1,5 +1,5 @@
-// Calendar.jsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -8,33 +8,145 @@ import listPlugin from "@fullcalendar/list";
 import { formatDate } from "@fullcalendar/core";
 import "../../styles/AdminDashboard/Calendar.css";
 import Navbar from "../../components/AdminDashboard/Navbar";
+import { FaTrash, FaEdit } from "react-icons/fa";
 
 const Calendar = () => {
   const [currentEvents, setCurrentEvents] = useState([]);
+
+  const fetchEvents = async () => {
+    try {
+      const response = await axios.get(
+        "https://university-project-paresh.onrender.com/University/CalenderRoute/events"
+      );
+      setCurrentEvents(response.data.Events);
+    } catch (error) {
+      console.error("Error fetching events:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchEvents();
+  }, []);
 
   const handleDateClick = (selected) => {
     const title = prompt("Please enter a new title for your event");
     const calendarApi = selected.view.calendar;
     calendarApi.unselect();
 
-    if (title) {
-      calendarApi.addEvent({
-        id: `${selected.dateStr}-${title}`,
-        title,
-        start: selected.startStr,
-        end: selected.endStr,
-        allDay: selected.allDay
-      });
+    if (title && selected.startStr) {
+      const eventData = {
+        calenderDate: selected.startStr,
+        description: title
+      };
+
+      axios
+        .post(
+          "https://university-project-paresh.onrender.com/University/CalenderRoute/events",
+          eventData
+        )
+        .then((response) => {
+          const newEvent = {
+            _id: response.data._id,
+            calenderDate: selected.startStr,
+            description: title
+          };
+
+          calendarApi.addEvent(newEvent);
+          setCurrentEvents((prevEvents) => [...prevEvents, newEvent]);
+        })
+        .catch((error) => {
+          console.error("Error creating event:", error);
+        });
+    } else {
+      console.error("Selected date is undefined or title is empty");
     }
   };
 
-  const handleEventClick = (selected) => {
-    if (
-      window.confirm(
-        `Are you sure you want to delete the event '${selected.event.title}'`
-      )
-    ) {
-      selected.event.remove();
+  const handleEventClick = (id) => {
+    console.log("id", id);
+    if (window.confirm(`What would you like to do with this event?`)) {
+      const action = prompt("Enter 'edit' to edit or 'delete' to delete:");
+
+      if (action === "edit") {
+        const newTitle = prompt("Enter a new title for your event:");
+        if (newTitle) {
+          axios
+            .put(
+              `https://university-project-paresh.onrender.com/University/CalenderRoute/events/${id}`,
+              { description: newTitle }
+            )
+            .then(() => {
+              setCurrentEvents((prevEvents) =>
+                prevEvents.map((event) =>
+                  event._id === id ? { ...event, description: newTitle } : event
+                )
+              );
+            })
+            .catch((error) => {
+              console.error("Error updating event:", error);
+            });
+        }
+      } else if (action === "delete") {
+        axios
+          .delete(
+            `https://university-project-paresh.onrender.com/University/CalenderRoute/events/${id}`
+          )
+          .then(() => {
+            setCurrentEvents((prevEvents) =>
+              prevEvents.filter((event) => event._id !== id)
+            );
+          })
+          .catch((error) => {
+            console.error("Error deleting event:", error);
+          });
+      } else {
+        console.error("Invalid action.");
+      }
+    }
+  };
+  const handleCalendarEventClick = (info) => {
+    const eventId = info.event.id;
+
+    if (window.confirm(`What would you like to do with this event?`)) {
+      const action = prompt("Enter 'edit' to edit or 'delete' to delete:");
+
+      if (action === "edit") {
+        const newTitle = prompt("Enter a new title for your event:");
+        if (newTitle) {
+          axios
+            .put(
+              `https://university-project-paresh.onrender.com/University/CalenderRoute/events/${eventId}`,
+              { description: newTitle }
+            )
+            .then(() => {
+              setCurrentEvents((prevEvents) =>
+                prevEvents.map((event) =>
+                  event._id === eventId
+                    ? { ...event, description: newTitle }
+                    : event
+                )
+              );
+            })
+            .catch((error) => {
+              console.error("Error updating event:", error);
+            });
+        }
+      } else if (action === "delete") {
+        axios
+          .delete(
+            `https://university-project-paresh.onrender.com/University/CalenderRoute/events/${eventId}`
+          )
+          .then(() => {
+            setCurrentEvents((prevEvents) =>
+              prevEvents.filter((event) => event._id !== eventId)
+            );
+          })
+          .catch((error) => {
+            console.error("Error deleting event:", error);
+          });
+      } else {
+        console.error("Invalid action.");
+      }
     }
   };
 
@@ -46,6 +158,7 @@ const Calendar = () => {
           <div className="calendar">
             <FullCalendar
               height="85vh"
+              className="custom-full-calendar"
               plugins={[
                 dayGridPlugin,
                 timeGridPlugin,
@@ -63,35 +176,49 @@ const Calendar = () => {
               selectMirror={true}
               dayMaxEvents={true}
               select={handleDateClick}
-              eventClick={handleEventClick}
-              eventsSet={(events) => setCurrentEvents(events)}
-              initialEvents={[
-                {
-                  id: "12315",
-                  title: "All-day event",
-                  date: "2022-09-14"
-                },
-                {
-                  id: "5123",
-                  title: "Timed event",
-                  date: "2022-09-28"
-                }
-              ]}
+              eventClick={handleCalendarEventClick}
+              events={currentEvents.map((event) => ({
+                id: event._id,
+                title: event.description,
+                start: event.calenderDate
+              }))}
+              eventContent={(eventInfo) => {
+                return (
+                  <div style={{ textAlign: "center" }}>
+                    <span>{eventInfo.event.title}</span>
+                  </div>
+                );
+              }}
+              eventDidMount={(eventInfo) => {
+                eventInfo.el.style.backgroundColor = "transparent";
+              }}
             />
           </div>
           <div className="sidebar">
             <h5>Events</h5>
             <ul>
-              {currentEvents.map((event) => (
-                <li key={event.id}>
+              {currentEvents.map((event, index) => (
+                <li key={index}>
                   <div className="event-item">
-                    <span className="event-title">{event.title}</span>
+                    <span className="event-title">{event.description}</span>
                     <span className="event-date">
-                      {formatDate(event.start, {
+                      {formatDate(new Date(event.calenderDate), {
                         year: "numeric",
-                        month: "short",
+                        month: "numeric",
                         day: "numeric"
                       })}
+                    </span>
+                    <span
+                      className="action-icon"
+                      onClick={() => handleEventClick(event._id)}
+                    >
+                      <FaTrash />
+                    </span>
+                    <span
+                      className="action-icon"
+                      onClick={() => handleEventClick(event._id)}
+                    >
+                      <FaEdit />
                     </span>
                   </div>
                 </li>

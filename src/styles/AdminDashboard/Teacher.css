@@ -44,3 +44,36 @@ tbody tr:hover {
   box-shadow: 0 0 10px rgba(243, 240, 240, 0.905);
   transition: box-shadow 0.3s ease;
 }
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.pagination button {
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 3%;
+}
+
+.pagination button:hover {
+  background-color: #4a90e2;
+}
+
+.pagination span {
+  margin: 0 10px;
+}
+.disabled-row {
+  color: #7b7b7b;
+  text-decoration: line-through;
+}

@@ -14,6 +14,7 @@ const Fees = () => {
   const [isDelete, setIsDelete] = useState(false);
   //   const [showEditForm, setShowEditForm] = useState(false);
   //   const [editFeesData, setEditFeesData] = useState(null);
+  console.log(fees, loading)
 
   useEffect(() => {
     handleGetData();
