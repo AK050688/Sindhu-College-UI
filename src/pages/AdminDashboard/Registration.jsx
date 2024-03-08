@@ -22,7 +22,7 @@ function Registration() {
       <div className="h-[60px] bg-black">
         <Navbar />
       </div>
-      <div className="bg-cover bg-login h-[90.7vh] ">
+      <div className="bg-cover bg-login h-[91.4vh] ">
         <div className="flex gap-3">
           <button
             className={`p-2 mb-12 border-0 border-red text-[15px] mt-1 rounded-full text-blue-800 hover:bg-blue-600 hover:text-blue-800 py-1 transition-colors duration-300 ${

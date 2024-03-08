@@ -111,24 +111,24 @@ function Student() {
 
   const indexOfLastRow = currentPage * rowsPerPage;
   const indexOfFirstRow = indexOfLastRow - rowsPerPage;
-  const filteredStudents = students.filter((student) =>
-    Object.values(student).some((value) =>
-      value.toString().toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredStudents = students?.filter((student) =>
+    Object?.values(student)?.some((value) =>
+      value?.toString()?.toLowerCase()?.includes(searchQuery?.toLowerCase())
     )
   );
 
-  const currentRows = filteredStudents.slice(indexOfFirstRow, indexOfLastRow);
+  const currentRows = filteredStudents?.slice(indexOfFirstRow, indexOfLastRow);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const totalPages = Math.ceil(filteredStudents.length / rowsPerPage);
+  const totalPages = Math?.ceil(filteredStudents?.length / rowsPerPage);
 
   return (
     <div className="student-container">
       <div className="h-[60px] bg-black">
         <Navbar />
       </div>
-      <div className="bg-login bg-cover h-[88.2vh]">
+      <div className="bg-login bg-cover h-[89.1vh]">
         <section className="flex flex-col md:flex-row justify-between items-center p-2 rounded-lg mb-4 border-0 border-white mt-3">
           <h1 className="text-3xl font-semibold text-white text-center md:text-left mb-4 md:mb-0 md:mr-4 md:ml-0">
             All Student Lists
@@ -193,7 +193,7 @@ function Student() {
                   </tr>
                 </thead>
                 <tbody>
-                  {currentRows.map((student, index) => (
+                  {currentRows?.map((student, index) => (
                     <tr
                       key={index}
                       className={

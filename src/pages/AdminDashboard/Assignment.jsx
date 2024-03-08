@@ -34,13 +34,13 @@ function Assignment() {
       });
   };
 
-  
+
   return (
     <div className="student-container">
       <div className="h-[60px] bg-black">
         <Navbar />
       </div>
-      <div className="bg-login bg-cover h-[90.7vh]">
+      <div className="bg-login bg-cover h-[91.4vh]">
         <h1 className="text-xl font-semibold text-white text-left">
           Masrks Student Assignment
         </h1>

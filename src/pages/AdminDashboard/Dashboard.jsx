@@ -53,15 +53,15 @@ function Dashboard() {
           )
         ]);
 
-        const data = await Promise.all(responses.map((res) => res.json()));
+        const data = await Promise?.all(responses?.map((res) => res.json()));
         // console.log(data);
 
-        setStudentCount(data[0].Students.length);
-        setTeacherCount(data[1].Teachers.length);
-        setNotificationCount(data[2].length);
-        setAdmissionCount(data[3].applicationForms.length);
-        setCourseCount(data[4].courses.length);
-        setExamCount(data[5].length);
+        setStudentCount(data[0]?.Students?.length);
+        setTeacherCount(data[1]?.Teachers?.length);
+        setNotificationCount(data[2]?.length);
+        setAdmissionCount(data[3]?.applicationForms?.length);
+        setCourseCount(data[4]?.courses?.length);
+        setExamCount(data[5]?.length);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -75,7 +75,7 @@ function Dashboard() {
       <div className="bg-black">
         <Navbar />
       </div>
-      <div className="bg-cover bg-login h-screen md:h-[87.6vh]">
+      <div className="bg-cover bg-login h-screen md:h-[88.5vh]">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 justify-center gap-4 w-full p-4 md:p-8 lg:p-16 xl:p-32 pt-14">
           {[
             {

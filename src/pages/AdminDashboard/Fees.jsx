@@ -94,7 +94,7 @@ const Fees = () => {
         <Navbar />
       </div>
       <ToastContainer />
-      <div className="mx-auto bg-cover bg-login h-[90.7vh]">
+      <div className="mx-auto bg-cover bg-login h-[91.4vh]">
         <div className="flex flex-col md:flex-row justify-between items-center p-2 rounded-lg shadow-md border-0 border-black">
           <h1 className="text-xl font-bold text-white text-left">
             All Fees Lists

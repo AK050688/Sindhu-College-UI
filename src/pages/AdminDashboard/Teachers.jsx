@@ -109,17 +109,17 @@ function Teachers() {
   const indexOfLastRow = currentPage * rowsPerPage;
   const indexOfFirstRow = indexOfLastRow - rowsPerPage;
 
-  const filteredTeachers = teachers.filter((teacher) =>
-    Object.values(teacher).some((value) =>
-      value.toString().toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredTeachers = teachers?.filter((teacher) =>
+    Object?.values(teacher)?.some((value) =>
+      value?.toString()?.toLowerCase()?.includes(searchQuery.toLowerCase())
     )
   );
 
-  const currentRows = filteredTeachers.slice(indexOfFirstRow, indexOfLastRow);
+  const currentRows = filteredTeachers?.slice(indexOfFirstRow, indexOfLastRow);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const totalPages = Math.ceil(filteredTeachers.length / rowsPerPage);
+  const totalPages = Math?.ceil(filteredTeachers?.length / rowsPerPage);
 
   return (
     <div className="teacher-container">
@@ -127,7 +127,7 @@ function Teachers() {
         <Navbar />
       </div>
       {/* <ToastContainer /> */}
-      <div className="bg-login bg-cover h-[88.2vh]">
+      <div className="bg-login bg-cover h-[89.1vh]">
         <section className="flex flex-col md:flex-row justify-between items-center p-2 rounded-lg mb-4 border-0 border-white mt-3">
           <h1 className="text-3xl font-semibold text-white text-center md:text-left mb-4 md:mb-0 md:mr-4 md:ml-0">
             All Teachers Lists
@@ -194,7 +194,7 @@ function Teachers() {
                   </tr>
                 </thead>
                 <tbody>
-                  {currentRows.map((teacher, index) => (
+                  {currentRows?.map((teacher, index) => (
                     <tr
                       key={index}
                       className={
