@@ -153,7 +153,7 @@ const Calendar = () => {
   return (
     <>
       <Navbar />
-      <div className="calendar-container bg-login h-[88vh]">
+      <div className="calendar-container bg-login h-[87.6vh]">
         <div className="calendar-content">
           <div className="calendar">
             <FullCalendar

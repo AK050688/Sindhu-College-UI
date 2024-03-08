@@ -48,7 +48,7 @@ function Attendance() {
       <div className="h-[60px] bg-black">
         <Navbar />
       </div>
-      <div className="bg-login bg-cover h-[91vh]">
+      <div className="bg-login bg-cover h-[90.7vh]">
         <h1 className="text-xl font-semibold text-white text-left">
           Masrks Student Attendance
         </h1>
@@ -104,7 +104,9 @@ function Attendance() {
                     <tr key={index} className="bg-transparent">
                       <td>{index + 1}</td>
                       <td>{student._id}</td>
-                      <td>{new Date(student.date).toLocaleDateString('en-GB')}</td>
+                      <td>
+                        {new Date(student.date).toLocaleDateString("en-GB")}
+                      </td>
                       <td className="attendance-options">
                         <div className="attendance-radio">
                           <input

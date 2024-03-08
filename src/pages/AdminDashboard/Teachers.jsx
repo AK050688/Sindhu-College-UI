@@ -127,7 +127,7 @@ function Teachers() {
         <Navbar />
       </div>
       {/* <ToastContainer /> */}
-      <div className="bg-login bg-cover h-[91vh]">
+      <div className="bg-login bg-cover h-[88.2vh]">
         <section className="flex flex-col md:flex-row justify-between items-center p-2 rounded-lg mb-4 border-0 border-white mt-3">
           <h1 className="text-3xl font-semibold text-white text-center md:text-left mb-4 md:mb-0 md:mr-4 md:ml-0">
             All Teachers Lists

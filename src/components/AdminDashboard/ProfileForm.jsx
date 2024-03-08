@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { RiLockPasswordFill } from "react-icons/ri";
-import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({});
@@ -40,11 +40,11 @@ const RegisterForm = () => {
 
   return (
     <>
-      <div className=" h-[60px] bg-black">
+      <div className=" h-[60px]">
         <Navbar />
       </div>
-      <div className="bg-login mb-10">
-        <div className="w-full mt-3 flex justify-between items-center p-3 rounded-lg shadow-md border-0 border-black">
+      <div className="bg-login h-[90.7vh]">
+        <div className="w-full flex justify-between items-center rounded-lg shadow-md border-0 border-black">
           <div></div>
           {/* <h1 className="text-2xl font-bold mb-2 mx-auto text-blue-500">
             Admin Profile

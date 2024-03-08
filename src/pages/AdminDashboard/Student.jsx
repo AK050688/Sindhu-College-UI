@@ -5,11 +5,10 @@ import {
   FaChevronLeft,
   FaChevronRight
 } from "react-icons/fa";
-import "../../styles/AdminDashboard/Student.css";
+import "../../styles/AdminDashboard/student.css";
 import Navbar from "../../components/AdminDashboard/Navbar";
 import StudentModal from "../../components/AdminDashboard/StudentModal";
 import axios from "axios";
-
 
 function Student() {
   const [students, setStudents] = useState([]);
@@ -129,7 +128,7 @@ function Student() {
       <div className="h-[60px] bg-black">
         <Navbar />
       </div>
-      <div className="bg-login bg-cover h-[89vh]">
+      <div className="bg-login bg-cover h-[88.2vh]">
         <section className="flex flex-col md:flex-row justify-between items-center p-2 rounded-lg mb-4 border-0 border-white mt-3">
           <h1 className="text-3xl font-semibold text-white text-center md:text-left mb-4 md:mb-0 md:mr-4 md:ml-0">
             All Student Lists

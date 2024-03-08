@@ -91,7 +91,7 @@ const Notification = () => {
         <Navbar />
       </div>
       <ToastContainer />
-      <div className="mx-auto bg-cover bg-login h-[90vh]">
+      <div className="mx-auto bg-cover bg-login h-[90.7vh]">
         <div className="flex flex-col md:flex-row justify-between items-center p-2 rounded-lg shadow-md border-0 border-black">
           <h1 className="text-xl font-bold text-white text-left">
             All Notifications Lists
@@ -154,7 +154,11 @@ const Notification = () => {
                       <td>{notification.Title}</td>
                       <td>{notification.Description}</td>
                       <td>{notification.Subject}</td>
-                      <td>{new Date(notification.Date).toLocaleDateString('en-GB')}</td>
+                      <td>
+                        {new Date(notification.Date).toLocaleDateString(
+                          "en-GB"
+                        )}
+                      </td>
                       <td>
                         <button
                           className="bg-green-500 text-white p-1 rounded-md"
