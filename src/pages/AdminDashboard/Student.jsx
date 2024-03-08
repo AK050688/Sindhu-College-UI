@@ -5,7 +5,7 @@ import {
   FaChevronLeft,
   FaChevronRight
 } from "react-icons/fa";
-import "../../styles/AdminDashboard/Student.css";
+import "../../styles/AdminDashboard/student.css";
 import Navbar from "../../components/AdminDashboard/Navbar";
 import StudentModal from "../../components/AdminDashboard/StudentModal";
 import axios from "axios";
