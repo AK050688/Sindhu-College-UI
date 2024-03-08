@@ -104,7 +104,7 @@ function Attendance() {
                     <tr key={index} className="bg-transparent">
                       <td>{index + 1}</td>
                       <td>{student._id}</td>
-                      <td>{student.date}</td>
+                      <td>{new Date(student.date).toLocaleDateString('en-GB')}</td>
                       <td className="attendance-options">
                         <div className="attendance-radio">
                           <input

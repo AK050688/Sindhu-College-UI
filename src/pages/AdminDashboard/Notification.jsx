@@ -154,7 +154,7 @@ const Notification = () => {
                       <td>{notification.Title}</td>
                       <td>{notification.Description}</td>
                       <td>{notification.Subject}</td>
-                      <td>{notification.Date}</td>
+                      <td>{new Date(notification.Date).toLocaleDateString('en-GB')}</td>
                       <td>
                         <button
                           className="bg-green-500 text-white p-1 rounded-md"
