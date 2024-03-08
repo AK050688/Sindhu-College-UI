@@ -10,6 +10,7 @@ import Navbar from "../../components/AdminDashboard/Navbar";
 import StudentModal from "../../components/AdminDashboard/StudentModal";
 import axios from "axios";
 
+
 function Student() {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
