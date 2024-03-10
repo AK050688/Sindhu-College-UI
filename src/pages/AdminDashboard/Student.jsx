@@ -179,6 +179,7 @@ function Student() {
               <table>
                 <thead>
                   <tr>
+                    <th>SNo.</th>
                     <th>Roll No.</th>
                     <th>Name</th>
                     <th>Email</th>
@@ -203,6 +204,7 @@ function Student() {
                       }
                       onClick={() => handleRowClick(student)}
                     >
+                      <td>{index + 1}</td>
                       <td>{student.rollNo}</td>
                       <td>{student.Name}</td>
                       <td>{student.email}</td>

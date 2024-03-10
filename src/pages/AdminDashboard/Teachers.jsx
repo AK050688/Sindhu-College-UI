@@ -8,8 +8,6 @@ import {
 import Navbar from "../../components/AdminDashboard/Navbar";
 import TeacherModal from "../../components/AdminDashboard/TeacherModal";
 import "../../styles/AdminDashboard/Teacher.css";
-// import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
 function Teachers() {
