@@ -1,0 +1,136 @@
+.teacherNavbarContainer {
+  border: 1px solid #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  margin: 10px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: rgb(244, 201, 83);
+  color: black;
+}
+
+.teacherNavbarContainer .left_section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.teacherNavbarContainer .right_section {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.teacherNavbarContainer .right_section .search-box input {
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 5px 10px;
+  outline: none;
+}
+
+.teacherNavbarContainer .right_section .search-box span {
+  cursor: pointer;
+}
+
+.teacherNavbarContainer .navbar-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 20px;
+  font-weight: 500;
+  justify-content: center;
+  margin-left: 15px;
+}
+
+.teacherNavbarContainer .navbar-icons > span {
+  cursor: pointer;
+}
+
+.teacherNavbarContainer .notification-icon {
+  position: relative;
+}
+.teacherNavbarContainer .notification-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #fd0505;
+  color: #fff;
+  font-size: 14px;
+  padding: 5px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+}
+
+.teacherNavbarContainer .calendar-icon {
+  position: relative;
+}
+.teacherNavbarContainer .calendar-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #063e9e;
+  color: #fff;
+  font-size: 14px;
+  padding: 5px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+}
+
+.teacherNavbarContainer .nav-popup {
+  position: absolute;
+  right: 15px;
+  top: calc(10% + 10px);
+  background-color: rgb(244, 201, 83);
+  width: 130px;
+  display: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+.teacherNavbarContainer .nav-popup ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.teacherNavbarContainer .nav-popup ul li {
+  padding: 10px;
+  border-bottom: 1px solid #000;
+}
+
+.teacherNavbarContainer .nav-popup ul li:hover {
+  color: #fff;
+  cursor: pointer;
+  background-color: #5e5e64;
+}
+
+.teacherNavbarContainer .show {
+  display: flex;
+  flex-direction: column;
+}
+.teacherNavbarContainer .student-profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}

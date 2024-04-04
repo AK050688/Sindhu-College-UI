@@ -1,0 +1,100 @@
+/* Question Paper Page */
+.question-paper-page {
+  padding: 20px;
+}
+
+/* Add Question Paper Button */
+.add-question-paper-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.add-question-paper-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Add Question Paper Form */
+.add-question-paper-form {
+  margin-bottom: 20px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.submit-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #218838;
+}
+
+/* Filter Section */
+.filter-section {
+  margin-bottom: 20px;
+}
+
+.filter-label {
+  margin-right: 10px;
+}
+
+.filter-select {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.filter-btn {
+  background-color: #ffc107;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  background-color: #e0a800;
+}
+
+/* Question Paper List */
+.question-paper-list-title {
+  margin-bottom: 10px;
+}
+
+.card {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.card p {
+  margin: 5px 0;
+}
+
+.card a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}

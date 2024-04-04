@@ -1,0 +1,94 @@
+.studentSidebarContainer {
+  border: 1px solid rgb(0, 0, 0);
+  width: 230px;
+  height: 680px;
+  margin: 20px;
+  border-radius: 15px;
+  padding: 15px;
+  background-color: rgb(244, 201, 83);
+  color: black;
+  position: sticky;
+  /* z-index: 999; */
+}
+
+.studentSidebarContainer .sidebar_header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  text-align: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
+  align-items: center;
+  font-weight: 600;
+}
+
+.studentSidebarContainer .sidebar_header > span > img {
+  width: 150px;
+  /* height: 50px; */
+  /* border-radius: 50%; */
+}
+
+.studentSidebarContainer .sidebar_contain {
+  margin-top: 10px;
+}
+
+.studentSidebarContainer .sidebar_contain > a {
+  text-decoration: none;
+  color: black;
+}
+
+.studentSidebarContainer .sidebar_items {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+  font-size: 18px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+.studentSidebarContainer .sidebar_items:hover {
+  background: rgb(253, 219, 127);
+}
+
+.studentSidebarContainer .sidebar_items.active {
+  background: rgb(182, 140, 24);
+}
+
+.studentSidebarContainer .sidebar_items .sidebar_icon {
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.studentSidebarContainer .sidebar_toggle_btn {
+  width: 50px;
+  height: 50px;
+  margin: 20px;
+  background-color: rgb(244, 201, 83);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: none;
+  position: absolute;
+  z-index: 1000;
+}
+
+.studentSidebarContainer .sidebar_toggle_btn > span {
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  color: #f3e6e6;
+}
+
+.studentSidebarContainer .active {
+  background-color: rgb(244, 201, 83);
+}
+
+.studentSidebarContainer .hide {
+  display: none;
+}

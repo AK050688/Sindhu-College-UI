@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/Home/Navbar.css";
+import logoImage from "../../assets/logo.png";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,12 +12,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`navbar ${menuOpen ? "menu-open" : ""}`}>
+    <nav className={`navbarContainer ${menuOpen ? "menu-open" : ""}`}>
       <div className="logo" onClick={() => (window.location.href = "/")}>
-        <img
-          src="https://github.com/AyushiVashisth/eduction-website/assets/107119119/32465243-060d-415d-98ab-70a8eed08a5d"
-          alt="Logo"
-        />
+        <img src={logoImage} alt="Logo" />
         <span className="website-name">
           <Link to="/" style={{ textDecoration: "none", fontSize: "16px" }}>
             SINDHU COLLEGE OF EDUCATION

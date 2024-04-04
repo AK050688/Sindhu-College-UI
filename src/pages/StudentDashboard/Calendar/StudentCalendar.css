@@ -1,0 +1,68 @@
+.calendarContainer {
+  overflow-x: auto;
+  /* background-size: cover; */
+  padding: 10px;
+  /* background-image: url("../../../img/bg.avif"); */
+  /* height: 85vh; */
+}
+
+.calendarContainer .calendarContent {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.calendarContainer .sidebar {
+  flex: 1 1 20%;
+  padding: 15px;
+  border-radius: 4px;
+  background: none;
+  height: auto;
+}
+
+.calendarContainer .sidebar h5 {
+  margin-bottom: 10px;
+  color: black;
+}
+
+.calendarContainer .calendar {
+  flex: 1 1 100%;
+}
+
+.calendarContainer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.calendarContainer .eventItem {
+  background-color: rgb(244, 201, 83);
+  margin: 10px 0;
+  border-radius: 2px;
+  padding: 5px;
+  font-size: 10px;
+  text-align: center;
+  color: black;
+}
+
+.calendarContainer .eventItem:hover {
+  background-color: #a2a6ac;
+}
+
+.calendarContainer .eventTitle {
+  font-weight: bold;
+}
+
+.calendarContainer .eventDate {
+  display: block;
+  font-size: 0.8rem;
+  color: #ffffff;
+}
+
+.fc-day {
+  background-color: #a2a6ac;
+}
+
+.fc-daygrid-bg-harness,
+.fc-highlight {
+  background-color: #74777c;
+}

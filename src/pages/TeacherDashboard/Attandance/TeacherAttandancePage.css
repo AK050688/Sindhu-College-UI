@@ -1,0 +1,137 @@
+/* TeacherattandancePage.jsx */
+.teacher-attandance-page {
+  /* background-size: cover; */
+  padding: 20px;
+  /* height: 90vh; */
+  /* background-image: url("../../../img/bg.avif"); */
+}
+
+.teacher-attandance-page .filter-section {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.teacher-attandance-page .filter-label {
+  margin-top: 10px;
+}
+
+.teacher-attandance-page .searchInput {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.teacher-attandance-page .attandance-list .card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.teacher-attandance-page .attandance-list .card {
+  padding: 1.5rem;
+  color: #3b3b3b;
+  border: 1px solid #bbb;
+  border-radius: 0.75rem;
+  /* background-color: rgba(255, 255, 255, 0.6); */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.teacher-attandance-page .attandance-list .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.teacher-attandance-page .attandance-list .card p {
+  margin: 10px 0;
+}
+
+.teacher-attandance-page .attandance-list .card button {
+  padding: 5px;
+  background-color: rgb(35, 35, 250);
+  color: white;
+}
+
+.teacher-attandance-page .modalOverlayContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.teacher-attandance-page .modalContainer {
+  max-width: 500px;
+  width: 100%;
+  padding: 1.5rem;
+  border: 1px solid #bbb;
+  border-radius: 0.75rem;
+  background-color: white;
+  backdrop-filter: blur(2px);
+  background-clip: padding-box;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.teacher-attandance-page .modalContainer .formHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.teacher-attandance-page .modalContainer .title {
+  margin-top: 0;
+  text-align: center;
+  padding: 20px;
+  /* color: white; */
+}
+
+.teacher-attandance-page .modalContainer .closeButton button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  /* color: white; */
+}
+
+.teacher-attandance-page .modalContainer .form-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.teacher-attandance-page .modalContainer .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  /* color: white; */
+  text-align: left;
+}
+
+.teacher-attandance-page .modalContainer .form-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.teacher-attandance-page .modalContainer .submit-btn {
+  background-color: blue;
+  /* color: white; */
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.teacher-attandance-page .modalContainer .submit-btn:hover {
+  background-color: rgb(101, 101, 216);
+}
+.teacher-attandance-page input[type="checkbox"] {
+  position: absolute;
+  top: 5px;
+  right: 150px;
+}

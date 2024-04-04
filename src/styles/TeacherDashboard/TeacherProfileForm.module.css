@@ -1,0 +1,107 @@
+.teacherProfileContainer {
+  /* width: 100%; */
+  /* max-width: 800px; */
+  /* margin: auto; */
+  /* height: 91.1vh;
+  background-size: cover;
+  background-image: url("../../img/bg.avif"); */
+}
+.teacherProfileContainer .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 20px;
+}
+
+.teacherProfileContainer .changePasswordButton {
+  display: flex;
+
+  align-items: center;
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.teacherProfileContainer h1 {
+  text-align: center;
+  color: white;
+}
+
+.teacherProfileContainer .form {
+  width: 100%;
+  max-width: 850px;
+  margin: auto;
+  border: 1px solid #d1d5db;
+  border-radius: 0.75rem;
+  padding: 10px;
+  background-color: black;
+  backdrop-filter: blur(2px);
+  background-clip: padding-box;
+  position: relative;
+  margin-top: 30px;
+}
+
+.teacherProfileContainer .formRow {
+  display: flex;
+  flex-direction: row;
+  /* margin-bottom: 1rem; */
+}
+
+.teacherProfileContainer .formItem {
+  flex: 1 1 50%;
+  padding: 5px;
+}
+
+.teacherProfileContainer label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: white; /* Same label color as ProfileForm */
+}
+
+.teacherProfileContainer .formItem div {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  background-color: white; /* Same input div background color as ProfileForm */
+  color: black;
+}
+.teacherProfileContainer .pencils {
+  font-size: 25px;
+  position: absolute;
+  top: 30px;
+  left: 770px;
+  color: blue;
+}
+.teacherProfileContainer .savebutton button {
+  width: 10%;
+  background-color: rgb(75, 117, 13);
+  padding: 6px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 30px;
+  left: 740px;
+  color: white;
+  border-radius: 10px;
+}
+.teacherProfileContainer .headingImage {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.teacherProfileContainer .imageContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.teacherProfileContainer .profileImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}

@@ -1,5 +1,5 @@
 /* Footer */
-.footer {
+.footerContainer {
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
@@ -9,57 +9,57 @@
   width: 100%;
 }
 
-.footer-section {
+.footerContainer .footer-section {
   width: calc(15% - 40px);
   margin-bottom: 40px;
   text-align: left;
   position: relative;
 }
 
-.footer-section h4 {
+.footerContainer .footer-section h4 {
   font-size: 22px;
   margin-bottom: 20px;
   color: #333;
 }
 
-.footer-section p {
+.footerContainer .footer-section p {
   color: #555;
   cursor: pointer;
   position: relative;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.footer-section p:hover {
+.footerContainer .footer-section p:hover {
   color: #007bff;
   transform: translateX(5px);
   text-decoration: underline;
 }
 
-.footer-section ul {
+.footerContainer .footer-section ul {
   list-style: none;
   padding: 0;
 }
 
-.footer-section ul li {
+.footerContainer .footer-section ul li {
   margin-bottom: 10px;
   color: #555;
   cursor: pointer;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.footer-section ul li:hover {
+.footerContainer .footer-section ul li:hover {
   color: #007bff;
   transform: translateX(5px);
   text-decoration: underline;
 }
 
-.footer-icons {
+.footerContainer .footer-icons {
   text-align: center;
   width: 100%;
   margin-bottom: 20px;
 }
 
-.footer-icons i {
+.footerContainer .footer-icons i {
   font-size: 34px;
   margin-right: 30px;
   color: #333;
@@ -67,25 +67,25 @@
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.footer-icons i:hover {
+.footerContainer .footer-icons i:hover {
   color: #007bff;
   transform: translateY(-3px);
 }
 
 @media (max-width: 1200px) {
-  .footer-section {
+  .footerContainer .footer-section {
     width: calc(25% - 40px);
   }
 }
 
 @media (max-width: 992px) {
-  .footer-section {
+  .footerContainer .footer-section {
     width: calc(33.33% - 40px);
   }
 }
 
 @media (max-width: 768px) {
-  .footer-section {
+  .footerContainer .footer-section {
     width: calc(50% - 40px);
   }
 }

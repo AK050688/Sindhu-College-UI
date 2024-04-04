@@ -6,51 +6,51 @@
   padding: 40px;
 }
 
-.contact-us {
+.contact-us-section .contact-us {
   text-align: center;
   padding: 15px;
   background-color: #161616;
   border-radius: 20px;
   box-shadow: 0px 10px 20px rgb(244, 201, 83);
   width: 90%;
-  max-width: 500px; 
+  max-width: 500px;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
 }
 
-.contact-us h2 {
+.contact-us-section .contact-us h2 {
   margin-bottom: 30px;
   color: rgb(244, 201, 83);
   font-size: 28px;
   font-weight: 700;
 }
 
-.form-group {
+.contact-us-section .form-group {
   margin-bottom: 20px;
   text-align: left;
 }
 
-.grid-container {
+.contact-us-section .grid-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
-.grid-item {
+.contact-us-section .grid-item {
   width: 100%;
 }
 
-label {
+.contact-us-section label {
   display: block;
   margin-bottom: 10px;
   color: #fff;
   font-size: 16px;
 }
 
-input[type="text"],
-input[type="email"],
-textarea {
+.contact-us-section input[type="text"],
+.contact-us-section input[type="email"],
+.contact-us-section textarea {
   width: 100%;
   padding: 15px;
   border: none;
@@ -62,22 +62,21 @@ textarea {
   margin-top: 8px;
   box-sizing: border-box;
 }
-textarea{
+.contact-us-section textarea {
   height: 100px;
 }
 
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-textarea:focus {
+.contact-us-section input[type="text"]:focus,
+.contact-us-section input[type="email"]:focus,
+.contact-us-section textarea:focus {
   background-color: #3b3b3b;
 }
 
-textarea {
+.contact-us-section textarea {
   resize: vertical;
 }
 
-button {
+.contact-us-section button {
   width: 100%;
   color: #b3aa48;
   padding: 15px;
@@ -91,32 +90,32 @@ button {
   box-sizing: border-box;
 }
 
-button:hover {
+.contact-us-section button:hover {
   background-color: #b3aa48;
   color: black;
 }
 
 @media screen and (max-width: 768px) {
-  .contact-us {
+  .contact-us-section .contact-us {
     width: 90%;
     max-width: none;
     padding: 30px;
   }
 
-  input[type="text"],
-  input[type="email"],
-  textarea,
-  button {
+  .contact-us-section input[type="text"],
+  .contact-us-section input[type="email"],
+  .contact-us-section textarea,
+  .contact-us-section button {
     padding: 12px;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .contact-us {
+  .contact-us-section .contact-us {
     padding: 20px;
   }
 
-  .contact-us h2 {
+  .contact-us-section .contact-us h2 {
     font-size: 24px;
   }
 }

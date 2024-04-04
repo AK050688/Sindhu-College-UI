@@ -4,19 +4,19 @@
 }
 
 /*Slider Container*/
-.slider-container {
+.landing-page .slider-container {
   margin-top: 60px;
   width: 100%;
   height: 550px;
   animation: slideIn 2s forwards;
 }
 
-.slider-image {
+.landing-page .slider-image {
   width: 95%;
   height: 105%;
   transition: transform 0.5s ease;
 }
-.slider-image:hover {
+.landing-page .slider-image:hover {
   transform: scale(1.02);
 }
 
@@ -30,7 +30,7 @@
 }
 
 /* DescriptionSection */
-.description-container {
+.landing-page .description-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -42,38 +42,38 @@
   animation: fadeInScale 1s forwards;
 }
 
-.description-container .left-side {
+.landing-page .description-container .left-side {
   flex: 1;
   margin-right: 20px;
 }
 
-.description-container .left-image {
+.landing-page .description-container .left-image {
   width: 100%;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
-.description-container .left-image:hover {
+.landing-page .description-container .left-image:hover {
   transform: scale(1.02);
 }
 
-.description-container .right-side {
+.landing-page .description-container .right-side {
   flex: 2;
 }
 
-.description-container h2 {
+.landing-page .description-container h2 {
   font-size: 24px;
   margin-bottom: 10px;
   color: #333;
   transition: transform 0.5s ease;
 }
 
-.description-container h2:hover {
+.landing-page .description-container h2:hover {
   transform: scale(1.1);
 }
 
-.description-container p {
+.landing-page .description-container p {
   font-size: 16px;
   line-height: 1.6;
   color: #666;
@@ -81,7 +81,7 @@
   text-align: justify;
 }
 
-.description-container p:hover {
+.landing-page .description-container p:hover {
   transform: scale(1.02);
 }
 
@@ -97,41 +97,41 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .slider-container {
+  .landing-page .slider-container {
     height: 400px;
   }
 
-  .description-container {
+  .landing-page .description-container {
     flex-direction: column;
     align-items: center;
     margin-top: 40;
   }
 
-  .left-side,
-  .right-side {
+  .landing-page .left-side,
+  .landing-page .right-side {
     width: 100%;
     margin: 0;
     padding: 0 20px;
     text-align: center;
   }
 
-  .left-image {
+  .landing-page .left-image {
     margin-bottom: 20px;
   }
 
-  .right-side {
+  .landing-page .right-side {
     order: -1;
   }
 }
 
 @media only screen and (max-width: 576px) {
-  .slider-container {
+  .landing-page .slider-container {
     height: 300px;
   }
 }
 
 /*section-containe*/
-.section-container {
+.landing-page .section-container {
   max-width: 1200px;
   margin: 20px auto;
   padding: 0 20px;
@@ -140,7 +140,7 @@
   animation: fadeInBottom 1s forwards;
 }
 
-.section {
+.landing-page .section {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -150,13 +150,13 @@
     box-shadow 0.3s ease;
 }
 
-.section:hover {
+.landing-page .section:hover {
   background-color: #f2f2f2;
   transform: scale(1.02);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.section h3 {
+.landing-page .section h3 {
   background-color: #3498db;
   color: #fff;
   padding: 15px;
@@ -164,28 +164,28 @@
   transition: transform 0.5s ease;
 }
 
-.section h3:hover {
+.landing-page .section h3:hover {
   transform: scale(1.1);
 }
 
-.section p {
+.landing-page .section p {
   padding: 20px;
   margin: 0;
   text-align: left;
   text-align: justify;
 }
 
-.section ul {
+.landing-page .section ul {
   list-style: none;
   padding: 0 20px;
   margin: 0;
 }
 
-.section li {
+.landing-page .section li {
   margin-bottom: 10px;
 }
 
-.section-container {
+.landing-page .section-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -195,10 +195,10 @@
   gap: 10px;
 }
 
-.section {
+.landing-page .section {
   flex-basis: calc(33.33% - 20px);
 }
-.principal-message img {
+.landing-page .principal-message img {
   width: 30%;
   margin: auto;
   margin-top: 20px;
@@ -239,27 +239,27 @@
   }
 }
 
-.section h2 {
+.landing-page .section h2 {
   margin-bottom: 10px;
 }
 
-.section p {
+.landing-page .section p {
   font-size: 16px;
   line-height: 1.6;
 }
 
-.section ul {
+.landing-page .section ul {
   list-style-type: none;
   padding: 20px;
   text-align: left;
   color: #666;
 }
 
-.section ul li {
+.landing-page .section ul li {
   margin-bottom: 5px;
 }
 
-.principal-message button {
+.landing-page .principal-message button {
   background-color: #3498db;
   color: #fff;
   border: none;
@@ -271,41 +271,41 @@
   margin-bottom: 10px;
 }
 
-.principal-message button:hover {
+.landing-page .principal-message button:hover {
   background-color: #2980b9;
 }
 
 /* why-siddhu-college */
-.why-siddhu-college {
+.landing-page .why-siddhu-college {
   text-align: center;
   width: 100%;
   margin-bottom: 40px;
   background-color: rgb(244, 201, 83);
   animation: slideInRight 1s forwards;
 }
-.full-grid-container {
+.landing-page .full-grid-container {
   width: 90%;
   margin: auto;
 }
 
-.why-siddhu-college h2 {
+.landing-page .why-siddhu-college h2 {
   font-size: 32px;
   margin-bottom: 20px;
   color: #333;
   padding: 20px;
   transition: transform 0.5s ease;
 }
-.why-siddhu-college h2:hover {
+.landing-page .why-siddhu-college h2:hover {
   transform: scale(1.1);
 }
 
-.why-siddhu-college .grid-container {
+.landing-page .why-siddhu-college .grid-container {
   display: grid;
   grid-template-columns: repeat(5, minmax(150px, 1fr));
   gap: 20px;
 }
 
-.why-siddhu-college .grid-item {
+.landing-page .why-siddhu-college .grid-item {
   text-align: center;
   background-color: #fff;
   padding: 30px;
@@ -315,12 +315,12 @@
   margin-bottom: 20px;
 }
 
-.why-siddhu-college .grid-item:hover {
+.landing-page .why-siddhu-college .grid-item:hover {
   transform: translateY(-8px);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
-.why-siddhu-college .grid-item img {
+.landing-page .why-siddhu-college .grid-item img {
   width: 100px;
   height: 100px;
   object-fit: cover;
@@ -329,18 +329,18 @@
   border: 4px solid #fff;
   transition: transform 0.3s ease;
 }
-.why-siddhu-college .grid-item img:hover {
+.landing-page .why-siddhu-college .grid-item img:hover {
   transform: scale(1.1);
 }
 
-.why-siddhu-college .grid-item p {
+.landing-page .why-siddhu-college .grid-item p {
   margin: 0;
   font-weight: bold;
   color: #444;
   font-size: 16px;
   transition: transform 0.3s ease;
 }
-.why-siddhu-college .grid-item p:hover {
+.landing-page .why-siddhu-college .grid-item p:hover {
   transform: scale(1.1);
 }
 
@@ -356,68 +356,68 @@
 }
 
 @media (max-width: 1200px) {
-  .why-siddhu-college .grid-container {
+  .landing-page .why-siddhu-college .grid-container {
     grid-template-columns: repeat(4, minmax(150px, 1fr));
   }
 }
 
 @media (max-width: 992px) {
-  .why-siddhu-college .grid-container {
+  .landing-page .why-siddhu-college .grid-container {
     grid-template-columns: repeat(3, minmax(150px, 1fr));
   }
 }
 
 @media (max-width: 768px) {
-  .why-siddhu-college .grid-container {
+  .landing-page .why-siddhu-college .grid-container {
     grid-template-columns: repeat(2, minmax(150px, 1fr));
   }
 
-  .why-siddhu-college .grid-item {
+  .landing-page .why-siddhu-college .grid-item {
     padding: 20px;
   }
 
-  .why-siddhu-college .grid-item img {
+  .landing-page .why-siddhu-college .grid-item img {
     width: 80px;
     height: 80px;
   }
 
-  .why-siddhu-college h2 {
+  .landing-page .why-siddhu-college h2 {
     font-size: 28px;
   }
 }
 
 @media (max-width: 768px) {
-  .why-siddhu-college .grid-container {
+  .landing-page .why-siddhu-college .grid-container {
     grid-template-columns: repeat(1, minmax(150px, 1fr));
   }
 }
 
 /*videos-section */
-.videos-section {
+.landing-page .videos-section {
   text-align: center;
   margin-bottom: 40px;
   width: 90%;
   margin: auto;
   animation: fadeIn 1s forwards;
 }
-.videos-section h2 {
+.landing-page .videos-section h2 {
   font-size: 32px;
   margin-bottom: 20px;
   color: #333;
   transition: transform 0.5s ease;
 }
 
-.videos-section h2:hover {
+.landing-page .videos-section h2:hover {
   transform: scale(1.1);
 }
 
-.video-grid {
+.landing-page .video-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(250px, 1fr));
   gap: 20px;
 }
 
-.video-item {
+.landing-page .video-item {
   position: relative;
   width: 100%;
   padding-top: 56.25%;
@@ -427,12 +427,12 @@
   transition: transform 0.3s ease;
 }
 
-.video-item:hover {
+.landing-page .video-item:hover {
   transform: scale(1.02);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.video-item iframe {
+.landing-page .video-item iframe {
   position: absolute;
   top: 0;
   left: 0;
@@ -451,20 +451,20 @@
 }
 
 @media (max-width: 1200px) {
-  .video-grid {
+  .landing-page .video-grid {
     grid-template-columns: repeat(2, minmax(250px, 1fr));
   }
 }
 
 @media (max-width: 768px) {
-  .video-grid {
+  .landing-page .video-grid {
     grid-template-columns: repeat(1, 1fr);
     margin-left: 20px;
   }
 }
 
 /* success-tools */
-.success-tools {
+.landing-page .success-tools {
   display: flex;
   justify-content: space-around;
   align-items: stretch;
@@ -474,7 +474,7 @@
   margin-top: 50px;
   animation: slideInLeft 1s forwards;
 }
-.tool {
+.landing-page .tool {
   text-align: center;
   width: calc(30% - 20px);
   padding: 20px;
@@ -485,12 +485,12 @@
   margin-bottom: 20px;
 }
 
-.tool:hover {
+.landing-page .tool:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
-.tool img {
+.landing-page .tool img {
   width: 100%;
   max-width: 200px;
   height: auto;
@@ -500,34 +500,34 @@
   transition: transform 0.3s ease;
 }
 
-.tool:hover img {
+.landing-page .tool:hover img {
   transform: scale(1.1);
 }
 
-.tool h3 {
+.landing-page .tool h3 {
   font-size: 24px;
   margin-bottom: 10px;
   color: #333;
 }
 
-.tool p {
+.landing-page .tool p {
   margin-top: 10px;
   color: #666;
 }
 
-.tool-details {
+.landing-page .tool-details {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.tool-details .date {
+.landing-page .tool-details .date {
   margin-top: 20px;
   font-size: 14px;
   color: #777;
 }
 
-.tool-details .read-more {
+.landing-page .tool-details .read-more {
   width: 40%;
   background-color: #3498db;
   color: #fff;
@@ -540,7 +540,7 @@
   text-transform: uppercase;
 }
 
-.tool-details .read-more:hover {
+.landing-page .tool-details .read-more:hover {
   background-color: #2980b9;
 }
 
@@ -556,17 +556,17 @@
 }
 
 @media (max-width: 1024px) {
-  .tool {
+  .landing-page .tool {
     width: calc(50% - 20px);
   }
 }
 
 @media (max-width: 768px) {
-  .tool {
+  .landing-page .tool {
     width: calc(100% - 20px);
     margin-left: 30px;
   }
-  .tool-details .read-more {
+  .landing-page .tool-details .read-more {
     width: 45%;
     font-size: 10px;
   }

@@ -1,0 +1,128 @@
+/* Test Page */
+.studentTest {
+  /* background-size: cover; */
+  padding: 20px;
+  /* background-image: url("../../../img/bg.avif"); */
+  /* height: 90vh; */
+  margin: 0;
+}
+
+.studentTest h2 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.studentTest .test-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.studentTest #optionCourseFilter {
+  color: #fff;
+  background-color: #ff4500;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.studentTest #optionCourseFilter:hover {
+  background-color: #ff5722;
+}
+
+/* student Test Card */
+.studentTest .test-card {
+  transition: transform 0.3s ease;
+  /* width: 350px; */
+  padding: 1rem;
+  color: #333;
+  border: 1px solid #bbb;
+  border-radius: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(2px);
+  background-clip: padding-box;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  z-index: 1;
+}
+
+.studentTest .test-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.studentTest .test-card div {
+  margin-bottom: 10px;
+}
+
+/* studentTest.css */
+
+.studentTest .filter-section {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.studentTest .filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.studentTest .filter-section label {
+  color: #333;
+  margin-top: 15px;
+}
+
+.studentTest .filter-section select,
+.studentTest .filter-section input[type="text"] {
+  padding: 10px;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+.studentTest .filter-section button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.studentTest .filter-section button:hover {
+  background-color: #0056b3;
+}
+
+.studentTest .actions-studenttest {
+  display: flex;
+  gap: 30px;
+}
+
+.studentTest .actions-studenttest button {
+  background-color: #05ad05;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.studentTest .actions-studenttest button:hover {
+  background-color: #048c04;
+}

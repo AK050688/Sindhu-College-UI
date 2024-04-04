@@ -1,0 +1,105 @@
+.studentProfileContainer {
+  /* height: 91.1vh; */
+  /* background-size: cover; */
+  /* background-image: url("../../img/bg.avif"); */
+}
+
+.studentProfileContainer .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 1rem;
+}
+
+.studentProfileContainer .changePasswordButton {
+  display: flex;
+  align-items: center;
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.studentProfileContainer h1 {
+  text-align: center;
+  color: black;
+  padding: 10px;
+}
+
+.studentProfileContainer .form {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  border: 1px solid #d1d5db;
+  border-radius: 0.75rem;
+  padding: 6px;
+  /* background-color: black; */
+  backdrop-filter: blur(2px);
+  background-clip: padding-box;
+  position: relative;
+  color: black;
+}
+
+.studentProfileContainer .formRow {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+}
+
+.studentProfileContainer .formItem {
+  flex: 1 1 50%;
+  padding: 10px;
+}
+
+.studentProfileContainer label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.1rem;
+  /* color: white; */
+}
+
+.studentProfileContainer .formItem div {
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  padding: 0.4rem;
+  background-color: white;
+  color: black;
+}
+.studentProfileContainer .pencils {
+  font-size: 25px;
+  position: absolute;
+  top: 30px;
+  left: 750px;
+  color: blue;
+}
+.studentProfileContainer .savebutton button {
+  /* width: 100%; */
+  background-color: rgb(75, 117, 13);
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 50px;
+  left: 720px;
+  color: white;
+  border-radius: 10px;
+}
+
+.headingImage {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.profileImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}

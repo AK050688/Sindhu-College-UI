@@ -11,7 +11,7 @@ const LandingPage = () => {
       setCurrentImageIndex((prevIndex) =>
         prevIndex === slideImageData.length - 1 ? 0 : prevIndex + 1
       );
-    }, 1000);
+    }, 3000);
 
     return () => clearInterval(intervalId);
   }, []);

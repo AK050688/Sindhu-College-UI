@@ -1,0 +1,14 @@
+.containerDashboard {
+  display: flex;
+  /* border: 1px solid red; */
+  height: 100vh;
+}
+
+.containerDashboard .content {
+  flex: 1;
+  overflow-x: hidden;
+}
+
+.containerDashboard .navbar {
+  flex-shrink: 0;
+}

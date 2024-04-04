@@ -6,7 +6,7 @@
   padding: 40px;
 }
 
-.admission-form {
+.admission-form-section .admission-form {
   text-align: center;
   padding: 15px;
   background-color: #161616;
@@ -19,44 +19,44 @@
   overflow: hidden;
 }
 
-.admission-form h2 {
+.admission-form-section .admission-form h2 {
   margin-bottom: 30px;
   color: rgb(244, 201, 83);
   font-size: 28px;
   font-weight: 700;
 }
 
-.form-group {
+.admission-form-section .form-group {
   margin-bottom: 20px;
   text-align: left;
 }
 
-.grid-container {
+.admission-form-section .grid-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
-.grid-container-three {
+.admission-form-section .grid-container-three {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
-.grid-item {
+.admission-form-section .grid-item {
   width: 100%;
 }
 
-label {
+.admission-form-section .grid-item label {
   display: block;
   margin-bottom: 10px;
   color: #fff;
   font-size: 16px;
 }
 
-input[type="text"],
-input[type="email"],
-textarea {
+.admission-form-section input[type="text"],
+.admission-form-section input[type="email"],
+.admission-form-section textarea {
   width: 100%;
   padding: 15px;
   border: none;
@@ -69,28 +69,28 @@ textarea {
   box-sizing: border-box;
 }
 
-textarea {
+.admission-form-section textarea {
   height: 100px;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-textarea:focus {
+.admission-form-section input[type="text"]:focus,
+.admission-form-section input[type="email"]:focus,
+.admission-form-section textarea:focus {
   background-color: #3b3b3b;
 }
 
-.toast-success,
-.toast-error {
+.admission-form-section .toast-success,
+.admission-form-section .toast-error {
   width: auto;
   max-width: none;
 }
 
-.toast-container {
+.admission-form-section .toast-container {
   right: auto;
   left: 0;
 }
 
-.toast {
+.admission-form-section .toast {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -102,11 +102,11 @@ textarea:focus {
   color: #fff;
 }
 
-.toast-error {
+.admission-form-section .toast-error {
   background-color: #f44336;
 }
 
-.toast-body {
+.admission-form-section .toast-body {
   font-family: Arial, sans-serif;
   font-size: 16px;
   font-weight: bold;
@@ -115,31 +115,31 @@ textarea:focus {
   text-overflow: ellipsis;
 }
 
-.toast-close-button {
+.admission-form-section .toast-close-button {
   cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
-  .admission-form {
+  .admission-form-section .admission-form {
     width: 90%;
     max-width: none;
     padding: 30px;
   }
 
-  input[type="text"],
-  input[type="email"],
-  textarea,
-  button {
+  .admission-form-section input[type="text"],
+  .admission-form-section input[type="email"],
+  .admission-form-section textarea,
+  .admission-form-section button {
     padding: 12px;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .admission-form {
+  .admission-form-section .admission-form {
     padding: 20px;
   }
 
-  .admission-form h2 {
+  .admission-form-section .admission-form h2 {
     font-size: 24px;
   }
 }

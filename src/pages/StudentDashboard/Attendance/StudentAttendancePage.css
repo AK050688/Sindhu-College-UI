@@ -1,0 +1,79 @@
+/* studentattandancePage.jsx */
+.student-attendance-page {
+  /* background-size: cover; */
+  padding: 20px;
+  /* background-image: url("../../../img/bg.avif"); */
+  /* height: 90vh; */
+}
+
+.student-attendance-page .filter-section {
+  text-align: center;
+}
+.student-attendance-page .filter-section input {
+  width: 20%;
+}
+
+.student-attendance-page .card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.student-attendance-page .card {
+  padding: 1.5rem;
+  color: #3b3b3b;
+  border: 1px solid #bbb;
+  border-radius: 0.75rem;
+  /* background-color: rgb(244, 201, 83); */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.student-attendance-page .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.student-attendance-page .card p {
+  margin: 10px 0;
+}
+
+.student-attendance-page .card button {
+  padding: 5px;
+  /* background-color: rgb(35, 35, 250); */
+  color: white;
+}
+.attendance-summary-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.attendance-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 600px;
+  background-color: rgb(248, 229, 175);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.summary-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.summary-label {
+  font-size: 1rem;
+  color: #495057;
+  text-align: center;
+}

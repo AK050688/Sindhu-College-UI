@@ -3,7 +3,7 @@ import "../../styles/Home/Footer.css";
 
 const Footer = () => {
   return (
-    <footer class="footer">
+    <footer class="footerContainer">
       <div class="footer-section">
         <h4>Call us</h4>
         <p>123 456 7890</p>

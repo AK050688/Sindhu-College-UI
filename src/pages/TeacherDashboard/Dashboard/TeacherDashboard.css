@@ -1,0 +1,60 @@
+.dashboard {
+    /* border: 1px solid #000; */
+    margin: 20px;
+}
+
+.dashboard-first-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* Adjust column width as needed */
+    gap: 50px; /* Adjust gap between grid items */
+}
+
+.dashboard-first-section > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 130px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.dashboard-first-section > div:hover {
+    background-color: #545459;
+    color: #fff;
+    cursor: pointer;
+}
+
+.dashboard-second-section {
+    margin-top: 30px;
+}
+
+.dashboard-search-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1rem;
+}
+
+.dashboard-search-box > input {
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid #000;
+}
+
+.dashboard-group-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust column width as needed */
+    gap: 20px; /* Adjust gap between cards */
+    margin-top: 20px;
+}
+
+.dashboard-group-card > div {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 100%; /* Ensure divs take up full width of column */
+    height: 200px; /* Adjust height as needed */
+    border-radius: 10px; /* Add border radius */
+}

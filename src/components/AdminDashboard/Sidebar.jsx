@@ -20,57 +20,57 @@ const Sidebar = ({ children }) => {
   const toggle = () => setIsOpen(!isOpen);
   const menuItem = [
     {
-      path: "/dashboard",
+      path: "/admin-dashboard",
       name: "Dashboard",
       icon: <FaTh />
     },
     {
-      path: "/student",
+      path: "/admin-student",
       name: "Students",
       icon: <FaUserAlt />
     },
     {
-      path: "/teacher",
+      path: "/admin-teacher",
       name: "Teachers",
       icon: <FaUserAlt />
     },
     {
-      path: "/registration",
+      path: "/admin-registration",
       name: "Registration",
       icon: <FaCommentAlt />
     },
     {
-      path: "/notifications",
+      path: "/admin-notifications",
       name: "Notifications",
       icon: <MdNotificationsActive />
     },
     {
-      path: "/courses",
+      path: "/admin-courses",
       name: "Courses",
       icon: <GrCertificate />
     },
     {
-      path: "/exam",
+      path: "/admin-exam",
       name: "Exam",
       icon: <PiExamFill />
     },
     {
-      path: "/calendar",
+      path: "/admin-calendar",
       name: "Calendar",
       icon: <RiCalendarFill />
     },
     {
-      path: "/fees",
+      path: "/admin-fees",
       name: "Fees",
       icon: <RiMoneyDollarCircleFill />
     },
     {
-      path: "/attendance",
+      path: "/admin-attendance",
       name: "Attendance",
       icon: <FaUserCheck />
     },
     {
-      path: "/assignment",
+      path: "/admin-assignment",
       name: "Assignment",
       icon: <FaFileAlt />
     }

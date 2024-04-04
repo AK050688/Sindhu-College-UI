@@ -1,0 +1,102 @@
+/* TeacherAssignmentPage.jsx */
+.student-assignment-page {
+  /* background-size: cover; */
+  padding: 20px;
+  /* background-image: url("../../../img/bg.avif"); */
+  /* height: 90vh; */
+}
+
+/* Filter Section */
+.student-assignment-page .filter-section {
+  /* margin-bottom: 20px; */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.student-assignment-page .filter-label {
+  color: black;
+  margin-top: 10px;
+}
+
+.student-assignment-page .searchInput {
+  /* width: 30%; */
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.student-assignment-page .filter-btn {
+  background-color: #ffc107;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.student-assignment-page .filter-btn:hover {
+  background-color: #e0a800;
+}
+
+/* Assignment List */
+.student-assignment-page .assignment-list-title {
+  margin-bottom: 10px;
+}
+
+.student-assignment-page .card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.student-assignment-page .card {
+  transition: transform 0.3s ease;
+  /* width: 300px; */
+  padding: 1.5rem;
+  color: #3b3b3b;
+  border: 1px solid #bbb;
+  border-radius: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(2px);
+  background-clip: padding-box;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* z-index: 1; */
+}
+
+.student-assignment-page .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.student-assignment-page .card p {
+  margin: 10px 0;
+}
+
+.student-assignment-page .card a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.student-assignment-page .card a:hover {
+  text-decoration: underline;
+}
+
+.student-assignment-page .card button {
+  padding: 5px;
+  background-color: rgb(35, 35, 250);
+  color: white;
+}
+
+.student-assignment-page .icon-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+}
+.submitModal .modalOverlay button {
+  display: flex;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+}

@@ -1,0 +1,301 @@
+/* Schedule Page */
+.studentSchedule {
+  /* background-size: cover; */
+  padding: 20px;
+  /* background-image: url("../../../img/bg.avif");
+  height: 90vh; */
+  margin: 0;
+}
+
+.studentSchedule h2 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.studentSchedule .schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.studentSchedule #optionCourseFilter {
+  color: #fff;
+  background-color: #ff4500;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.studentSchedule #optionCourseFilter:hover {
+  background-color: #ff5722;
+}
+
+/* student Schedule Card */
+.studentSchedule .schedule-card {
+  transition: transform 0.3s ease;
+  width: 350px;
+  padding: 1.5rem;
+  color: #333;
+  border: 1px solid #bbb;
+  border-radius: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(2px);
+  background-clip: padding-box;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  /* z-index: -1; */
+}
+
+.studentSchedule .schedule-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.studentSchedule .schedule-card div {
+  margin-bottom: 10px;
+}
+
+.studentSchedule .class-attendance {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.studentSchedule .class-attendance input[type="checkbox"] {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+/* Add Schedules Modal */
+
+.studentSchedule .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.studentSchedule .modal {
+  /* background-color: #fff; */
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(2px);
+  background-clip: padding-box;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* z-index: -100; */
+}
+
+.studentSchedule .formHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.studentSchedule .formHeader h2 {
+  margin: 0;
+}
+
+.studentSched .closeButton button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.studentSchedule .closeButton button:hover {
+  color: #ff4500;
+}
+
+/* Schedule Page.css */
+.studentSchedule .add-schedule-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 25px;
+  border-radius: 5px;
+  /* margin-bottom: 20px; */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.studentSchedule .add-schedule-btn:hover {
+  background-color: #0056b3;
+}
+
+.studentSchedule .form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 12px;
+}
+.studentSchedule .form-group:nth-child(4) {
+  gap: 48px;
+}
+.studentSchedule #courseFilter {
+  width: 120%;
+}
+
+.studentSchedule .form-group label {
+  width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.studentSchedule .form-input {
+  flex: 1;
+  margin-right: 10px;
+  background-color: white;
+}
+
+.studentSchedule .form-input:last-child {
+  margin-right: 0;
+}
+
+.studentSchedule .form-group > input {
+  margin-bottom: 10px;
+}
+
+.studentSchedule .form-group > label {
+  margin-bottom: 10px;
+}
+
+.studentSchedule .submit-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.studentSchedule .submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.studentSchedule .spinner-container {
+  display: flex;
+  justify-content: center;
+}
+
+.studentSchedule .spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #007bff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.studentSchedule .form-group:nth-child(2) div {
+  width: 48.5%;
+}
+
+/* studentSchedule.css */
+
+.studentSchedule .filter-section {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.studentSchedule .filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.studentSchedule .filter-section label {
+  margin-right: 10px;
+  color: #333;
+  margin-top: 15px;
+}
+
+.studentSchedule .filter-section select,
+.studentSchedule .filter-section input[type="text"] {
+  margin-right: 10px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.studentSchedule .filter-section button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.studentSchedule .filter-section button:hover {
+  background-color: #0056b3;
+}
+
+.studentSchedule .actions-studentschedule {
+  display: flex;
+  gap: 30px;
+}
+.studentSchedule .actions-studentschedule button {
+  background-color: #05ad05;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.studentSchedule .actions-studentschedule button:hover {
+  background-color: #048c04;
+}
+
+.studentSchedule .icon-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  cursor: pointer;
+}
+
+.studentSchedule .edit-icon,
+.studentSchedule .delete-icon {
+  background-color: #ffc107;
+  color: black;
+  font-size: 25px;
+  padding: 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}

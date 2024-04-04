@@ -1,5 +1,5 @@
 /* Logic */
-.login {
+.loginContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,7 +8,7 @@
   /* margin-top: 20px; */
 }
 
-.form {
+.loginContainer .form {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -21,37 +21,41 @@
   box-sizing: border-box;
 }
 
-.card {
+.loginContainer .card {
   background-image: linear-gradient(163deg, #ffcc00 0%, #0059ff 100%);
   border-radius: 22px;
   transition: all 0.3s;
   width: 100%;
   max-width: 400px;
   margin-top: 30px;
+  padding: 1px;
 }
 
-.card2 {
+.loginContainer .card2 {
   border-radius: 0;
   transition: all 0.2s;
+  width: 100%;
+  max-width: 700px;
+  /* border: 1px solid red; */
 }
 
-.card2:hover {
+.loginContainer .card2:hover {
   transform: scale(0.98);
   border-radius: 20px;
 }
 
-.card:hover {
+.loginContainer .card:hover {
   box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.3);
 }
 
-#heading {
+.loginContainer #heading {
   text-align: center;
   margin: 2em;
   color: rgb(255, 255, 255);
   font-size: 1.2em;
 }
 
-.field {
+.loginContainer .field {
   display: flex;
   align-items: center;
   gap: 0.5em;
@@ -64,12 +68,12 @@
   box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
 }
 
-.input-icon {
+.loginContainer .input-icon {
   font-size: 1.3em;
   color: white;
 }
 
-.input-field {
+.loginContainer .input-field {
   background: none;
   border: none;
   outline: none;
@@ -77,23 +81,23 @@
   color: #d3d3d3;
 }
 
-.form .btn {
+.loginContainer .form .btn {
   display: flex;
   justify-content: center;
   flex-direction: row;
 }
 
-.forgot {
+.loginContainer .forgot {
   text-align: left;
   color: white;
 }
 
-.forgot:hover {
+.loginContainer .forgot:hover {
   text-decoration: underline;
   color: red;
 }
 
-.button1 {
+.loginContainer .button1 {
   padding: 10px;
   border-radius: 5px;
   margin-right: 0.5em;
@@ -103,25 +107,26 @@
   background-color: #252525;
   color: white;
   margin-top: 0px;
+  width: 100%;
 }
 
-.button1:hover {
+.loginContainer .button1:hover {
   background-color: black;
   color: white;
 }
 
-.signup {
+.loginContainer .signup {
   display: flex;
   gap: 10px;
 }
 
 @media (max-width: 600px) {
-  .login {
+  .loginContainer .login {
     height: auto;
   }
 
-  .card,
-  .form {
+  .loginContainer .card,
+  .loginContainer .form {
     width: 100%;
     max-width: none;
   }
