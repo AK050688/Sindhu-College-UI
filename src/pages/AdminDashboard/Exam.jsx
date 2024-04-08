@@ -78,28 +78,19 @@ const Exam = () => {
   };
 
   return (
-    <div>
-      <div className="h-[60px] bg-black">
-        <Navbar />
-      </div>
+    <>
+      <Navbar />
 
-      <div className="mx-auto p-1 bg-cover bg-login h-[91.4vh]">
-        <div className="flex flex-col md:flex-row justify-between items-center p-2 rounded-lg shadow-md border-0 border-black">
-          <h1 className="text-xl font-bold text-white text-left">
-            All Exam Lists
-          </h1>
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-[15%] mt-0"
-            onClick={() => setShowForm(true)}
-          >
-            Add Course
+      <div className="examList">
+        <div className="header">
+          <h1 className="title">All Exam Lists</h1>
+          <button className="addButton" onClick={() => setShowForm(true)}>
+            Add Exam
           </button>
         </div>
-
         {showForm && (
           <ExamFormModel onAddExam={addExam} setShowForm={setShowForm} />
         )}
-
         {showEditForm && (
           <ExamEditModel
             examId={editExamData._id}
@@ -110,21 +101,13 @@ const Exam = () => {
             setShowEditForm={setShowEditForm}
           />
         )}
-        {/* <div className="student-heading">
-          <div className="min-h-[90px] rounded flex justify-center items-center">
-            <h1 className="text-3xl font-semibold text-blue-600">
-              All Exam Lists
-            </h1>
-          </div>
-        </div> */}
-
         {loading ? (
-          <div className="spinner-border spinner-border-sm" role="status">
-            <span className="visually-hidden">Loading...</span>
+          <div className="spinner" role="status">
+            <span className="loader"></span>
           </div>
         ) : (
-          <div className="table-container">
-            <div className="table-section">
+          <div className="tableContainer">
+            <div className="tableSection">
               <table>
                 <thead>
                   <tr>
@@ -153,7 +136,7 @@ const Exam = () => {
                       <td>{exam.examDate}</td>
                       <td>
                         <button
-                          className="bg-green-500 text-white rounded-md"
+                          className="editButton"
                           onClick={() => {
                             setEditExamData(exam);
                             setShowEditForm(true);
@@ -164,7 +147,7 @@ const Exam = () => {
                       </td>
                       <td>
                         <button
-                          className="bg-red-500 text-white rounded-md cursor-pointer"
+                          className="deleteButton"
                           onClick={() => deleteRow(exam._id)}
                         >
                           Delete
@@ -178,7 +161,7 @@ const Exam = () => {
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 };
 

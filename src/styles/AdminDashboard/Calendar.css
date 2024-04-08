@@ -1,52 +1,56 @@
-.calendar-container {
-  color: white;
+.adminCalendarContainer {
   overflow-x: auto;
+  color: black;
 }
 
-.calendar-content {
+.adminCalendarContainer .calendarContent {
   display: flex;
   justify-content: space-between;
 }
 
-.calendar-container .sidebar {
+.adminCalendarContainer .sidebar {
   flex: 1 1 20%;
   padding: 15px;
   border-radius: 4px;
   background: none;
 }
 
-.calendar-container .sidebar h5 {
+.adminCalendarContainer .sidebar h5 {
   margin-bottom: 10px;
-  color: #ffffff;
 }
 
-.calendar-container .calendar {
+.adminCalendarContainer .calendar {
   flex: 1 1 100%;
 }
 
-.event-date:hover {
+.adminCalendarContainer .eventDate:hover {
   background-color: lightblue;
+  color: black;
 }
 
-.calendar-container ul {
+.adminCalendarContainer ul {
   list-style-type: none;
   padding: 0;
 }
 
-.calendar-container .event-item {
+.adminCalendarContainer .eventItem {
   background-color: rgb(49, 169, 244);
   margin: 10px 0;
   border-radius: 2px;
   padding: 5px;
-  font-size: 10px;
+  font-size: 12px;
+}
+.adminCalendarContainer .eventItem div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
-.calendar-container .event-title {
+.adminCalendarContainer .eventTitle {
   font-weight: bold;
 }
 
-.calendar-container .event-date {
-  display: block;
+.adminCalendarContainer.event-Date {
   font-size: 0.8rem;
-  color: #ffffff;
 }

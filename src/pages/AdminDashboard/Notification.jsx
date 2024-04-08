@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import Navbar from "../../components/AdminDashboard/Navbar";
 import NotificationFormModel from "../../components/AdminDashboard/Notification/NotificationFormModel";
 import NotificationEditModel from "../../components/AdminDashboard/Notification/NotificationEditModel";
+import "../../styles/AdminDashboard/Notification.css";
+import axios from "axios";
 
 const Notification = () => {
   const [notification, setNotification] = useState([]);
@@ -49,26 +51,19 @@ const Notification = () => {
     );
   };
 
-  const deleteRow = (notificationId) => {
-    fetch(
-      `https://university-project-paresh.onrender.com/University/Notification/notifications/${notificationId}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Deleted notification:", data);
-      })
-      .catch((error) => {
-        console.error("Error deleting notification:", error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+  const deleteRow = async (notificationId) => {
+    try {
+      await axios.delete(
+        `https://university-project-paresh.onrender.com/University/Notification/notifications/${notificationId}`
+      );
+      const response = await axios.get(
+        "https://university-project-paresh.onrender.com/University/Notification/notifications"
+      );
+      setNotification(response.data);
+      console.log("Notification deleted successfully", response.data);
+    } catch (error) {
+      console.error("Error deleting schedule:", error);
+    }
   };
 
   const addNotification = (newnotification) => {
@@ -77,22 +72,19 @@ const Notification = () => {
   };
 
   return (
-    <div>
-      <div className="h-[60px] bg-black">
-        <Navbar />
-      </div>
-      <div className="mx-auto bg-cover bg-login h-[91.4vh]">
-        <div className="flex flex-col md:flex-row justify-between items-center p-2 rounded-lg shadow-md border-0 border-black">
-          <h1 className="text-xl font-bold text-white text-left">
-            All Notifications Lists
-          </h1>
+    <>
+      <Navbar />
+      <div className="adminNotificationContainer">
+        <div className="notification-container">
+          <h1>All Notifications Lists</h1>
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold text-sm p-3 rounded w-[13%] mt-0"
+            className="add-notification-btn"
             onClick={() => setShowForm(true)}
           >
             Add Notification
           </button>
         </div>
+
         {showForm && (
           <NotificationFormModel
             onAddNotification={addNotification}
@@ -144,7 +136,7 @@ const Notification = () => {
                       </td>
                       <td>
                         <button
-                          className="bg-green-500 text-white p-1 rounded-md"
+                          className="editButton"
                           onClick={() => {
                             setEditData(notification);
                             setShowEditForm(true);
@@ -155,7 +147,7 @@ const Notification = () => {
                       </td>
                       <td>
                         <button
-                          className="bg-red-500 text-white p-2 rounded-md cursor-pointer"
+                          className="deleteButton"
                           onClick={() => deleteRow(notification._id)}
                         >
                           Delete
@@ -169,7 +161,7 @@ const Notification = () => {
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 };
 

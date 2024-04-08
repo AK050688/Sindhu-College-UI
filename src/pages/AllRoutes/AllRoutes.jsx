@@ -10,9 +10,9 @@ import Login from "../Login";
 import AdminLogin from "../../pages/AdminDashboard/Login";
 import Sidebar from "../../components/AdminDashboard/Sidebar";
 import Dashboard from "../AdminDashboard/Dashboard";
-import Student from "../AdminDashboard/Student";
-import Teachers from "../AdminDashboard/Teachers";
-import Registration from "../AdminDashboard/Registration";
+import Student from "../AdminDashboard/Student/Student";
+import Teachers from "../AdminDashboard/Teacher/Teachers";
+import Registration from "../AdminDashboard/Registration/Registration";
 import ChangePassword from "../../components/AdminDashboard/ChangePassword";
 import Notification from "../AdminDashboard/Notification";
 import Courses from "../AdminDashboard/Courses";
@@ -21,7 +21,9 @@ import Exam from "../AdminDashboard/Exam";
 import Calendar from "../AdminDashboard/Calendar";
 import Fees from "../AdminDashboard/Fees";
 import Attendance from "../AdminDashboard/Attendance";
-import Assignment from "../AdminDashboard/Assignment";
+import Schedule from "../AdminDashboard/Schedule/Schedule";
+import Assignment from "../AdminDashboard/Assignment/Assignment";
+
 import StudentSidebar from "../../components/StudentDashboard/StudentSidebar/StudentSidebar";
 import StudentNavbar from "../../components/StudentDashboard/StudentNavbar/StudentNavbar";
 import StudentDashboard from "../StudentDashboard/Dashboard/StudentDashboard";
@@ -176,6 +178,14 @@ const Allroutes = () => {
           element={
             <Sidebar>
               <Assignment />
+            </Sidebar>
+          }
+        />
+        <Route
+          path="/admin-schedule"
+          element={
+            <Sidebar>
+              <Schedule />
             </Sidebar>
           }
         />

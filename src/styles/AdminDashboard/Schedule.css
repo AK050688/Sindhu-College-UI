@@ -1,0 +1,298 @@
+/* Schedule Page */
+.adminSchedule {
+  padding: 20px;
+}
+
+.adminSchedule h2 {
+  color: black;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.adminSchedule .schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  /* border: 1px solid red; */
+}
+
+.adminSchedule #optionCourseFilter {
+  color: black;
+  background-color: #ff4500;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.adminSchedule #optionCourseFilter:hover {
+  background-color: #ff5722;
+}
+
+/* admin Schedule Card */
+.adminSchedule .schedule-card {
+  transition: transform 0.3s ease;
+  /* width: 300px; */
+  padding: 1.5rem;
+  color: #333;
+  border: 1px solid #bbb;
+  border-radius: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(2px);
+  background-clip: padding-box;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  /* z-index: -1; */
+}
+
+.adminSchedule .schedule-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.adminSchedule .schedule-card div {
+  margin-bottom: 10px;
+}
+
+.adminSchedule .class-attendance {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.adminSchedule .class-attendance input[type="checkbox"] {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+/* Add Schedules Modal */
+
+.adminSchedule .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.adminSchedule .modal {
+  /* background-color: #fff; */
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(2px);
+  background-clip: padding-box;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* z-index: -100; */
+}
+
+.adminSchedule .formHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.adminSchedule .formHeader h2 {
+  margin: 0;
+}
+
+.adminSched .closeButton button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.adminSchedule .closeButton button:hover {
+  color: #ff4500;
+}
+
+/* Schedule Page.css */
+.adminSchedule .add-schedule-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 25px;
+  border-radius: 5px;
+  /* margin-bottom: 20px; */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.adminSchedule .add-schedule-btn:hover {
+  background-color: #0056b3;
+}
+
+.adminSchedule .form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 12px;
+}
+.adminSchedule .form-group:nth-child(4) {
+  gap: 48px;
+}
+.adminSchedule #courseFilter {
+  width: 120%;
+}
+
+.adminSchedule .form-group label {
+  width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.adminSchedule .form-input {
+  flex: 1;
+  margin-right: 10px;
+  background-color: white;
+}
+
+.adminSchedule .form-input:last-child {
+  margin-right: 0;
+}
+
+.adminSchedule .form-group > input {
+  margin-bottom: 10px;
+}
+
+.adminSchedule .form-group > label {
+  margin-bottom: 10px;
+}
+
+.adminSchedule .submit-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.adminSchedule .submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.adminSchedule .spinner-container {
+  display: flex;
+  justify-content: center;
+}
+
+.adminSchedule .spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #007bff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.adminSchedule .form-group:nth-child(2) div {
+  width: 48.5%;
+}
+
+/* adminSchedule.css */
+
+.adminSchedule .filter-section {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.adminSchedule .filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.adminSchedule .filter-section label {
+  margin-right: 10px;
+  color: black;
+  margin-top: 15px;
+}
+
+.adminSchedule .filter-section select,
+.adminSchedule .filter-section input[type="text"] {
+  margin-right: 10px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.adminSchedule .filter-section button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.adminSchedule .filter-section button:hover {
+  background-color: #0056b3;
+}
+
+.adminSchedule .actions-adminschedule {
+  display: flex;
+  gap: 30px;
+}
+.adminSchedule .actions-adminschedule button {
+  background-color: #05ad05;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.adminSchedule .actions-adminschedule button:hover {
+  background-color: #048c04;
+}
+
+.adminSchedule .icon-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  cursor: pointer;
+}
+
+.adminSchedule .edit-icon,
+.adminSchedule .delete-icon {
+  background-color: #ffc107;
+  color: black;
+  font-size: 25px;
+  padding: 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}

@@ -1,0 +1,99 @@
+/* TeacherAssignmentPage.jsx */
+.admin-assignment-page {
+  padding: 20px;
+}
+
+/* Filter Section */
+.admin-assignment-page .filter-section {
+  /* margin-bottom: 20px; */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.admin-assignment-page .filter-label {
+  color: black;
+  margin-top: 10px;
+}
+
+.admin-assignment-page .searchInput {
+  /* width: 30%; */
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.admin-assignment-page .filter-btn {
+  background-color: #ffc107;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.admin-assignment-page .filter-btn:hover {
+  background-color: #e0a800;
+}
+
+/* Assignment List */
+.admin-assignment-page .assignment-list-title {
+  margin-bottom: 10px;
+}
+
+.admin-assignment-page .card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.admin-assignment-page .card {
+  transition: transform 0.3s ease;
+  /* width: 300px; */
+  padding: 1.5rem;
+  color: #3b3b3b;
+  border: 1px solid #bbb;
+  border-radius: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(2px);
+  background-clip: padding-box;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* z-index: 1; */
+}
+
+.admin-assignment-page .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.admin-assignment-page .card p {
+  margin: 10px 0;
+}
+
+.admin-assignment-page .card a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.admin-assignment-page .card a:hover {
+  text-decoration: underline;
+}
+
+.admin-assignment-page .card button {
+  padding: 5px;
+  background-color: rgb(35, 35, 250);
+  color: white;
+}
+
+.admin-assignment-page .icon-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+}
+.submitModal .modalOverlay button {
+  display: flex;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+}

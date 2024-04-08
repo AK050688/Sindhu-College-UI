@@ -1,0 +1,255 @@
+.adminNotificationContainer .notification-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  /* border-radius: 0.5rem; */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
+  /* border: none; */
+}
+
+.adminNotificationContainer .notification-container h1 {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: black;
+  text-align: left;
+}
+
+.adminNotificationContainer .add-notification-btn {
+  background-color: #2563eb;
+  color: white;
+  font-weight: bold;
+  font-size: 0.875rem;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  width: 13%;
+  margin-top: 0;
+}
+
+.adminNotificationContainer .add-notification-btn:hover {
+  background-color: #1c4ab4;
+}
+
+@media (min-width: 768px) {
+  .adminNotificationContainer .notification-container {
+    flex-direction: row;
+  }
+
+  .adminNotificationContainer .notification-container h1 {
+    font-size: 1.25rem;
+  }
+
+  .adminNotificationContainer .add-notification-btn {
+    width: 13%;
+    margin-top: 0;
+  }
+}
+
+.adminNotificationContainer .spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border-width: 2px;
+  border-color: #718096;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Table COntainer */
+
+.adminNotificationContainer .table-container {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-top: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.adminNotificationContainer .table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  color: black;
+  font-weight: 700;
+}
+
+.adminNotificationContainer thead th {
+  background-color: #4a90e2;
+  /* color: white; */
+  padding: 12px;
+  text-align: left;
+  font-weight: bolder;
+}
+
+.adminNotificationContainer tbody tr:hover {
+  background-color: #97c1f1;
+}
+
+.adminNotificationContainer th,
+.adminNotificationContainer td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.adminNotificationContainer .table-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.adminNotificationContainer .table-container::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+.adminNotificationContainer tbody tr:hover {
+  box-shadow: 0 0 10px rgba(243, 240, 240, 0.905);
+  transition: box-shadow 0.3s ease;
+}
+.adminNotificationContainer .pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+.adminNotificationContainer .pagination button {
+  border: none;
+  color: black;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 3%;
+}
+
+.adminNotificationContainer .pagination button:hover {
+  background-color: #4a90e2;
+}
+
+.adminNotificationContainer .pagination span {
+  margin: 0 10px;
+}
+.adminNotificationContainer .disabled-row {
+  color: gray;
+  text-decoration: line-through;
+}
+.adminNotificationContainer .editButton {
+  color: white;
+  background-color: green;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.adminNotificationContainer .deleteButton {
+  color: white;
+  background-color: red;
+  border-radius: 10px;
+  width: 100%;
+}
+
+/* fORM */
+
+.notificationForm {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(41, 43, 47, 0.1);
+  z-index: 10;
+  backdrop-filter: blur(0.1rem);
+}
+
+.notificationForm .notificationContent {
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1rem rgb(244, 201, 83);
+  background-color: rgb(244, 201, 83);
+}
+
+.notificationForm .notificationHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.notificationForm .headerLeft {
+  flex: 1;
+}
+
+.notificationForm .notificationTitle {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.notificationForm .headerRight {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.notificationForm .closeButton {
+  font-size: 1.25rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.notificationForm .formContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.notificationForm .inputGroup {
+  display: flex;
+  gap: 10px;
+}
+
+.notificationForm .inputWrapper {
+  flex: 1;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.notificationForm .inputLabel {
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.notificationForm .inputField {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  background-color: #fff;
+  margin-top: 0.25rem;
+}
+
+.notificationForm .submitButton {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #3b82f6;
+  color: #000;
+  cursor: pointer;
+}
+
+.notificationForm .submitButton:hover {
+  background-color: #93c5fd;
+}

@@ -56,29 +56,17 @@ const ExamEditModel = ({
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-slate-500 border border-slate-300 rounded-md p-10 shadow-lg backdrop-filter backdrop-blur-sm bg-opacity-10 text-white">
-      <ToastContainer />
-      <div className="p-4 rounded shadow-lg w-[490px] bg-black">
-        <div className="flex justify-between">
-          <div className="flex items-center ml-36">
-            <h2 className="text-2xl font-bold mx-auto">Edit Exam</h2>
-          </div>
-          <div className="flex items-center">
-            <button
-              className="hover:text-gray-800 text-2xl text-white mt-0 bg-black border-0"
-              onClick={handleCloseForm}
-            >
-              <FiX />
-            </button>
-          </div>
+    <div className="addExamForm">
+      <div className="modalContent">
+        <div className="header">
+          <h2 className="title">Add Exam</h2>
+          <button className="closeButton" onClick={handleCloseForm}>
+            <FiX />
+          </button>
         </div>
-
-        <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4 ">
-          <div className="">
-            <label
-              htmlFor="exam-branch"
-              className="block text-white font-bold text-left"
-            >
+        <form onSubmit={handleSubmit} className="formGrid">
+          <div className="inputGroup">
+            <label htmlFor="exam-branch" className="label">
               Exam Branch:
             </label>
             <input
@@ -87,14 +75,11 @@ const ExamEditModel = ({
               name="examBranch"
               value={formData.examBranch}
               onChange={handleChange}
-              className="border border-gray-400 rounded px-3 py-1 w-full text-black bg-white"
+              className="input"
             />
           </div>
-          <div className="">
-            <label
-              htmlFor="exam-year"
-              className="block text-white font-bold text-left"
-            >
+          <div className="inputGroup">
+            <label htmlFor="exam-year" className="label">
               Exam Year:
             </label>
             <input
@@ -103,14 +88,11 @@ const ExamEditModel = ({
               name="examYear"
               value={formData.examYear}
               onChange={handleChange}
-              className="border border-gray-400 rounded px-3 py-1 w-full text-black bg-white"
+              className="input"
             />
           </div>
-          <div className="">
-            <label
-              htmlFor="exam-type"
-              className="block text-white font-bold text-left"
-            >
+          <div className="inputGroup">
+            <label htmlFor="exam-type" className="label">
               Exam Type:
             </label>
             <input
@@ -119,14 +101,11 @@ const ExamEditModel = ({
               name="examType"
               value={formData.examType}
               onChange={handleChange}
-              className="border border-gray-400 rounded px-3 py-1 w-full text-black bg-white"
+              className="input"
             />
           </div>
-          <div className="">
-            <label
-              htmlFor="exam-subject"
-              className="block text-white font-bold text-left"
-            >
+          <div className="inputGroup">
+            <label htmlFor="exam-subject" className="label">
               Exam Subject:
             </label>
             <input
@@ -135,30 +114,24 @@ const ExamEditModel = ({
               name="examSubject"
               value={formData.examSubject}
               onChange={handleChange}
-              className="border border-gray-400 rounded px-3 py-1 w-full text-black bg-white"
+              className="input"
             />
           </div>
-          <div className="">
-            <label
-              htmlFor="exam-marks"
-              className="block text-white font-bold text-left"
-            >
-              Exam Timming:
+          <div className="inputGroup">
+            <label htmlFor="exam-timing" className="label">
+              Exam Timing:
             </label>
             <input
               type="time"
-              id="exam-times"
+              id="exam-timing"
               name="examTiming"
               value={formData.examTiming}
               onChange={handleChange}
-              className="border border-gray-400 rounded px-3 py-1 w-full text-black bg-white"
+              className="input"
             />
           </div>
-          <div className="">
-            <label
-              htmlFor="exam-marks"
-              className="block text-white font-bold text-left"
-            >
+          <div className="inputGroup">
+            <label htmlFor="exam-marks" className="label">
               Exam Marks:
             </label>
             <input
@@ -167,14 +140,11 @@ const ExamEditModel = ({
               name="examMarks"
               value={formData.examMarks}
               onChange={handleChange}
-              className="border border-gray-400 rounded px-3 py-1 w-full text-black bg-white"
+              className="input"
             />
           </div>
-          <div className="">
-            <label
-              htmlFor="exam-date"
-              className="block text-white font-bold text-left"
-            >
+          <div className="inputGroup">
+            <label htmlFor="exam-date" className="label">
               Exam Date:
             </label>
             <input
@@ -183,14 +153,11 @@ const ExamEditModel = ({
               name="examDate"
               value={formData.examDate}
               onChange={handleChange}
-              className="border-2 border-gray-400 rounded px-3 py-1 w-[440px] text-black bg-white"
+              className="input"
             />
           </div>
-          <div className="col-span-2">
-            <label
-              htmlFor="exam-question-paper"
-              className="block text-white font-bold mb-2 text-left"
-            >
+          <div className="inputGroup">
+            <label htmlFor="exam-question-paper" className="label">
               Exam Question Paper (PDF):
             </label>
             <input
@@ -198,16 +165,13 @@ const ExamEditModel = ({
               id="exam-question-paper"
               accept=".pdf"
               onChange={handleChange}
-              className="border border-gray-400 rounded px-3 py-1 w-full text-black bg-white"
+              className="input"
             />
           </div>
-          <button
-            type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded col-span-2"
-          >
+          <button type="submit" className="submitButton">
             {loading ? (
-              <div className="spinner-border spinner-border-sm" role="status">
-                <span className="visually-hidden">Loading...</span>
+              <div className="spinner" role="status">
+                <span className="loader">Loading...</span>
               </div>
             ) : (
               "Save"

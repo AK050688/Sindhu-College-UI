@@ -153,12 +153,12 @@ const Calendar = () => {
   return (
     <>
       <Navbar />
-      <div className="calendar-container bg-login h-[88.5vh]">
-        <div className="calendar-content">
+      <div className="adminCalendarContainer">
+        <div className="calendarContent">
           <div className="calendar">
             <FullCalendar
               height="85vh"
-              className="custom-full-calendar"
+              className="customFullCalendar"
               plugins={[
                 dayGridPlugin,
                 timeGridPlugin,
@@ -199,27 +199,29 @@ const Calendar = () => {
             <ul>
               {currentEvents.map((event, index) => (
                 <li key={index}>
-                  <div className="event-item">
-                    <span className="event-title">{event.description}</span>
-                    <span className="event-date">
+                  <div className="eventItem">
+                    <div className="eventTitle">{event.description}</div>
+                    <div className="eventDate">
                       {formatDate(new Date(event.calenderDate), {
                         year: "numeric",
                         month: "numeric",
                         day: "numeric"
                       })}
-                    </span>
-                    <span
-                      className="action-icon"
-                      onClick={() => handleEventClick(event._id)}
-                    >
-                      <FaTrash />
-                    </span>
-                    <span
-                      className="action-icon"
-                      onClick={() => handleEventClick(event._id)}
-                    >
-                      <FaEdit />
-                    </span>
+                    </div>
+                    <div>
+                      <span
+                        className="actionIcon"
+                        onClick={() => handleEventClick(event._id)}
+                      >
+                        <FaTrash />
+                      </span>
+                      <span
+                        className="actionIcon"
+                        onClick={() => handleEventClick(event._id)}
+                      >
+                        <FaEdit />
+                      </span>
+                    </div>
                   </div>
                 </li>
               ))}

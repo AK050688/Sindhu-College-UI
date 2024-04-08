@@ -1,0 +1,168 @@
+.adminAttendanceContainer .container {
+  display: flex;
+  flex-direction: row;
+}
+
+/* .adminAttendanceContainer .background { */
+/* background-size: cover; */
+/* padding: 20px; */
+/* background-image: url("../../img/bg.avif");
+  height: 91.4vh; */
+/* } */
+
+.adminAttendanceContainer .title {
+  font-size: 1.7rem;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.adminAttendanceContainer .section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.adminAttendanceContainer .dateInput,
+.adminAttendanceContainer .searchInput {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.adminAttendanceContainer .label {
+  color: black;
+}
+
+.adminAttendanceContainer .searchInput {
+  /* border: 1px solid #fff; */
+  /* padding: 1px; */
+  border-radius: 5px;
+  /* height: 12px; */
+  /* background-color: #2196f3; */
+  color: #000;
+  outline: none;
+  margin-top: -10px;
+}
+
+.adminAttendanceContainer .button {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.adminAttendanceContainer .button:hover {
+  background-color: #0056b3;
+}
+
+.adminAttendanceContainer .tableContainer {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.adminAttendanceContainer .tableContainer table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  color: white;
+  font-weight: 700;
+}
+
+.adminAttendanceContainer thead th {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+.adminAttendanceContainer th,
+.adminAttendanceContainer td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  color: black;
+}
+
+.adminAttendanceContainer .tableContainer::-webkit-scrollbar {
+  width: 10px;
+}
+
+.adminAttendanceContainer .tableContainer::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+.adminAttendanceContainer tbody tr:hover {
+  box-shadow: 0 0 10px rgba(243, 240, 240, 0.905);
+  transition: box-shadow 0.3s ease;
+}
+
+.adminAttendanceContainer .attendance {
+  text-align: center;
+}
+.adminAttendanceContainer .attendanceOptions thead th:nth-child(5) {
+  text-align: center;
+}
+.adminAttendanceContainer .attendanceOptions {
+  display: flex;
+  justify-content: space-around;
+  background-color: none;
+  border: 0px;
+}
+
+.adminAttendanceContainer .attendanceRadio {
+  display: flex;
+  align-items: center;
+}
+
+.adminAttendanceContainer .attendanceRadio input {
+  margin-right: 5px;
+  margin-top: -12px;
+}
+.adminAttendanceContainer .attendanceRadio label {
+  font-size: 12px;
+  margin-top: -14px;
+}
+
+.adminAttendanceContainer .summaryContainer {
+  justify-content: center;
+  margin-top: 10px;
+  color: #f0f0f0;
+  border-radius: 8px;
+  border: 1px solid white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 5px 20px;
+  background-color: #4b5563;
+}
+
+.adminAttendanceContainer .summary {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.adminAttendanceContainer .summary p {
+  margin: 10px 0;
+  /* justify-content: center; */
+}
+
+.adminAttendanceContainer .summary p span {
+  font-weight: bold;
+}
+.adminAttendanceContainer .pencentage {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  /* margin-left: 400px; */
+}

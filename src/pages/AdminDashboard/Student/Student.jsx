@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
 import {
-  FaChevronLeft,
-  FaChevronRight,
   FaSearch,
-  FaTrash
+  // FaTrash,
+  FaChevronLeft,
+  FaChevronRight
 } from "react-icons/fa";
-import Navbar from "../../components/AdminDashboard/Navbar";
-import TeacherModal from "../../components/AdminDashboard/TeacherModal";
-import "../../styles/AdminDashboard/Teacher.css";
+import "../../../styles/AdminDashboard/student.css";
+import Navbar from "../../../components/AdminDashboard/Navbar";
+import StudentModal from "./StudentModal";
 import axios from "axios";
 
-function Teachers() {
-  const [teachers, setTeachers] = useState([]);
+function Student() {
+  const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedTeacher, setSelectedTeacher] = useState(null);
+  const [selectedStudent, setSelectedStudent] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
@@ -26,7 +26,7 @@ function Teachers() {
     setLoading(true);
     const token = localStorage.getItem("token");
     fetch(
-      "https://university-project-paresh.onrender.com/University/Admin/allTeachers",
+      "https://university-project-paresh.onrender.com/University/Admin/allStudents",
       {
         method: "GET",
         headers: {
@@ -36,27 +36,27 @@ function Teachers() {
     )
       .then((response) => response.json())
       .then((data) => {
-        setTeachers(data.Teachers);
+        console.log("Student", data.Students);
+        setStudents(data.Students);
       })
       .catch((error) => {
-        console.error("Error fetching teacher data:", error);
+        console.error("Error fetching student data:", error);
       })
       .finally(() => {
         setLoading(false);
       });
   };
 
-  const handleRowClick = (teacher) => {
-    setSelectedTeacher(teacher);
+  const handleRowClick = (student) => {
+    setSelectedStudent(student);
   };
 
-  const deleteTeacher = (id) => {
-    setLoading(true);
+  const deleteRow = (id) => {
     if (window.confirm(`Are you sure you want to delete this student?`)) {
       setLoading(true);
       console.log("id", id);
       fetch(
-        `https://university-project-paresh.onrender.com/University/Admin/deleteTeacher/${id}`,
+        `https://university-project-paresh.onrender.com/University/Admin/deleteStudent/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -78,10 +78,15 @@ function Teachers() {
     }
   };
 
+  const handlePaidClick = (rollNo) => {
+    // Implement functionality for marking student as paid
+    // You can perform API request here to mark the student as paid
+  };
+
   const handleDisableStudent = (id) => {
     axios
       .put(
-        `https://university-project-paresh.onrender.com/University/Admin/disableTeacher/${id}`
+        `https://university-project-paresh.onrender.com/University/Admin/disableStudent/${id}`
       )
       .then((response) => {
         handleGetData();
@@ -94,7 +99,7 @@ function Teachers() {
   const handleEnableStudent = (id) => {
     axios
       .put(
-        `https://university-project-paresh.onrender.com/University/Admin/enableTeacher/${id}`
+        `https://university-project-paresh.onrender.com/University/Admin/enableStudent/${id}`
       )
       .then((response) => {
         handleGetData();
@@ -106,38 +111,32 @@ function Teachers() {
 
   const indexOfLastRow = currentPage * rowsPerPage;
   const indexOfFirstRow = indexOfLastRow - rowsPerPage;
-
-  const filteredTeachers = teachers?.filter((teacher) =>
-    Object?.values(teacher)?.some((value) =>
-      value?.toString()?.toLowerCase()?.includes(searchQuery.toLowerCase())
+  const filteredStudents = students?.filter((student) =>
+    Object?.values(student)?.some((value) =>
+      value?.toString()?.toLowerCase()?.includes(searchQuery?.toLowerCase())
     )
   );
 
-  const currentRows = filteredTeachers?.slice(indexOfFirstRow, indexOfLastRow);
+  const currentRows = filteredStudents?.slice(indexOfFirstRow, indexOfLastRow);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const totalPages = Math?.ceil(filteredTeachers?.length / rowsPerPage);
+  const totalPages = Math?.ceil(filteredStudents?.length / rowsPerPage);
 
   return (
-    <div className="teacher-container">
-      <div className="h-[60px] bg-black">
-        <Navbar />
-      </div>
-      {/* <ToastContainer /> */}
-      <div className="bg-login bg-cover h-[89.1vh]">
-        <section className="flex flex-col md:flex-row justify-between items-center p-2 rounded-lg mb-4 border-0 border-white mt-3">
-          <h1 className="text-3xl font-semibold text-white text-center md:text-left mb-4 md:mb-0 md:mr-4 md:ml-0">
-            All Teachers Lists
-          </h1>
-          <div className="flex flex-col md:flex-row items-center md:gap-4 -mt-2">
-            <label htmlFor="rowsPerPage" className="text-white text-lg">
+    <>
+      <Navbar />
+      <div className="adminStudentContainer">
+        <div className="select-container">
+          <h1>All Student Lists</h1>
+          <div>
+            <label htmlFor="rowsPerPage" className="label">
               Rows per page:
             </label>
             <select
               name="rowsPerPage"
               id="rowsPerPage"
-              className="border p-1 text-gray-800 rounded-md bg-blue-300"
+              className="select"
               onChange={(e) => setRowsPerPage(parseInt(e.target.value))}
               value={rowsPerPage}
             >
@@ -146,28 +145,27 @@ function Teachers() {
             </select>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center md:mt-0">
-            <div className="relative">
-              <input
-                type="search"
-                name="search"
-                placeholder="Search here"
-                className="border p-2 px-4 md:px-10 rounded-md focus:outline-none bg-blue-300 text-black"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-              <div className="absolute top-3 right-2 md:right-4 text-gray-500">
-                <FaSearch />
-              </div>
+          <div className="relative">
+            <input
+              type="search"
+              name="search"
+              placeholder="Search here"
+              className="search-input"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <div className="search-icon">
+              <FaSearch />
             </div>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300 mt-1 md:mt-0">
-              Search
-            </button>
           </div>
-        </section>
+        </div>
+
+        <div className="search-container">
+          {/* <button className="search-btn">Search</button> */}
+        </div>
 
         {loading ? (
-          <div className="spinner-border spinner-border-sm" role="status">
+          <div className="spinner" role="status">
             <span className="visually-hidden">Loading...</span>
           </div>
         ) : (
@@ -176,73 +174,82 @@ function Teachers() {
               <table>
                 <thead>
                   <tr>
-                    <th>#</th>
+                    <th>SNo.</th>
+                    <th>Roll No.</th>
                     <th>Name</th>
-                    <th>Guardian Name</th>
                     <th>Email</th>
-                    <th>Mobile</th>
                     <th>State</th>
-                    <th>Gender</th>
-                    <th>Blood Group</th>
-                    <th>Department</th>
-                    <th>Joining Date</th>
+                    <th>Course Taken</th>
+                    <th>Branch Name</th>
+                    <th>Admission Year</th>
+                    <th>Fees</th>
                     <th>Delete</th>
-                    <th>Disable</th>
                     <th>Enable</th>
+                    <th>Disable</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {currentRows?.map((teacher, index) => (
+                  {currentRows?.map((student, index) => (
                     <tr
                       key={index}
                       className={
-                        teacher.accountStatus === "Disabled"
+                        student.accountStatus === "disabled"
                           ? "disabled-row"
                           : ""
                       }
-                      onClick={() => handleRowClick(teacher)}
+                      onClick={() => handleRowClick(student)}
                     >
                       <td>{index + 1}</td>
-                      <td>{teacher.Name}</td>
-                      <td>{teacher.guardian_Name}</td>
-                      <td>{teacher.email}</td>
-                      <td>{teacher.mobileNo}</td>
-                      <td>{teacher.state}</td>
-                      <td>{teacher.gender}</td>
-                      <td>{teacher.bloodGroup}</td>
-                      <td>{teacher.Department}</td>
-                      <td>{teacher.joiningDate}</td>
+                      <td>{student.rollNo}</td>
+                      <td>{student.Name}</td>
+                      <td>{student.email}</td>
+                      <td>{student.state}</td>
+                      <td>{student.courseTaken}</td>
+                      <td>{student.branchName}</td>
+                      <td>{student.admissionYear}</td>
                       <td>
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
-                            deleteTeacher(teacher._id);
+                            handlePaidClick(student._id);
                           }}
-                          className="border-0 text-red-700 rounded-md border-white"
+                          className="paidButton"
                         >
-                          <FaTrash className="mr-1" />
+                          Paid
                         </button>
                       </td>
                       <td>
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
-                            handleDisableStudent(teacher._id);
+                            deleteRow(student._id);
                           }}
-                          className="border-0 text-red-700 rounded-md border-white"
+                          className="deleteButton"
                         >
-                          Disable
+                          Delete
+                          {/* <FaTrash className="mr-1" /> */}
                         </button>
                       </td>
                       <td>
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
-                            handleEnableStudent(teacher._id);
+                            handleEnableStudent(student._id);
                           }}
-                          className="border-0 text-red-700 rounded-md border-white"
+                          className="enableButton"
                         >
                           Enable
+                        </button>
+                      </td>
+                      <td>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleDisableStudent(student._id);
+                          }}
+                          className="disableButton"
+                        >
+                          Disable
                         </button>
                       </td>
                     </tr>
@@ -253,10 +260,10 @@ function Teachers() {
           </div>
         )}
 
-        {selectedTeacher && (
-          <TeacherModal
-            teacher={selectedTeacher}
-            onClose={() => setSelectedTeacher(null)}
+        {selectedStudent && (
+          <StudentModal
+            student={selectedStudent}
+            onClose={() => setSelectedStudent(null)}
           />
         )}
 
@@ -270,14 +277,14 @@ function Teachers() {
           <span>{currentPage}</span> / <span>{totalPages}</span>
           <button
             onClick={() => paginate(currentPage + 1)}
-            disabled={indexOfLastRow >= filteredTeachers.length}
+            disabled={indexOfLastRow >= filteredStudents.length}
           >
             <FaChevronRight />
           </button>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
-export default Teachers;
+export default Student;

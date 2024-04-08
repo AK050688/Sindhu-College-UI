@@ -8,6 +8,7 @@ import {
   FaClipboardList,
   FaUserGraduate
 } from "react-icons/fa";
+import "../../styles/AdminDashboard/Dashboard.css"
 
 function Dashboard() {
   const [studentCount, setStudentCount] = useState(0);
@@ -72,11 +73,9 @@ function Dashboard() {
 
   return (
     <>
-      <div className="bg-black">
-        <Navbar />
-      </div>
-      <div className="bg-cover bg-login h-screen md:h-[88.5vh]">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 justify-center gap-4 w-full p-4 md:p-8 lg:p-16 xl:p-32 pt-14">
+      <Navbar />
+      <div className="adminDashboardContainer">
+        <div className="grid-container">
           {[
             {
               icon: <FaUserGraduate size={70} />,
@@ -105,14 +104,11 @@ function Dashboard() {
               count: examCount
             }
           ].map((item, index) => (
-            <div
-              key={index}
-              className="bg-gray-800 text-white rounded-lg flex flex-col items-center p-4 md:p-12"
-            >
-              <div>{item.icon}</div>
-              <div className="mt-4">
-                <span className="text-xl">{item.label}</span>
-                <span className="text-xl block">{item.count}</span>
+            <div key={index} className="grid-item">
+              <div className="icon">{item.icon}</div>
+              <div className="label">
+                <span>{item.label}</span>
+                <span className="count">{item.count}</span>
               </div>
             </div>
           ))}

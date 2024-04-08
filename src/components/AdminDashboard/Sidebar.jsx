@@ -1,4 +1,3 @@
-//Sidebar.jsx
 import { useState } from "react";
 import {
   FaTh,
@@ -33,6 +32,11 @@ const Sidebar = ({ children }) => {
       path: "/admin-teacher",
       name: "Teachers",
       icon: <FaUserAlt />
+    },
+    {
+      path: "/admin-schedule",
+      name: "Schedule",
+      icon: <FaFileAlt />
     },
     {
       path: "/admin-registration",
@@ -76,43 +80,41 @@ const Sidebar = ({ children }) => {
     }
   ];
   return (
-    <>
-      <div className="flex mt-0">
-        <div style={{ width: isOpen ? "230px" : "50px" }} className="sidebar">
-          <div className="top_section">
-            <img
-              src="https://yt3.googleusercontent.com/BD6jdwY4iosy_AvzawaKCceFVt-5otehbbOgLWIlL_EVpAf1iXadeNQEuMzUEokKNPQy8QKq5A=s900-c-k-c0x00ffffff-no-rj"
-              alt=""
-              style={{ display: isOpen ? "block" : "none" }}
-              className="logo w-20 h-20 rounded-full"
-            />
-            <div
-              style={{ marginLeft: isOpen ? "50px" : "0px" }}
-              className="bars"
-            >
-              <FaBars onClick={toggle} />
-            </div>
+    <div className="adminSidebarContainer">
+      <div
+        style={{ width: isOpen ? "190px" : "50px" }}
+        className="sidebar-section"
+      >
+        <div className="top_section">
+          <img
+            src="https://yt3.googleusercontent.com/BD6jdwY4iosy_AvzawaKCceFVt-5otehbbOgLWIlL_EVpAf1iXadeNQEuMzUEokKNPQy8QKq5A=s900-c-k-c0x00ffffff-no-rj"
+            alt=""
+            style={{ display: isOpen ? "block" : "none" }}
+            className="logo"
+          />
+          <div style={{ marginLeft: isOpen ? "50px" : "0px" }} className="bars">
+            <FaBars onClick={toggle} />
           </div>
-          {menuItem.map((item, index) => (
-            <NavLink
-              to={item.path}
-              key={index}
-              className="link"
-              activeclassname="active"
-            >
-              <div className="icon">{item.icon}</div>
-              <div
-                style={{ display: isOpen ? "block" : "none" }}
-                className="link_text"
-              >
-                {item.name}
-              </div>
-            </NavLink>
-          ))}
         </div>
-        <main className="h-[100vh]">{children}</main>
+        {menuItem.map((item, index) => (
+          <NavLink
+            to={item.path}
+            key={index}
+            className="link"
+            activeclassname="active"
+          >
+            <div className="icon">{item.icon}</div>
+            <div
+              style={{ display: isOpen ? "block" : "none" }}
+              className="link_text"
+            >
+              {item.name}
+            </div>
+          </NavLink>
+        ))}
       </div>
-    </>
+      <div className="adminMain">{children}</div>
+    </div>
   );
 };
 

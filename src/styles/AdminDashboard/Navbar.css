@@ -1,0 +1,56 @@
+.adminNavbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem;
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 100%;
+  background-color: rgb(244, 201, 83);
+  border-radius: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.adminNavbarContainer .title {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.adminNavbarContainer .profileIcon {
+  cursor: pointer;
+}
+
+.adminNavbarContainer .profileDropdown {
+  position: absolute;
+  right: 5px;
+  top: 50px;
+  z-index: 50;
+}
+
+.adminNavbarContainer .dropdownContent {
+  width: 150px;
+  /* height: 170px; */
+  background-color: rgb(244, 201, 83);
+  border-radius: 0.75rem;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.adminNavbarContainer .dropdownItem {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  margin: 0.25rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid #4b5563;
+  cursor: pointer;
+}
+
+.adminNavbarContainer .dropdownItem:hover {
+  background-color: #1e293b;
+}
+
+.adminNavbarContainer .dropdownItem span {
+  color: #000;
+}

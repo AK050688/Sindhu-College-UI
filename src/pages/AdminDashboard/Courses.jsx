@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import CourseFormModel from "../../components/AdminDashboard/Courses/CourseFormModel";
 import CourseEditModel from "../../components/AdminDashboard/Courses/CourseEditModel";
 import "../../styles/AdminDashboard/Courses.css";
+import axios from "axios";
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
@@ -53,32 +54,21 @@ const Courses = () => {
     );
   };
 
-  const deleteRow = (courseId) => {
-    fetch(
-      `https://university-project-paresh.onrender.com/University/Course/deleteCourse/${courseId}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        // console.log("Deleted course:", data);
-        toast.success(data.message);
-        setIsDelete(true);
-        setTimeout(() => setIsDelete(false), 1000);
-      })
-      .catch((error) => {
-        console.error("Error deleting course:", error);
-        toast.error("Failed to delete course. Please try again later.");
-        setIsDelete(false);
-      })
-      .finally(() => {
-        setLoading(false);
-        setIsDelete(false);
-      });
+  const deleteRow = async (courseId) => {
+    try {
+      await axios.delete(
+        `https://university-project-paresh.onrender.com/University/Course/deleteCourse/${courseId}`
+      );
+      const response = await axios.get(
+        "https://university-project-paresh.onrender.com/University/Course/allCourses"
+      );
+      setCourses(response.data.courses);
+      toast.success("course deleted successfully");
+      console.log("course deleted successfully", response.data.courses);
+    } catch (error) {
+      console.error("Error deleting schedule:", error);
+      toast.error("Error deleting course:");
+    }
   };
 
   const addCourse = (newCourse) => {
@@ -87,27 +77,19 @@ const Courses = () => {
   };
 
   return (
-    <div>
-      <div className="h-[60px] bg-black">
-        <Navbar />
-      </div>
+    <>
+      <Navbar />
       <ToastContainer />
-      <div className="mx-auto bg-cover bg-login h-[91.4vh]">
-        <div className="flex flex-col md:flex-row justify-between items-center p-2 rounded-lg shadow-md border-0 border-black">
-          <h1 className="text-xl font-bold text-white text-left">
-            All Courses Lists
-          </h1>
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-[15%] mt-0"
-            onClick={() => setShowForm(true)}
-          >
+      <div className="coursesContainer">
+        <div className="coursesHeader">
+          <h1 className="headerTitle">All Courses Lists</h1>
+          <button className="addCourseButton" onClick={() => setShowForm(true)}>
             Add Course
           </button>
         </div>
         {showForm && (
           <CourseFormModel onAddCourse={addCourse} setShowForm={setShowForm} />
         )}
-
         {showEditForm && (
           <CourseEditModel
             courseId={editCourseData._id}
@@ -118,22 +100,14 @@ const Courses = () => {
             setShowEditForm={setShowEditForm}
           />
         )}
-        {/* <div className="student-heading">
-          <div className="min-h-[90px] rounded flex justify-center items-center">
-            <h1 className="text-3xl font-semibold text-blue-600">
-              All Courses Lists
-            </h1>
-          </div>
-        </div> */}
-
         {loading ? (
-          <div className="spinner-border spinner-border-sm" role="status">
-            <span className="visually-hidden">Loading...</span>
+          <div className="spinner" role="status">
+            <span className="loader"></span>
           </div>
         ) : (
-          <div className="table-container">
-            <div className="table-section">
-              <table>
+          <div className="tableContainer">
+            <div className="tableSection">
+              <table className="courseTable">
                 <thead>
                   <tr>
                     <th>S.No</th>
@@ -153,7 +127,7 @@ const Courses = () => {
                       <td>{course.year}</td>
                       <td>
                         <button
-                          className="bg-green-500 text-white p-1 rounded-md"
+                          className="editButton"
                           onClick={() => {
                             setEditCourseData(course);
                             setShowEditForm(true);
@@ -165,7 +139,7 @@ const Courses = () => {
                       {!isDelete && (
                         <td>
                           <button
-                            className="bg-red-500 text-white p-2 rounded-md cursor-pointer"
+                            className="deleteButton"
                             onClick={() => deleteRow(course._id)}
                           >
                             Delete
@@ -180,7 +154,7 @@ const Courses = () => {
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 };
 
