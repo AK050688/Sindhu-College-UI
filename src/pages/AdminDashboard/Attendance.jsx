@@ -6,7 +6,7 @@ function Attendance() {
   const [students, setStudents] = useState([]);
   const [filteredStudents, setFilteredStudents] = useState([]);
   const [date, setDate] = useState("");
-  const [searchName, setSearchName] = useState("");
+  const [searchName, setSearchName] = useState("Paresh");
   const [searchRollNo, setSearchRollNo] = useState("");
   const [loading, setLoading] = useState(true);
   console.log("f", filteredStudents);
@@ -32,10 +32,11 @@ function Attendance() {
       .then((data) => {
         // console.log(data);
         setStudents(data.Students);
-        setLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching student data:", error);
+      })
+      .finally(() => {
         setLoading(false);
       });
   };
@@ -69,14 +70,14 @@ function Attendance() {
   useEffect(() => {
     handleFilter();
     // eslint-disable-next-line
-  }, [date, searchName, searchRollNo]);
+  }, [date, searchName, searchRollNo, filteredStudents]);
 
   return (
     <>
       <Navbar />
       <div className={styles.adminAttendanceContainer}>
         <div className={styles.container}>
-          <h1 className={styles.title}>Marks Student Attendance</h1>
+          <h1 className={styles.title}> Student Attendance</h1>
         </div>
         <section className={styles.section}>
           <div className={styles.dateInput}>
@@ -114,7 +115,9 @@ function Attendance() {
         </section>
 
         {loading ? (
-          <div className={styles.spinner}></div>
+          <div className="spinner" role="status">
+            <span className="loader"></span>
+          </div>
         ) : (
           <div className={styles.tableContainer}>
             <div className={styles.tableSection}>

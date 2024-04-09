@@ -11,7 +11,6 @@ const Courses = () => {
   const [courses, setCourses] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [isDelete, setIsDelete] = useState(false);
   const [showEditForm, setShowEditForm] = useState(false);
   const [editCourseData, setEditCourseData] = useState(null);
 
@@ -80,7 +79,7 @@ const Courses = () => {
     <>
       <Navbar />
       <ToastContainer />
-      <div className="coursesContainer">
+      <div className="adminCoursesContainer">
         <div className="coursesHeader">
           <h1 className="headerTitle">All Courses Lists</h1>
           <button className="addCourseButton" onClick={() => setShowForm(true)}>
@@ -136,16 +135,14 @@ const Courses = () => {
                           Edit
                         </button>
                       </td>
-                      {!isDelete && (
-                        <td>
-                          <button
-                            className="deleteButton"
-                            onClick={() => deleteRow(course._id)}
-                          >
-                            Delete
-                          </button>
-                        </td>
-                      )}
+                      <td>
+                        <button
+                          className="deleteButton"
+                          onClick={() => deleteRow(course._id)}
+                        >
+                          Delete
+                        </button>
+                      </td>
                     </tr>
                   ))}
                 </tbody>

@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  FaSearch,
-  // FaTrash,
-  FaChevronLeft,
-  FaChevronRight
-} from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "../../../styles/AdminDashboard/student.css";
 import Navbar from "../../../components/AdminDashboard/Navbar";
 import StudentModal from "./StudentModal";
@@ -154,19 +149,12 @@ function Student() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
-            <div className="search-icon">
-              <FaSearch />
-            </div>
           </div>
-        </div>
-
-        <div className="search-container">
-          {/* <button className="search-btn">Search</button> */}
         </div>
 
         {loading ? (
           <div className="spinner" role="status">
-            <span className="visually-hidden">Loading...</span>
+            <span className="loader"></span>
           </div>
         ) : (
           <div className="table-container">

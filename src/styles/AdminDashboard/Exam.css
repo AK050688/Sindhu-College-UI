@@ -62,7 +62,7 @@
 }
 
 .examList thead th {
-  background-color: #4a90e2;
+  background-color: #3498db;
   color: white;
   padding: 12px;
   font-weight: bolder;
@@ -92,12 +92,6 @@
   box-shadow: 0 0 10px rgba(243, 240, 240, 0.905);
   transition: box-shadow 0.3s ease;
 }
-.examList .tableContainer button {
-  width: 50%;
-  padding: 5px;
-  font-size: 10px;
-  margin-top: 0px;
-}
 
 .examList .spinner {
   display: flex;
@@ -107,7 +101,7 @@
 
 .examList .loader {
   border: 4px solid rgba(0, 0, 0, 0.1);
-  border-left-color: #09f;
+  border-left-color: #3498db;
   border-radius: 50%;
   width: 24px;
   height: 24px;
@@ -117,6 +111,16 @@
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .examList .header {
+    flex-direction: column;
+  }
+  .examList .deleteButton,
+  .examList .editButton {
+    width: 100%;
   }
 }
 
@@ -149,11 +153,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  flex-direction: row;
+  /* margin-bottom: 1rem; */
 }
 
 .addExamForm .title {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 
@@ -165,8 +170,8 @@
 
 .addExamForm .formGrid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
 }
 
 .addExamForm .inputGroup {
@@ -175,15 +180,16 @@
 }
 
 .addExamForm .label {
-  font-weight: bold;
-  margin-bottom: 0.25rem;
+  /* font-weight: bold; */
+  /* margin-bottom: 0.25rem; */
   text-align: left;
+  font-size: 1rem;
 }
 
 .addExamForm .input {
   border: 1px solid #ccc;
   border-radius: 0.25rem;
-  padding: 0.5rem;
+  padding: 0.4rem;
   width: 100%;
 }
 
@@ -195,4 +201,26 @@
   border-radius: 0.25rem;
   padding: 0.5rem;
   cursor: pointer;
+}
+
+/* Adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+  .addExamForm .modalContent {
+    width: 90%; /* Adjust modal width for smaller screens */
+    max-width: 90%; /* Set maximum width for the modal */
+  }
+  .addExamForm .label {
+    font-size: 0.6rem;
+  }
+  .addExamForm .input {
+    font-size: 0.6rem;
+  }
+
+  .addExamForm .formGrid {
+    grid-template-columns: 1fr; /* Change to single column layout */
+  }
+
+  .addExamForm .submitButton {
+    width: 70%; /* Make submit button full width */
+  }
 }

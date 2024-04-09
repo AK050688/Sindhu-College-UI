@@ -10,6 +10,9 @@
   align-items: center;
   justify-content: space-around;
 }
+.filter-section > div {
+  display: flex;
+}
 
 .admin-assignment-page .filter-label {
   color: black;
@@ -23,17 +26,23 @@
   border: 1px solid #ccc;
 }
 
-.admin-assignment-page .filter-btn {
-  background-color: #ffc107;
-  color: black;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
+@media screen and (max-width: 768px) {
+  .admin-assignment-page .filter-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .filter-section div {
+    flex-direction: column;
+  }
 
-.admin-assignment-page .filter-btn:hover {
-  background-color: #e0a800;
+  .admin-assignment-page .filter-section > div {
+    margin-bottom: 15px;
+    align-items: stretch;
+  }
+
+  .admin-assignment-page .searchInput {
+    width: 100%;
+  }
 }
 
 /* Assignment List */
@@ -41,59 +50,80 @@
   margin-bottom: 10px;
 }
 
-.admin-assignment-page .card-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-}
-
-.admin-assignment-page .card {
-  transition: transform 0.3s ease;
-  /* width: 300px; */
-  padding: 1.5rem;
-  color: #3b3b3b;
-  border: 1px solid #bbb;
-  border-radius: 0.75rem;
-  background-color: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(2px);
-  background-clip: padding-box;
+.admin-assignment-page .table-container {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-top: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  /* z-index: 1; */
 }
 
-.admin-assignment-page .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.admin-assignment-page .table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  color: black;
+  font-weight: 700;
 }
 
-.admin-assignment-page .card p {
-  margin: 10px 0;
+.admin-assignment-page thead th {
+  background-color: #3498db;
+  /* color: white; */
+  padding: 12px;
+  text-align: left;
+  font-weight: bolder;
 }
 
-.admin-assignment-page .card a {
-  text-decoration: none;
-  color: #007bff;
+.admin-assignment-page tbody tr:hover {
+  background-color: #97c1f1;
 }
 
-.admin-assignment-page .card a:hover {
-  text-decoration: underline;
+.admin-assignment-page th,
+.admin-assignment-page td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
 }
 
-.admin-assignment-page .card button {
-  padding: 5px;
-  background-color: rgb(35, 35, 250);
-  color: white;
+.admin-assignment-page .table-container::-webkit-scrollbar {
+  width: 10px;
 }
 
-.admin-assignment-page .icon-container {
+.admin-assignment-page .table-container::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+.admin-assignment-page tbody tr:hover {
+  box-shadow: 0 0 10px rgba(243, 240, 240, 0.905);
+  transition: box-shadow 0.3s ease;
+}
+.admin-assignment-page .pagination {
+  margin-top: 20px;
   display: flex;
-  justify-content: space-around;
-  gap: 30px;
-}
-.submitModal .modalOverlay button {
-  display: flex;
-  width: 50%;
-  margin: auto;
-  text-align: center;
   justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+.admin-assignment-page .pagination button {
+  border: none;
+  color: black;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 3%;
+}
+
+.admin-assignment-page .pagination button:hover {
+  background-color: #3498db;
+}
+
+.adminStudentContainer .pagination span {
+  margin: 0 10px;
 }

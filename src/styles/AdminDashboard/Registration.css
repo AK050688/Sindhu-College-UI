@@ -4,7 +4,7 @@
   height: 91.4vh;
 }
 
-.buttonContainer {
+.registrationContainer .buttonContainer {
   display: flex;
   gap: 0.75rem;
   align-items: center;
@@ -12,7 +12,7 @@
   padding: 10px;
 }
 
-.button {
+.registrationContainer .button {
   padding: 0.5rem 1rem;
   margin-bottom: 1.5rem;
   font-size: 15px;
@@ -24,18 +24,18 @@
   width: 80%;
 }
 
-.button:hover {
-  background-color: #06f;
+.registrationContainer .button:hover {
+  background-color: #3498db;
   color: white;
 }
 
-.teacherActive {
-  background-color: #06f;
+.registrationContainer .teacherActive {
+  background-color: #3498db;
   color: white;
 }
 
-.studentActive {
-  background-color: #06f;
+.registrationContainer .studentActive {
+  background-color: #3498db;
   color: white;
 }
 
@@ -55,7 +55,7 @@
 }
 
 .registrationFormContainer h1 {
-  color: #3182ce;
+  color: #3498db;
   font-size: 20px;
 }
 
@@ -98,7 +98,7 @@
   /* margin-left: 40%; */
   padding: 0.5rem 1rem;
   border-radius: 0.375rem;
-  background-color: #3182ce;
+  background-color: #3498db;
   color: #000;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
@@ -115,7 +115,7 @@
 
 .registrationFormContainer .spinner {
   border: 0.25rem solid #fff;
-  border-top: 0.25rem solid #3182ce;
+  border-top: 0.25rem solid #3498db;
   border-radius: 50%;
   width: 1rem;
   height: 1rem;
@@ -128,5 +128,32 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+@media screen and (max-width: 768px) {
+  .registrationFormContainer {
+    padding: 20px; 
+  }
+
+  .registrationFormContainer h1 {
+    font-size: 24px; 
+    margin-bottom: 15px; 
+  }
+
+  .registrationFormContainer .form {
+    flex-direction: column; 
+  }
+
+  .registrationFormContainer .flexContainer {
+    flex-direction: column; 
+    gap: 15px; 
+  }
+
+  .registrationFormContainer .inputGroup {
+    flex: 1; 
+  }
+
+  .registrationFormContainer .submitButton {
+    width: 100%; 
   }
 }

@@ -17,7 +17,7 @@ const TeacherModal = ({ teacher, onClose }) => {
     <div className="adminTeacherModalContainer">
       <div className="modalContainer">
         <div className="modalHeader">
-          <h2 >Teacher Details</h2>
+          <h2>Teacher Details</h2>
           <button className="closeBtn" onClick={onClose}>
             <FiX />
           </button>
@@ -71,12 +71,7 @@ const TeacherModal = ({ teacher, onClose }) => {
               <strong>Gender:</strong> {teacher.gender}
             </p>
           </div>
-          <div className="gridItem">
-            <FaCalendarAlt className="icon" />
-            <p className="text">
-              <strong>Joining Date:</strong> {teacher.joiningDate}
-            </p>
-          </div>
+
           <div className="gridItem">
             <FaRegAddressCard className="icon" />
             <p className="text">
@@ -99,6 +94,12 @@ const TeacherModal = ({ teacher, onClose }) => {
             <FaRegAddressCard className="icon" />
             <p className="text">
               <strong>Account Status:</strong> {teacher.accountStatus}
+            </p>
+          </div>
+          <div className="gridItem">
+            <FaCalendarAlt className="icon" />
+            <p className="text">
+              <strong>Joining Date:</strong> {teacher.joiningDate}
             </p>
           </div>
           <div className="gridItem">

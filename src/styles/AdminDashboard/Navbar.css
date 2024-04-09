@@ -1,56 +1,173 @@
 .adminNavbarContainer {
+  border: 1px solid #000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.25rem;
-  margin-top: 0.5rem;
-  font-size: 1.5rem;
-  font-weight: bold;
-  width: 100%;
+  padding: 10px 15px;
+  margin: 10px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: rgb(244, 201, 83);
-  border-radius: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.adminNavbarContainer .title {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.adminNavbarContainer .profileIcon {
-  cursor: pointer;
-}
-
-.adminNavbarContainer .profileDropdown {
-  position: absolute;
-  right: 5px;
-  top: 50px;
-  z-index: 50;
-}
-
-.adminNavbarContainer .dropdownContent {
-  width: 150px;
-  /* height: 170px; */
-  background-color: rgb(244, 201, 83);
-  border-radius: 0.75rem;
-  font-size: 15px;
+  color: black;
+  flex-direction: row;
   padding: 10px;
 }
 
-.adminNavbarContainer .dropdownItem {
+.adminNavbarContainer .leftSection {
   display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-  margin: 0.25rem;
-  padding: 0.5rem;
-  border-bottom: 1px solid #4b5563;
+  align-items: center;
+  gap: 15px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.adminNavbarContainer .rightSection {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.adminNavbarContainer .rightSection .search-box input {
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 5px 10px;
+  outline: none;
+}
+
+.adminNavbarContainer .rightSection .search-box span {
   cursor: pointer;
 }
 
-.adminNavbarContainer .dropdownItem:hover {
-  background-color: #1e293b;
+.adminNavbarContainer .navbarIcons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 20px;
+  font-weight: 500;
+  justify-content: center;
+  margin-left: 0;
+  justify-content: space-around;
 }
 
-.adminNavbarContainer .dropdownItem span {
-  color: #000;
+.adminNavbarContainer .navbarIcons > span {
+  cursor: pointer;
+}
+
+.adminNavbarContainer .notificationIcon {
+  position: relative;
+  color: black;
+}
+.adminNavbarContainer .notificationBadge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #fd0505;
+  color: #fff;
+  font-size: 14px;
+  padding: 5px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+}
+
+.adminNavbarContainer .calendarIcon {
+  position: relative;
+  color: black;
+}
+.adminNavbarContainer .calendarBadge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #063e9e;
+  color: #fff;
+  font-size: 14px;
+  padding: 5px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+}
+
+.adminNavbarContainer .navPopup {
+  position: absolute;
+  right: 15px;
+  top: calc(10% + 10px);
+  background-color: rgb(244, 201, 83);
+  width: 130px;
+  display: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.adminNavbarContainer .navPopup ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.adminNavbarContainer .navPopup ul li {
+  padding: 10px;
+  border-bottom: 1px solid #000;
+}
+
+.adminNavbarContainer .navPopup ul li:hover {
+  color: #fff;
+  cursor: pointer;
+  background-color: rgb(244, 201, 83);
+}
+
+.adminNavbarContainer .show {
+  display: flex;
+  flex-direction: column;
+}
+.adminNavbarContainer .adminProfileImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.adminNavbarContainer .adminName {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .adminNavbarContainer {
+    flex-direction: column;
+    align-items: stretch;
+    font-size: 10px;
+  }
+
+  .adminNavbarContainer {
+    border-radius: 0;
+  }
+  .adminNavbarContainer .leftSection {
+    font-size: 15px;
+  }
+
+  .adminNavbarContainer .adminName {
+    font-size: 15px;
+    text-align: left;
+  }
+
+  .adminNavbarContainer .rightSection .navbarIcons {
+    flex-direction: row;
+  }
+
+  .adminNavbarContainer .rightSection .navbarIcons > span {
+    margin: 5px 0;
+  }
 }

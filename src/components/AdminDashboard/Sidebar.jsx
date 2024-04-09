@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   FaTh,
   FaBars,
@@ -7,78 +7,61 @@ import {
   FaUserCheck,
   FaFileAlt
 } from "react-icons/fa";
-import { MdNotificationsActive } from "react-icons/md";
+// import { MdNotificationsActive } from "react-icons/md";
 import { GrCertificate } from "react-icons/gr";
 import "../../styles/AdminDashboard/Sidebar.css";
 import { NavLink } from "react-router-dom";
 import { PiExamFill } from "react-icons/pi";
-import { RiCalendarFill, RiMoneyDollarCircleFill } from "react-icons/ri";
+import { RiMoneyDollarCircleFill } from "react-icons/ri";
 
 const Sidebar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    setIsSmallScreen(mediaQuery.matches);
+
+    const handleMediaQueryChange = (e) => {
+      setIsSmallScreen(e.matches);
+      if (e.matches) setIsOpen(false);
+    };
+
+    mediaQuery.addListener(handleMediaQueryChange);
+
+    return () => {
+      mediaQuery.removeListener(handleMediaQueryChange);
+    };
+  }, []);
+
+  const toggle = () => {
+    if (isSmallScreen) return;
+    setIsOpen(!isOpen);
+  };
+
   const menuItem = [
-    {
-      path: "/admin-dashboard",
-      name: "Dashboard",
-      icon: <FaTh />
-    },
-    {
-      path: "/admin-student",
-      name: "Students",
-      icon: <FaUserAlt />
-    },
-    {
-      path: "/admin-teacher",
-      name: "Teachers",
-      icon: <FaUserAlt />
-    },
-    {
-      path: "/admin-schedule",
-      name: "Schedule",
-      icon: <FaFileAlt />
-    },
+    { path: "/admin-dashboard", name: "Dashboard", icon: <FaTh /> },
+    { path: "/admin-student", name: "Students", icon: <FaUserAlt /> },
+    { path: "/admin-teacher", name: "Teachers", icon: <FaUserAlt /> },
+    { path: "/admin-schedule", name: "Schedule", icon: <FaFileAlt /> },
     {
       path: "/admin-registration",
       name: "Registration",
       icon: <FaCommentAlt />
     },
-    {
-      path: "/admin-notifications",
-      name: "Notifications",
-      icon: <MdNotificationsActive />
-    },
-    {
-      path: "/admin-courses",
-      name: "Courses",
-      icon: <GrCertificate />
-    },
-    {
-      path: "/admin-exam",
-      name: "Exam",
-      icon: <PiExamFill />
-    },
-    {
-      path: "/admin-calendar",
-      name: "Calendar",
-      icon: <RiCalendarFill />
-    },
-    {
-      path: "/admin-fees",
-      name: "Fees",
-      icon: <RiMoneyDollarCircleFill />
-    },
-    {
-      path: "/admin-attendance",
-      name: "Attendance",
-      icon: <FaUserCheck />
-    },
-    {
-      path: "/admin-assignment",
-      name: "Assignment",
-      icon: <FaFileAlt />
-    }
+    // {
+    //   path: "/admin-notifications",
+    //   name: "Notifications",
+    //   icon: <MdNotificationsActive />
+    // },
+    { path: "/admin-courses", name: "Courses", icon: <GrCertificate /> },
+    { path: "/admin-exam", name: "Exam", icon: <PiExamFill /> },
+    // { path: "/admin-calendar", name: "Calendar", icon: <RiCalendarFill /> },
+    { path: "/admin-fees", name: "Fees", icon: <RiMoneyDollarCircleFill /> },
+    { path: "/admin-attendance", name: "Attendance", icon: <FaUserCheck /> },
+    { path: "/admin-assignment", name: "Assignment", icon: <FaFileAlt /> }
   ];
+
   return (
     <div className="adminSidebarContainer">
       <div
@@ -101,7 +84,7 @@ const Sidebar = ({ children }) => {
             to={item.path}
             key={index}
             className="link"
-            activeclassname="active"
+            activeClassName="active"
           >
             <div className="icon">{item.icon}</div>
             <div

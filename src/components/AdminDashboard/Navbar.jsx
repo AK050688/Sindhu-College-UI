@@ -1,61 +1,89 @@
-import React, { useState, useRef } from "react";
-import { CgProfile } from "react-icons/cg";
-import { MdDashboard } from "react-icons/md";
-import { ImProfile } from "react-icons/im";
-import { IoMdLogOut } from "react-icons/io";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import "../../styles/AdminDashboard/Navbar.css";
+import { FaRegCalendarAlt } from "react-icons/fa";
+import { MdNotifications } from "react-icons/md";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Navbar = () => {
-  const [profile, setProfile] = useState(false);
-  const profileRef = useRef(null);
+  const [toggleProfile, setToggleProfile] = useState(false);
+  const [adminImage, setAdminImage] = useState(null);
+  const [notifications, setNotifications] = useState([]);
+  const [calendar, setCalendar] = useState([]);
+  const [adminName, setAdminName] = useState("");
 
-  const toggleProfile = () => {
-    setProfile(!profile);
-  };
+  useEffect(() => {
+    const adminImageFromStorage = localStorage.getItem("adminImage");
+    setAdminImage(adminImageFromStorage);
+    const adminNameFromStorage = localStorage.getItem("adminName");
+    setAdminName(adminNameFromStorage);
+    fetchNotifications();
+  }, []);
 
-  const handleClickOutside = (event) => {
-    if (profileRef.current && !profileRef.current.contains(event.target)) {
-      setProfile(false);
+  const fetchNotifications = async () => {
+    try {
+      const response = await axios.get(
+        "https://university-project-paresh.onrender.com/University/Notification/notifications"
+      );
+      const res = await axios.get(
+        "https://university-project-paresh.onrender.com/University/CalenderRoute/events"
+      );
+      setNotifications(response.data);
+      console.log(response.data, res.data.Events);
+      setCalendar(res.data.Events);
+    } catch (error) {
+      console.error("Error fetching notifications:", error);
     }
   };
 
-  React.useEffect(() => {
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, []);
-
   return (
-    <nav className="adminNavbarContainer">
-      <div></div>
-      <div className="title">Admin Dashboard</div>
-      <div ref={profileRef} onClick={toggleProfile} className="profileIcon">
-        <CgProfile />
+    <div className="adminNavbarContainer">
+      <div className="leftSection">
+        <span>Admin Dashboard</span>
       </div>
-      {profile && (
-        <div className="profileDropdown">
-          <div className="dropdownContent">
-            <Link to={"/dashboard"}>
-              <div className="dropdownItem">
-                <MdDashboard /> <span>Dashboard</span>
-              </div>
-            </Link>
-            <Link to={"/dashboard/profile"}>
-              <div className="dropdownItem">
-                <ImProfile /> <span>Profile</span>
-              </div>
-            </Link>
-            <Link to={"/"}>
-              <div className="dropdownItem">
-                <IoMdLogOut /> <span>Logout</span>
-              </div>
-            </Link>
-          </div>
+      <div className="middleSection">
+        <span className="adminName">Welcome Back, {adminName}</span>
+      </div>
+      <div className="rightSection">
+        <div className="navbarIcons">
+          <Link to={"/admin-calendar"}>
+            <span className="calendarIcon">
+              <FaRegCalendarAlt />
+              {calendar.length > 0 && (
+                <span className="calendarBadge">{calendar.length}</span>
+              )}
+            </span>
+          </Link>
+          <Link to={"/admin-notifications"}>
+            <span className="notificationIcon">
+              <MdNotifications />
+              {notifications.length > 0 && (
+                <span className="notificationBadge">
+                  {notifications.length}
+                </span>
+              )}
+            </span>
+          </Link>
+          <span onClick={() => setToggleProfile(!toggleProfile)}>
+            <img src={adminImage} alt="Profile" className="adminProfileImage" />
+          </span>
         </div>
-      )}
-    </nav>
+      </div>
+      <div className={`navPopup ${toggleProfile ? "show" : ""}`}>
+        <ul>
+          <li>
+            <Link to={"/admin-dashboard"}>Dashboard</Link>
+          </li>
+          <li>
+            <Link to={"/admin-dashboard/profile"}>Profile</Link>
+          </li>
+
+          <li>
+            <Link to={"/"}>Log Out</Link>
+          </li>
+        </ul>
+      </div>
+    </div>
   );
 };
 

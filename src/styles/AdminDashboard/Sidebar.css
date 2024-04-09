@@ -13,7 +13,7 @@
   display: flex;
 }
 
-.sidebar-section {
+.adminSidebarContainer .sidebar-section {
   background: rgb(244, 201, 83);
   color: black;
   height: 97vh;
@@ -23,25 +23,25 @@
   margin: 10px;
 }
 
-.top_section {
+.adminSidebarContainer .top_section {
   display: flex;
   align-items: center;
   padding: 20px 15px;
 }
 
-.logo {
+.adminSidebarContainer .logo {
   width: 45%;
   object-fit: contain;
   mix-blend-mode: darken;
 }
 
-.bars {
+.adminSidebarContainer .bars {
   display: flex;
   font-size: 25px;
   margin-left: 50px;
 }
 
-.link {
+.adminSidebarContainer .link {
   display: flex;
   color: black;
   padding: 10px 15px;
@@ -49,39 +49,39 @@
   transition: all 0.5s;
 }
 
-.link:hover {
+.adminSidebarContainer .link:hover {
   background: rgb(92, 68, 0);
   color: rgb(244, 201, 83);
   transition: all 0.5s;
 }
 
-.active {
-  background: black;
-  color: rgb(244, 201, 83);
+.adminSidebarContainer .active {
+  background: #3498db;
+  color: white;
   border-radius: 5px;
 }
 
-.icon,
-.link_text {
+.adminSidebarContainer .icon,
+.adminSidebarContainer .link_text {
   font-size: 15px;
 }
 
 @media screen and (max-width: 768px) {
-  .sidebar {
+  .adminSidebarContainer .sidebar {
     width: 80px;
   }
 
-  .bars {
+  .adminSidebarContainer .bars {
     margin-left: 0;
   }
 
-  .link_text {
+  .adminSidebarContainer .link_text {
     display: none;
   }
 }
 
 @media screen and (max-width: 576px) {
-  .sidebar {
+  .adminSidebarContainer .sidebar {
     width: 60px;
   }
 }

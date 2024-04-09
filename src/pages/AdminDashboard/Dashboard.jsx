@@ -8,7 +8,8 @@ import {
   FaClipboardList,
   FaUserGraduate
 } from "react-icons/fa";
-import "../../styles/AdminDashboard/Dashboard.css"
+import "../../styles/AdminDashboard/Dashboard.css";
+import { Link } from "react-router-dom";
 
 function Dashboard() {
   const [studentCount, setStudentCount] = useState(0);
@@ -78,39 +79,49 @@ function Dashboard() {
         <div className="grid-container">
           {[
             {
+              path: "/admin-student",
               icon: <FaUserGraduate size={70} />,
               label: "Student Registered",
               count: studentCount
             },
             {
+              path: "/admin-teacher",
               icon: <FaChalkboardTeacher size={70} />,
               label: "Teacher Registered",
               count: teacherCount
             },
             {
+              path: "/admin-notifications",
               icon: <FaBell size={70} />,
               label: "Notification",
               count: notificationCount
             },
             {
+              path: "/admin-admission",
               icon: <FaClipboardList size={80} />,
               label: "Admission Forms",
               count: admissionCount
             },
-            { icon: <FaBook size={70} />, label: "Course", count: courseCount },
             {
+              path: "/admin-courses",
+              icon: <FaBook size={70} />,
+              label: "Course",
+              count: courseCount
+            },
+            {
+              path: "/admin-exam",
               icon: <FaClipboardCheck size={70} />,
               label: "Exam",
               count: examCount
             }
           ].map((item, index) => (
-            <div key={index} className="grid-item">
+            <Link to={item.path} key={index} className="grid-item">
               <div className="icon">{item.icon}</div>
               <div className="label">
-                <span>{item.label}</span>
-                <span className="count">{item.count}</span>
+                <div>{item.label}</div>
+                <div className="count">{item.count}</div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

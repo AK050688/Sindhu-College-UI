@@ -56,6 +56,7 @@ const ExamFormModel = ({ onAddExam, setShowForm }) => {
 
   return (
     <div className="addExamForm">
+      <ToastContainer />
       <div className="modalContent">
         <div className="header">
           <h2 className="title">Add Exam</h2>

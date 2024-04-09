@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../../components/AdminDashboard/Navbar";
-import styles from "../../styles/AdminDashboard/Fees.css";
+import "../../styles/AdminDashboard/Fees.css";
 
 const Fees = () => {
   // const [fees, setFees] = useState([]);
@@ -85,7 +85,7 @@ const Fees = () => {
       <Navbar />
       <div className="feesContainer">
         <div className="flexContainer">
-          <h1 className="title">All Fees Lists</h1>
+          <h1>All Fees Lists</h1>
           <button
             className="addButton"
             // onClick={() => setShowForm(true)}
@@ -112,7 +112,9 @@ const Fees = () => {
           </div>
         </div> */}
         {/* {loading ? (
-          <div className="spinner}></div>
+          <div className="spinner" role="status">
+            <span className="loader"></span>
+          </div>
         ) : ( */}
         <div className="tableContainer">
           <div className="tableSection">

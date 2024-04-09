@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./../../../styles/AdminDashboard/Schedule.css";
-import AdminScheduleCard from "../../../components/AdminDashboard/Schedule/AdminScheduleCard";
 import Navbar from "../../../components/AdminDashboard/Navbar";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Schedule = () => {
   const [schedule, setSchedule] = useState([]);
@@ -12,11 +12,13 @@ const Schedule = () => {
   const [sectionFilter, setSectionFilter] = useState("A");
   const [courseOptions, setCourseOptions] = useState([]);
   const [selectedCourse, setSelectedCourse] = useState("B.tech");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(5);
 
   useEffect(() => {
     fetchCourses();
     fetchSchedule();
-  }, []);
+  }, [currentPage, itemsPerPage]);
 
   const fetchCourses = async () => {
     try {
@@ -66,10 +68,19 @@ const Schedule = () => {
     setFilteredSchedule(filteredData);
   }, [dayFilter, selectedCourse, sectionFilter, schedule]);
 
+  const indexOfLastRow = currentPage * itemsPerPage;
+  const indexOfFirstRow = indexOfLastRow - itemsPerPage;
+  const currentVendors = filteredSchedule.slice(
+    indexOfFirstRow,
+    indexOfLastRow
+  );
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <>
       <Navbar />
-      <div className="adminSchedule bg-login h-[88.7vh]">
+      <div className="adminSchedule">
         <div className="filter-section">
           <div className="filter">
             <label htmlFor="dayFilter">Day:</label>
@@ -119,14 +130,61 @@ const Schedule = () => {
         </div>
 
         <h2>Time Tables</h2>
-        <div className="schedule-grid">
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
-            filteredSchedule.map((schedule, index) => (
-              <AdminScheduleCard key={index} schedule={schedule} />
-            ))
-          )}
+
+        {loading ? (
+          <div className="spinner" role="status">
+            <span className="loader"></span>
+          </div>
+        ) : (
+          <div className="table-container">
+            <div className="table-section">
+              <table>
+                <thead>
+                  <tr>
+                    <th>SNo.</th>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Subject</th>
+                    <th>Subject Teacher</th>
+                    <th>Branch Name</th>
+                    <th>Section</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {currentVendors?.map((schedule, index) => (
+                    <tr key={index}>
+                      <td>{index + 1}</td>
+                      <td>{schedule.day}</td>
+                      <td>
+                        {schedule.startTime} - {schedule.endTime}
+                      </td>
+                      <td> {schedule.subject}</td>
+                      <td>{schedule.subjectTeacher}</td>
+                      <td>{schedule.branch}</td>
+                      <td>{schedule.section}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+
+        <div className="pagination">
+          <button
+            onClick={() => paginate(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            <FaChevronLeft />
+          </button>
+          <span>{currentPage}</span> /{" "}
+          <span>{Math.ceil(filteredSchedule.length / itemsPerPage)}</span>
+          <button
+            onClick={() => paginate(currentPage + 1)}
+            disabled={indexOfLastRow >= filteredSchedule.length}
+          >
+            <FaChevronRight />
+          </button>
         </div>
       </div>
     </>

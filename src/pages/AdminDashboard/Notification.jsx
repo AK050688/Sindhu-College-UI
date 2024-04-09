@@ -104,8 +104,8 @@ const Notification = () => {
         )}
 
         {loading ? (
-          <div className="spinner-border spinner-border-sm" role="status">
-            <span className="visually-hidden">Loading...</span>
+          <div className="spinner" role="status">
+            <span className="loader"></span>
           </div>
         ) : (
           <div className="table-container">

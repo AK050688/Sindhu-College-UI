@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { FaUserCircle } from "react-icons/fa";
-import { IoLockOpenOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
-import styles from "../../styles/AdminDashboard/Login.module.css";
+import "../../styles/AdminDashboard/Login.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -64,57 +62,45 @@ function AdminLogin() {
   const { userName, password } = formData;
 
   return (
-    <div className={styles.container}>
+    <section className="adminLoginContainer">
       <ToastContainer />
-      <div className={styles.formContainer}>
-        <h1 className={styles.heading}>Login</h1>
-        <form action="" onSubmit={handleSubmit}>
-          <div className={styles.inputContainer}>
-            <label htmlFor="username" className={styles.label}>
-              Username
-            </label>
+      <div className="login-container">
+        <div className="circle circle-one"></div>
+        <div className="form-container">
+          <img
+            src="https://logodix.com/logo/1707130.png"
+            alt="illustration"
+            className="illustration"
+          />
+          <h1 className="opacity"> Login</h1>
+          <form onSubmit={handleSubmit}>
             <input
               type="text"
-              id="username"
+              placeholder="USERNAME"
               name="userName"
               value={userName}
-              className={styles.input}
               onChange={handleChange}
             />
-            <FaUserCircle className={styles.icon} />
-          </div>
-          <div className={styles.inputContainer}>
-            <label htmlFor="password" className={styles.label}>
-              Password
-            </label>
             <input
               type="password"
-              id="password"
+              placeholder="PASSWORD"
               name="password"
               value={password}
-              className={styles.input}
               onChange={handleChange}
             />
-            <IoLockOpenOutline className={styles.icon} />
+            <button type="submit" className="opacity" disabled={loading}>
+              {loading ? "Loading..." : "SUBMIT"}
+            </button>
+          </form>
+          <div className="register-forget opacity">
+            <div href="">REGISTER</div>
+            <div href="">FORGOT PASSWORD</div>
           </div>
-          <div className={styles.checkboxContainer}>
-            <input type="checkbox" />
-            <label htmlFor="remember"> Remember me</label>
-            <span>Forgot password?</span>
-          </div>
-          <button className={styles.button} type="submit" disabled={loading}>
-            {loading ? (
-              <div className={styles.spinner} role="status">
-                <div className={styles.loader}></div> {/* Animation here */}
-                <span className="visually-hidden">Loading...</span>
-              </div>
-            ) : (
-              "Login"
-            )}
-          </button>
-        </form>
+        </div>
+        <div className="circle circle-two"></div>
       </div>
-    </div>
+      <div className="theme-btn-container"></div>
+    </section>
   );
 }
 

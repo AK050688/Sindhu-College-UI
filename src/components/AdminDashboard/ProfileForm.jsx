@@ -1,138 +1,250 @@
 import { useState, useEffect } from "react";
-import { RiLockPasswordFill } from "react-icons/ri";
+import { RiLockPasswordFill, RiPencilFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import styles from "../../styles/AdminDashboard/ProfileForm.module.css";
 import Navbar from "./Navbar";
+import axios from "axios";
 
-const RegisterForm = () => {
-  const [formData, setFormData] = useState({});
-  const [loading, setLoading] = useState(true);
+const ProfileForm = () => {
+  const [adminData, setAdminData] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedData, setEditedData] = useState({});
+  const [image, setImage] = useState(null);
 
   useEffect(() => {
     handleGetData();
   }, []);
 
   const handleGetData = () => {
-    setLoading(true);
     const token = localStorage.getItem("token");
     if (token) {
-      fetch(
-        "https://university-project-paresh.onrender.com/University/Admin/AdminProfile",
+      axios
+        .get(
+          "https://university-project-paresh.onrender.com/University/Admin/AdminProfile",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          }
+        )
+        .then((response) => {
+          // console.log("data", response.data.result.Name);
+          localStorage.setItem("adminImage", response.data.result.image);
+          localStorage.setItem("adminName", response.data.result.Name);
+          setAdminData(response.data.result);
+        })
+        .catch((error) => {
+          console.error("Error fetching teacher profile:", error);
+        });
+    }
+  };
+
+  const handleEdit = () => {
+    setIsEditing(true);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setEditedData({ ...editedData, [name]: value });
+  };
+
+  const handleImageChange = (e) => {
+    const selectedImage = e.target.files[0];
+    setImage(selectedImage);
+  };
+
+  const handleSave = () => {
+    const token = localStorage.getItem("token");
+    const formData = new FormData();
+    if (image) {
+      formData.append("image", image);
+    }
+    formData.append("Name", editedData.Name || adminData.Name);
+    formData.append("email", editedData.email || adminData.email);
+    formData.append("userName", editedData.userName || adminData.userName);
+    formData.append(
+      "designation",
+      editedData.designation || adminData.designation
+    );
+    formData.append(
+      "collegeName",
+      editedData.collegeName || adminData.collegeName
+    );
+    formData.append("mobileNo", editedData.mobileNo || adminData.mobileNo);
+    console.log("Form", formData);
+    axios
+      .put(
+        "https://university-project-paresh.onrender.com/University/Admin/UpdateAdminProfile",
+        formData,
         {
-          method: "GET",
           headers: {
             Authorization: `Bearer ${token}`
           }
         }
       )
-        .then((res) => res.json())
-        .then((data) => {
-          // console.log("data", data.result);
-          setFormData(data.result);
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-    }
+      .then((response) => {
+        console.log("Profile updated successfully");
+        setIsEditing(false);
+        handleGetData();
+      })
+      .catch((error) => {
+        console.error("Error updating teacher profile:", error);
+      });
   };
 
   return (
     <>
-      <div className=" h-[60px]">
-        <Navbar />
-      </div>
-      <div className="bg-login h-[90.7vh]">
-        <div className="w-full flex justify-between items-center rounded-lg shadow-md border-0 border-black">
-          <div></div>
-          {/* <h1 className="text-2xl font-bold mb-2 mx-auto text-blue-500">
-            Admin Profile
-          </h1> */}
-          <Link to={"/dashboard/profile/changepassword"}>
-            <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold flex gap-3 mt-0 p-3 rounded-md mr-0">
-              <RiLockPasswordFill />
-              <span>Change Password</span>
+      <Navbar />
+      <div className={styles.adminProfileContainer}>
+        <div className={styles.container}>
+          <div className={styles.header}>
+            <div></div>
+            <Link to={"/admin-dashboard/profile/changepassword"}>
+              <div className={styles.changePasswordButton}>
+                <RiLockPasswordFill />
+                <span>Change Password</span>
+              </div>
+            </Link>
+          </div>
+          {adminData && (
+            <div className={styles.profileUpdateForm}>
+              <div className={styles.headingImage}>
+                <h2>Admin Profile</h2>
+                <img
+                  src={adminData.image}
+                  alt="Profile"
+                  className={styles.profileImage}
+                />
+              </div>
+              {isEditing && <input type="file" onChange={handleImageChange} />}
+              <form className={styles.form}>
+                <div
+                  className="formRow"
+                  style={{ display: "flex", gap: "20px" }}
+                >
+                  <div className={styles.formField}>
+                    <label htmlFor="name" className={styles.label}>
+                      Name:
+                    </label>
+                    {isEditing ? (
+                      <input
+                        type="text"
+                        name="Name"
+                        value={editedData.Name || adminData.Name}
+                        onChange={handleInputChange}
+                      />
+                    ) : (
+                      <div className={styles.input}>{adminData.Name}</div>
+                    )}
+                  </div>
+                  <div className={styles.formField}>
+                    <label htmlFor="email" className={styles.label}>
+                      Email
+                    </label>
+                    {isEditing ? (
+                      <input
+                        type="text"
+                        name="email"
+                        value={editedData.email || adminData.email}
+                        onChange={handleInputChange}
+                      />
+                    ) : (
+                      <div className={styles.input}>{adminData.email}</div>
+                    )}
+                  </div>
+                </div>
+                <div
+                  className="formRow"
+                  style={{ display: "flex", gap: "20px" }}
+                >
+                  <div className={styles.formField}>
+                    <label htmlFor="userName" className={styles.label}>
+                      Username
+                    </label>
+                    {isEditing ? (
+                      <input
+                        type="text"
+                        name="userName"
+                        value={editedData.userName || adminData.userName}
+                        onChange={handleInputChange}
+                      />
+                    ) : (
+                      <div className={styles.input}>{adminData.userName}</div>
+                    )}
+                  </div>
+                  <div className={styles.formField}>
+                    <label htmlFor="designation" className={styles.label}>
+                      Designation
+                    </label>
+                    {isEditing ? (
+                      <input
+                        type="text"
+                        name="designation"
+                        value={editedData.designation || adminData.designation}
+                        onChange={handleInputChange}
+                      />
+                    ) : (
+                      <div className={styles.input}>
+                        {adminData.designation}
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div
+                  className="formRow"
+                  style={{ display: "flex", gap: "20px" }}
+                >
+                  <div className={styles.formField}>
+                    <label htmlFor="collegeName" className={styles.label}>
+                      College Name
+                    </label>
+                    {isEditing ? (
+                      <input
+                        type="text"
+                        name="collegeName"
+                        value={editedData.collegeName || adminData.collegeName}
+                        onChange={handleInputChange}
+                      />
+                    ) : (
+                      <div className={styles.input}>
+                        {adminData.collegeName}
+                      </div>
+                    )}
+                  </div>
+                  <div className={styles.formField}>
+                    <label htmlFor="mobileNo" className={styles.label}>
+                      Mobile Number
+                    </label>
+                    {isEditing ? (
+                      <input
+                        type="text"
+                        name="mobileNo"
+                        value={editedData.mobileNo || adminData.mobileNo}
+                        onChange={handleInputChange}
+                      />
+                    ) : (
+                      <div className={styles.input}>{adminData.mobileNo}</div>
+                    )}
+                  </div>
+                </div>
+                {isEditing ? (
+                  <div className={styles.savebutton}>
+                    <button type="button" onClick={handleSave}>
+                      Save
+                    </button>
+                  </div>
+                ) : (
+                  <div className={styles.pencils}>
+                    <RiPencilFill onClick={handleEdit} />
+                  </div>
+                )}
+              </form>
             </div>
-          </Link>
+          )}
         </div>
-        {loading ? (
-          <div className="spinner-border spinner-border-sm" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        ) : (
-          <div className="w-[65%] mt-10 max-w-7xl mx-auto rounded-3xl text-white border border-slate-400 p-[3.1%] shadow-lg backdrop-filter backdrop-blur-xs bg-opacity-30 mb-20">
-            <h2 className="text-2xl font-bold mb-4">Profile Update</h2>
-            <form className="flex flex-wrap">
-              <div className="flex flex-col w-1/2 pr-4 mb-4">
-                <label htmlFor="name" className="text-sm font-medium text-left">
-                  Name:
-                </label>
-                <div className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full text-black bg-white">
-                  {formData.Name}
-                </div>
-              </div>
-              <div className="flex flex-col w-1/2 pl-4 mb-4">
-                <label
-                  htmlFor="email"
-                  className="text-sm font-medium text-left"
-                >
-                  Email
-                </label>
-                <div className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full text-black bg-white">
-                  {formData.email}
-                </div>
-              </div>
-              <div className="flex flex-col w-1/2 pr-4 mb-4">
-                <label
-                  htmlFor="userName"
-                  className="text-sm font-medium text-left"
-                >
-                  Username
-                </label>
-                <div className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full text-black bg-white">
-                  {formData.userName}
-                </div>
-              </div>
-              <div className="flex flex-col w-1/2 pl-4 mb-4">
-                <label
-                  htmlFor="designation"
-                  className="text-sm font-medium text-left"
-                >
-                  Designation
-                </label>
-                <div className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full text-black bg-white">
-                  {formData.designation}
-                </div>
-              </div>
-              <div className="flex flex-col w-1/2 pr-4 mb-4">
-                <label
-                  htmlFor="collegeName"
-                  className="text-sm font-medium text-left"
-                >
-                  College Name
-                </label>
-                <div className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full text-black bg-white">
-                  {formData.collegeName}
-                </div>
-              </div>
-              <div className="flex flex-col w-1/2 pl-4 mb-4">
-                <label
-                  htmlFor="mobileNo"
-                  className="text-sm font-medium text-left"
-                >
-                  Mobile Number
-                </label>
-                <div className="mt-1 px-4 py-2 border border-gray-300 rounded-md w-full text-black bg-white">
-                  {formData.mobileNo}
-                </div>
-              </div>
-            </form>
-          </div>
-        )}
       </div>
     </>
   );
 };
 
-export default RegisterForm;
+export default ProfileForm;
