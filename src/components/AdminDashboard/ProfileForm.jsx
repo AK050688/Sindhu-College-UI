@@ -109,19 +109,36 @@ const ProfileForm = () => {
           {adminData && (
             <div className={styles.profileUpdateForm}>
               <div className={styles.headingImage}>
-                <h2>Admin Profile</h2>
-                <img
-                  src={adminData.image}
-                  alt="Profile"
-                  className={styles.profileImage}
-                />
+                <div>
+                  <h2>Admin Profile</h2>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "20px"
+                  }}
+                >
+                  <img
+                    src={adminData.image}
+                    alt="Profile"
+                    className={styles.profileImage}
+                  />
+                  {isEditing ? (
+                    <div className={styles.savebutton}>
+                      <button type="button" onClick={handleSave}>
+                        Save
+                      </button>
+                    </div>
+                  ) : (
+                    <div className={styles.pencils}>
+                      <RiPencilFill onClick={handleEdit} />
+                    </div>
+                  )}
+                </div>
               </div>
               {isEditing && <input type="file" onChange={handleImageChange} />}
               <form className={styles.form}>
-                <div
-                  className="formRow"
-                  style={{ display: "flex", gap: "20px" }}
-                >
+                <div className={styles.formRow}>
                   <div className={styles.formField}>
                     <label htmlFor="name" className={styles.label}>
                       Name:
@@ -153,10 +170,7 @@ const ProfileForm = () => {
                     )}
                   </div>
                 </div>
-                <div
-                  className="formRow"
-                  style={{ display: "flex", gap: "20px" }}
-                >
+                <div className={styles.formRow}>
                   <div className={styles.formField}>
                     <label htmlFor="userName" className={styles.label}>
                       Username
@@ -190,10 +204,7 @@ const ProfileForm = () => {
                     )}
                   </div>
                 </div>
-                <div
-                  className="formRow"
-                  style={{ display: "flex", gap: "20px" }}
-                >
+                <div className={styles.formRow}>
                   <div className={styles.formField}>
                     <label htmlFor="collegeName" className={styles.label}>
                       College Name
@@ -227,17 +238,6 @@ const ProfileForm = () => {
                     )}
                   </div>
                 </div>
-                {isEditing ? (
-                  <div className={styles.savebutton}>
-                    <button type="button" onClick={handleSave}>
-                      Save
-                    </button>
-                  </div>
-                ) : (
-                  <div className={styles.pencils}>
-                    <RiPencilFill onClick={handleEdit} />
-                  </div>
-                )}
               </form>
             </div>
           )}

@@ -32,6 +32,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  .adminDashboardContainer .grid-item {
+    width: 70%;
+    margin: auto;
+  }
   .adminDashboardContainer .grid-item .icon {
     font-size: 40px;
   }

@@ -1,117 +1,126 @@
-.adminProfileContainer .container {
-  width: 100%;
-  /* display: flex; */
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-}
-
-.adminProfileContainer .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.adminProfileContainer .changePasswordButton {
-  display: flex;
-  align-items: center;
-  background-color: blue;
-  color: white;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-}
-
-.adminProfileContainer .changePasswordButton:hover {
-  background-color: #0d47a1;
-}
-
-.adminProfileContainer .profileUpdateForm {
-  width: 100%;
-  max-width: 800px;
-  margin: auto;
-  border: 1px solid #d1d5db;
-  border-radius: 0.75rem;
-  background-color: rgb(244, 201, 83);
-  backdrop-filter: blur(2px);
-  background-clip: padding-box;
-  margin-top: 50px;
-  border: 1px solid rgb(244, 201, 83);
-  padding: 2rem;
-  box-shadow: 0 0 1rem rgb(244, 201, 83);
-}
-
-.adminProfileContainer .title {
-  font-size: 1.3rem;
-  font-weight: bold;
-  /* margin-bottom: 1rem; */
-  text-align: center;
-  color: white;
-}
-
-.adminProfileContainer .form {
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
-}
-
-.adminProfileContainer .formField {
-  flex: 1 1 50%;
-  /* margin-bottom: 1rem; */
-  /* padding: 10px; */
-}
-
-.adminProfileContainer .label {
-  font-size: 1rem;
-  font-weight: bold;
-  /* margin-bottom: 0.5rem; */
-}
-
-.adminProfileContainer .input {
-  border: 1px solid #ccc;
-  border-radius: 0.25rem;
-  padding: 0.5rem;
-  background-color: white;
-  color: black;
-  margin-bottom: 2px;
-}
-.adminProfileContainer .headingImage {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-.adminProfileContainer .imageContainer {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.adminProfileContainer .profileImage {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #fff;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.adminProfileContainer .pencils {
-  font-size: 30px;
-  position: absolute;
-  top: -95px;
-  left: 700px;
-  color: blue;
-}
-.adminProfileContainer .savebutton button {
-  width: 10%;
-  background-color: rgb(75, 117, 13);
-  padding: 6px;
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  top: -90px;
-  left: 670px;
-  color: white;
-  border-radius: 10px;
-}
+.adminProfileContainer {
+    padding: 1rem;
+  }
+  
+  .adminProfileContainer .container {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .adminProfileContainer .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .adminProfileContainer .changePasswordButton {
+    display: flex;
+    align-items: center;
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .adminProfileContainer .changePasswordButton:hover {
+    background-color: #0d47a1;
+  }
+  
+  .adminProfileContainer .profileUpdateForm {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    border: 1px solid #d1d5db;
+    border-radius: 0.75rem;
+    background-color: rgb(244, 201, 83);
+    backdrop-filter: blur(2px);
+    background-clip: padding-box;
+    margin-top: 50px;
+    border: 1px solid rgb(244, 201, 83);
+    padding: 2rem;
+    box-shadow: 0 0 1rem rgb(244, 201, 83);
+  }
+  
+  .adminProfileContainer h2 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+  }
+  
+  .adminProfileContainer .form {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .adminProfileContainer .formRow {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  .adminProfileContainer .formField {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .adminProfileContainer .label {
+    font-size: 1rem;
+    font-weight: bold;
+    
+  }
+  
+  .adminProfileContainer .input {
+    width: auto;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    background-color: white;
+    color: black;
+  }
+  
+  .adminProfileContainer .headingImage {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .adminProfileContainer .profileImage {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .adminProfileContainer .pencils {
+    font-size: 30px;
+    color: blue;
+  }
+  
+  .adminProfileContainer .savebutton button {
+    background-color: rgb(75, 117, 13);
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .adminProfileContainer .formRow {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .adminProfileContainer .profileUpdateForm {
+      width: 98%;
+      margin-top: 2rem;
+      padding: 1rem;
+    }
+  }
+  

@@ -253,7 +253,7 @@ function Teachers() {
           <span>{currentPage}</span> / <span>{totalPages}</span>
           <button
             onClick={() => paginate(currentPage + 1)}
-            disabled={indexOfLastRow >= filteredTeachers.length}
+            disabled={indexOfLastRow >= filteredTeachers?.length}
           >
             <FaChevronRight />
           </button>

@@ -31,8 +31,8 @@ function Student() {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log("Student", data.Students);
-        setStudents(data.Students);
+        console.log("Student", data?.Students);
+        setStudents(data?.Students);
       })
       .catch((error) => {
         console.error("Error fetching student data:", error);
@@ -265,7 +265,7 @@ function Student() {
           <span>{currentPage}</span> / <span>{totalPages}</span>
           <button
             onClick={() => paginate(currentPage + 1)}
-            disabled={indexOfLastRow >= filteredStudents.length}
+            disabled={indexOfLastRow >= filteredStudents?.length}
           >
             <FaChevronRight />
           </button>

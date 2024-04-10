@@ -69,7 +69,7 @@ const AdminAdmission = () => {
 
   const indexOfLastRow = currentPage * itemsPerPage;
   const indexOfFirstRow = indexOfLastRow - itemsPerPage;
-  const currentRows = filteredAdmission.slice(indexOfFirstRow, indexOfLastRow);
+  const currentRows = filteredAdmission?.slice(indexOfFirstRow, indexOfLastRow);
 
   // console.log("A", currentRows, filteredAdmission, admission);
 

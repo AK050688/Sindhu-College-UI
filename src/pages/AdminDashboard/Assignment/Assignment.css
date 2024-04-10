@@ -1,10 +1,10 @@
 /* TeacherAssignmentPage.jsx */
-.admin-assignment-page {
+.adminAssignmentContainer {
   padding: 20px;
 }
 
 /* Filter Section */
-.admin-assignment-page .filter-section {
+.adminAssignmentContainer .filter-section {
   /* margin-bottom: 20px; */
   display: flex;
   align-items: center;
@@ -14,12 +14,12 @@
   display: flex;
 }
 
-.admin-assignment-page .filter-label {
+.adminAssignmentContainer .filter-label {
   color: black;
   margin-top: 10px;
 }
 
-.admin-assignment-page .searchInput {
+.adminAssignmentContainer .searchInput {
   /* width: 30%; */
   padding: 8px;
   border-radius: 5px;
@@ -27,7 +27,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .admin-assignment-page .filter-section {
+  .adminAssignmentContainer .filter-section {
     flex-direction: column;
     align-items: stretch;
   }
@@ -35,22 +35,22 @@
     flex-direction: column;
   }
 
-  .admin-assignment-page .filter-section > div {
+  .adminAssignmentContainer .filter-section > div {
     margin-bottom: 15px;
     align-items: stretch;
   }
 
-  .admin-assignment-page .searchInput {
+  .adminAssignmentContainer .searchInput {
     width: 100%;
   }
 }
 
 /* Assignment List */
-.admin-assignment-page .assignment-list-title {
+.adminAssignmentContainer .assignment-list-title {
   margin-bottom: 10px;
 }
 
-.admin-assignment-page .table-container {
+.adminAssignmentContainer .table-container {
   width: 100%;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -59,7 +59,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.admin-assignment-page .table-container table {
+.adminAssignmentContainer .table-container table {
   width: 100%;
   border-collapse: collapse;
   font-size: 11px;
@@ -67,7 +67,7 @@
   font-weight: 700;
 }
 
-.admin-assignment-page thead th {
+.adminAssignmentContainer thead th {
   background-color: #3498db;
   /* color: white; */
   padding: 12px;
@@ -75,30 +75,130 @@
   font-weight: bolder;
 }
 
-.admin-assignment-page tbody tr:hover {
+.adminAssignmentContainer tbody tr:hover {
   background-color: #97c1f1;
 }
 
-.admin-assignment-page th,
-.admin-assignment-page td {
+.adminAssignmentContainer th,
+.adminAssignmentContainer td {
   padding: 10px;
   border-bottom: 1px solid #ddd;
 }
 
-.admin-assignment-page .table-container::-webkit-scrollbar {
+.adminAssignmentContainer .table-container::-webkit-scrollbar {
   width: 10px;
 }
 
-.admin-assignment-page .table-container::-webkit-scrollbar-thumb {
+.adminAssignmentContainer .table-container::-webkit-scrollbar-thumb {
   background-color: #888;
   border-radius: 5px;
 }
 
-.admin-assignment-page tbody tr:hover {
+.adminAssignmentContainer tbody tr:hover {
   box-shadow: 0 0 10px rgba(243, 240, 240, 0.905);
   transition: box-shadow 0.3s ease;
 }
-.admin-assignment-page .pagination {
+
+.adminAssignmentContainer .showButton {
+  background-color: #283ba7;
+  color: #fff;
+  padding: 8px;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.showSubmissionDetailsModal .modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.showSubmissionDetailsModal .modalContainer {
+  max-width: 500px;
+  width: 90%;
+  padding: 1.5rem;
+  color: #3b3b3b;
+  /* border: 1px solid red; */
+  border-radius: 0.75rem;
+  background-color: rgb(244, 201, 83);
+  backdrop-filter: blur(2px);
+  background-clip: padding-box;
+  /* box-shadow: 0 4px 6px rgb(244, 201, 83); */
+}
+.showSubmissionDetailsModal .formHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+}
+.showSubmissionDetailsModal .formHeader h2 {
+  color: black;
+  font-size: 16px;
+}
+.showSubmissionDetailsModal .formHeader button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: black;
+}
+
+.showSubmissionDetailsModal .tableContainer {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow-x: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.showSubmissionDetailsModal .tableContainer table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  color: black;
+  font-weight: 700;
+}
+
+.showSubmissionDetailsModal thead th {
+  background-color: #3498db;
+  /* color: white; */
+  padding: 12px;
+  font-weight: bolder;
+}
+
+.showSubmissionDetailsModal tbody tr:hover {
+  background-color: #97c1f1;
+}
+
+.showSubmissionDetailsModal th,
+.showSubmissionDetailsModal td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.showSubmissionDetailsModal .tableContainer::-webkit-scrollbar {
+  width: 10px;
+}
+
+.showSubmissionDetailsModal .tableContainer::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+.showSubmissionDetailsModal tbody tr:hover {
+  box-shadow: 0 0 10px rgba(243, 240, 240, 0.905);
+  transition: box-shadow 0.3s ease;
+}
+
+.adminAssignmentContainer .pagination {
   margin-top: 20px;
   display: flex;
   justify-content: center;
@@ -106,7 +206,7 @@
   color: black;
 }
 
-.admin-assignment-page .pagination button {
+.adminAssignmentContainer .pagination button {
   border: none;
   color: black;
   padding: 10px 15px;
@@ -120,7 +220,7 @@
   width: 3%;
 }
 
-.admin-assignment-page .pagination button:hover {
+.adminAssignmentContainer .pagination button:hover {
   background-color: #3498db;
 }
 

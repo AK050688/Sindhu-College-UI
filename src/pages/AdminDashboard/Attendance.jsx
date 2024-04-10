@@ -45,7 +45,7 @@ function Attendance() {
     let filteredData = students;
 
     if (date) {
-      filteredData = filteredData.filter((student) =>
+      filteredData = filteredData?.filter((student) =>
         student.attendance.some(
           (attendance) => attendance.date.split("T")[0] === date
         )
@@ -53,13 +53,13 @@ function Attendance() {
     }
 
     if (searchName) {
-      filteredData = filteredData.filter((student) =>
+      filteredData = filteredData?.filter((student) =>
         student.Name.toLowerCase().includes(searchName.toLowerCase())
       );
     }
 
     if (searchRollNo) {
-      filteredData = filteredData.filter((student) =>
+      filteredData = filteredData?.filter((student) =>
         student.rollNo.toLowerCase().includes(searchRollNo.toLowerCase())
       );
     }
@@ -132,7 +132,7 @@ function Attendance() {
                   </tr>
                 </thead>
                 <tbody>
-                  {filteredStudents.map((student, index) => (
+                  {filteredStudents?.map((student, index) => (
                     <React.Fragment key={index}>
                       {student.attendance.length === 0 && (
                         <tr>
