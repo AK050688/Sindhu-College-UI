@@ -7,6 +7,7 @@ import Faculty from "../Faculty";
 import OurCampus from "../OurCampus";
 import ContactUs from "../ContactUs";
 import Login from "../Login";
+
 import AdminLogin from "../../pages/AdminDashboard/Login";
 import Sidebar from "../../components/AdminDashboard/Sidebar";
 import Dashboard from "../AdminDashboard/Dashboard";
@@ -23,6 +24,7 @@ import Fees from "../AdminDashboard/Fees";
 import Attendance from "../AdminDashboard/Attendance";
 import Schedule from "../AdminDashboard/Schedule/Schedule";
 import Assignment from "../AdminDashboard/Assignment/Assignment";
+import AdminAdmission from "../AdminDashboard/Admission/AdminAdmission";
 
 import StudentSidebar from "../../components/StudentDashboard/StudentSidebar/StudentSidebar";
 import StudentNavbar from "../../components/StudentDashboard/StudentNavbar/StudentNavbar";
@@ -40,6 +42,7 @@ import StudentChangePassword from "../StudentDashboard/Profile/StudentChangePass
 import StudentQuestionPaperPage from "../StudentDashboard/QuestionPaper/StudentQuestionPaperPage";
 import StudentSyllabusPage from "../StudentDashboard/Syllabus/StudentSyllabusPage";
 import StudentTestPage from "../StudentDashboard/Test/StudentTestPage";
+
 import TeacherSidebar from "../../components/TeacherDashboard/Sidebar/TeacherSidebar";
 import TeacherNavbar from "../../components/TeacherDashboard/Navbar/TeacherNavbar";
 import TeacherDashboard from "../TeacherDashboard/Dashboard/TeacherDashboard";
@@ -56,6 +59,7 @@ import TeacherNotification from "../TeacherDashboard/Notification/TeacherNotific
 import TeacherCalendar from "../TeacherDashboard/Calendar/TeacherCalendar";
 import TeacherExamPage from "../TeacherDashboard/Exam/TeacherExamPage";
 import TeacherTestPage from "../TeacherDashboard/Test/TeacherTestPage";
+
 import "./AllRoutes.css";
 
 const Allroutes = () => {
@@ -63,7 +67,6 @@ const Allroutes = () => {
   const [toggleSidbarTeacher, setToggelSidebarTeacher] = useState(false);
   const location = useLocation();
   const isStudentDashboard = location.pathname.includes("/student");
-
   const isTeacherDashboard = location.pathname.includes("/teacher");
 
   return (
@@ -106,6 +109,14 @@ const Allroutes = () => {
           element={
             <Sidebar>
               <Registration />
+            </Sidebar>
+          }
+        />
+        <Route
+          path="/admin-admission"
+          element={
+            <Sidebar>
+              <AdminAdmission />
             </Sidebar>
           }
         />

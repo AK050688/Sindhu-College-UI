@@ -6,6 +6,7 @@ import CourseFormModel from "../../components/AdminDashboard/Courses/CourseFormM
 import CourseEditModel from "../../components/AdminDashboard/Courses/CourseEditModel";
 import "../../styles/AdminDashboard/Courses.css";
 import axios from "axios";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
@@ -13,6 +14,8 @@ const Courses = () => {
   const [loading, setLoading] = useState(true);
   const [showEditForm, setShowEditForm] = useState(false);
   const [editCourseData, setEditCourseData] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(5);
 
   useEffect(() => {
     handleGetData();
@@ -75,6 +78,12 @@ const Courses = () => {
     setCourses([...courses, newCourse.courseDetails]);
   };
 
+  const indexOfLastRow = currentPage * itemsPerPage;
+  const indexOfFirstRow = indexOfLastRow - itemsPerPage;
+  const currentCourses = courses.slice(indexOfFirstRow, indexOfLastRow);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <>
       <Navbar />
@@ -118,7 +127,7 @@ const Courses = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {courses?.map((course, index) => (
+                  {currentCourses?.map((course, index) => (
                     <tr key={index}>
                       <td>{index + 1}</td>
                       <td>{course.courseName}</td>
@@ -150,6 +159,22 @@ const Courses = () => {
             </div>
           </div>
         )}
+        <div className="pagination">
+          <button
+            onClick={() => paginate(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            <FaChevronLeft />
+          </button>
+          <span>{currentPage}</span> /{" "}
+          <span>{Math.ceil(courses.length / itemsPerPage)}</span>
+          <button
+            onClick={() => paginate(currentPage + 1)}
+            disabled={indexOfLastRow >= courses.length}
+          >
+            <FaChevronRight />
+          </button>
+        </div>
       </div>
     </>
   );

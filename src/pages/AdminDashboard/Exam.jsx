@@ -3,6 +3,7 @@ import Navbar from "../../components/AdminDashboard/Navbar";
 import ExamFormModel from "../../components/AdminDashboard/Exam/ExamFormModel copy";
 import ExamEditModel from "../../components/AdminDashboard/Exam/ExamEditModel";
 import "../../styles/AdminDashboard/Exam.css";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Exam = () => {
   const [exams, setExams] = useState([]);
@@ -10,6 +11,8 @@ const Exam = () => {
   const [loading, setLoading] = useState(true);
   const [showEditForm, setShowEditForm] = useState(false);
   const [editExamData, setEditExamData] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(5);
 
   useEffect(() => {
     handleGetData();
@@ -77,6 +80,12 @@ const Exam = () => {
     setExams([...exams, newExam.examDetails]);
   };
 
+  const indexOfLastRow = currentPage * itemsPerPage;
+  const indexOfFirstRow = indexOfLastRow - itemsPerPage;
+  const currentExams = exams.slice(indexOfFirstRow, indexOfLastRow);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <>
       <Navbar />
@@ -124,7 +133,7 @@ const Exam = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {exams?.map((exam, index) => (
+                  {currentExams?.map((exam, index) => (
                     <tr key={index}>
                       <td>{index + 1}</td>
                       <td>{exam.examBranch}</td>
@@ -160,6 +169,22 @@ const Exam = () => {
             </div>
           </div>
         )}
+        <div className="pagination">
+          <button
+            onClick={() => paginate(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            <FaChevronLeft />
+          </button>
+          <span>{currentPage}</span> /{" "}
+          <span>{Math.ceil(exams.length / itemsPerPage)}</span>
+          <button
+            onClick={() => paginate(currentPage + 1)}
+            disabled={indexOfLastRow >= exams.length}
+          >
+            <FaChevronRight />
+          </button>
+        </div>
       </div>
     </>
   );

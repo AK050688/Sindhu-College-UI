@@ -2,14 +2,18 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Assignment.css";
 import Navbar from "../../../components/AdminDashboard/Navbar";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 function Assignment() {
   const [assignmentList, setAssignmentList] = useState([]);
+  const [filteredAssignments, setFilteredAssignments] = useState([]);
   const [filterTitle, setFilterTitle] = useState("");
   const [filterAssignmentFor, setFilterAssignmentFor] = useState("");
   const [marks, setMarks] = useState({});
   const studentId = localStorage.getItem("studentId");
   const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(4);
 
   useEffect(() => {
     setLoading(true);
@@ -19,6 +23,7 @@ function Assignment() {
       )
       .then((response) => {
         setAssignmentList(response.data);
+        setFilteredAssignments(response.data);
       })
       .catch((error) => {
         console.error("Error fetching assignment data:", error);
@@ -30,10 +35,12 @@ function Assignment() {
 
   const handleTitleFilterChange = (e) => {
     setFilterTitle(e.target.value);
+    filterAssignments(e.target.value, filterAssignmentFor);
   };
 
   const handleAssignmentForFilterChange = (e) => {
     setFilterAssignmentFor(e.target.value);
+    filterAssignments(filterTitle, e.target.value);
   };
 
   useEffect(() => {
@@ -43,7 +50,6 @@ function Assignment() {
 
   const getMarksForAllAssignments = () => {
     assignmentList.forEach((assignment) => {
-      // console.log("id", assignment._id)
       axios
         .get(
           `https://university-project-paresh.onrender.com/University/MarksRoute/getMyMark/${studentId}/${assignment._id}`
@@ -64,6 +70,24 @@ function Assignment() {
     });
   };
 
+  const filterAssignments = (title, assignmentFor) => {
+    const filtered = assignmentList.filter((assignment) => {
+      const titleMatch = assignment.title.toLowerCase().includes(title.toLowerCase());
+      const assignmentForMatch = assignment.assignMent_for.toLowerCase().includes(assignmentFor.toLowerCase());
+      return titleMatch && assignmentForMatch;
+    });
+    setFilteredAssignments(filtered);
+    setCurrentPage(1);
+  };
+
+  const indexOfLastRow = currentPage * itemsPerPage;
+  const indexOfFirstRow = indexOfLastRow - itemsPerPage;
+  const currentAssignment = filteredAssignments.slice(
+    indexOfFirstRow,
+    indexOfLastRow
+  );
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  
   return (
     <>
       <Navbar />
@@ -116,7 +140,7 @@ function Assignment() {
                     </tr>
                   </thead>
                   <tbody>
-                    {assignmentList?.map((assignment, index) => (
+                    {currentAssignment?.map((assignment, index) => (
                       <tr key={index}>
                         <td>{index + 1}</td>
                         <td>{assignment.title}</td>
@@ -142,6 +166,22 @@ function Assignment() {
               </div>
             </div>
           )}
+        </div>
+        <div className="pagination">
+          <button
+            onClick={() => paginate(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            <FaChevronLeft />
+          </button>
+          <span>{currentPage}</span> /{" "}
+          <span>{Math.ceil(filteredAssignments.length / itemsPerPage)}</span>
+          <button
+            onClick={() => paginate(currentPage + 1)}
+            disabled={indexOfLastRow >= filteredAssignments.length}
+          >
+            <FaChevronRight />
+          </button>
         </div>
       </div>
     </>

@@ -5,7 +5,8 @@ import {
   FaUserAlt,
   FaCommentAlt,
   FaUserCheck,
-  FaFileAlt
+  FaFileAlt,
+  FaGraduationCap
 } from "react-icons/fa";
 // import { MdNotificationsActive } from "react-icons/md";
 import { GrCertificate } from "react-icons/gr";
@@ -41,25 +42,28 @@ const Sidebar = ({ children }) => {
 
   const menuItem = [
     { path: "/admin-dashboard", name: "Dashboard", icon: <FaTh /> },
-    { path: "/admin-student", name: "Students", icon: <FaUserAlt /> },
-    { path: "/admin-teacher", name: "Teachers", icon: <FaUserAlt /> },
-    { path: "/admin-schedule", name: "Schedule", icon: <FaFileAlt /> },
     {
       path: "/admin-registration",
       name: "Registration",
       icon: <FaCommentAlt />
     },
+    { path: "/admin-student", name: "Students", icon: <FaUserAlt /> },
+    { path: "/admin-teacher", name: "Teachers", icon: <FaUserAlt /> },
+    { path: "/admin-admission", name: "Admission", icon: <FaGraduationCap /> },
+    { path: "/admin-schedule", name: "Schedule", icon: <FaFileAlt /> },
+    { path: "/admin-attendance", name: "Attendance", icon: <FaUserCheck /> },
+    { path: "/admin-assignment", name: "Assignment", icon: <FaFileAlt /> },
+
     // {
     //   path: "/admin-notifications",
     //   name: "Notifications",
     //   icon: <MdNotificationsActive />
     // },
+
     { path: "/admin-courses", name: "Courses", icon: <GrCertificate /> },
     { path: "/admin-exam", name: "Exam", icon: <PiExamFill /> },
     // { path: "/admin-calendar", name: "Calendar", icon: <RiCalendarFill /> },
-    { path: "/admin-fees", name: "Fees", icon: <RiMoneyDollarCircleFill /> },
-    { path: "/admin-attendance", name: "Attendance", icon: <FaUserCheck /> },
-    { path: "/admin-assignment", name: "Assignment", icon: <FaFileAlt /> }
+    { path: "/admin-fees", name: "Fees", icon: <RiMoneyDollarCircleFill /> }
   ];
 
   return (

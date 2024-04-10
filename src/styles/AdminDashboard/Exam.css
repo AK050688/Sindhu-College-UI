@@ -107,6 +107,34 @@
   height: 24px;
   animation: spin 1s linear infinite;
 }
+.examList .pagination {
+  border: none;
+  color: black;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  /* width: 3%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid red; */
+}
+.examList .pagination button {
+  border: none;
+}
+
+.examList .pagination button:hover {
+  background-color: #3498db;
+}
+
+.examList .pagination span {
+  margin: 0 10px;
+}
 
 @keyframes spin {
   to {
@@ -139,7 +167,7 @@
   z-index: 10;
   backdrop-filter: blur(0.1rem);
 }
-
+/* Styles for larger screens */
 .addExamForm .modalContent {
   padding: 2rem;
   border-radius: 0.5rem;
@@ -153,12 +181,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1rem;
   flex-direction: row;
-  /* margin-bottom: 1rem; */
 }
 
 .addExamForm .title {
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: bold;
 }
 
@@ -170,27 +198,33 @@
 
 .addExamForm .formGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 0px;
 }
 
 .addExamForm .inputGroup {
   display: flex;
   flex-direction: column;
+  /* border: 1px solid red; */
+  margin-bottom: 0rem;
+  margin-top: 0rem;
 }
 
 .addExamForm .label {
-  /* font-weight: bold; */
-  /* margin-bottom: 0.25rem; */
+  font-weight: bold;
+  margin-bottom: 0rem;
   text-align: left;
+  margin-top: 0rem;
   font-size: 1rem;
 }
 
 .addExamForm .input {
   border: 1px solid #ccc;
   border-radius: 0.25rem;
-  padding: 0.4rem;
+  padding: 0.5rem;
   width: 100%;
+  margin-bottom: 0rem;
 }
 
 .addExamForm .submitButton {
@@ -203,24 +237,37 @@
   cursor: pointer;
 }
 
-/* Adjustments for smaller screens */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
   .addExamForm .modalContent {
-    width: 90%; /* Adjust modal width for smaller screens */
-    max-width: 90%; /* Set maximum width for the modal */
-  }
-  .addExamForm .label {
-    font-size: 0.6rem;
-  }
-  .addExamForm .input {
-    font-size: 0.6rem;
+    max-width: 90%;
   }
 
   .addExamForm .formGrid {
-    grid-template-columns: 1fr; /* Change to single column layout */
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.1rem;
   }
 
   .addExamForm .submitButton {
-    width: 70%; /* Make submit button full width */
+    grid-column: auto;
+  }
+
+  .addExamForm .label {
+    font-weight: 300;
+    font-size: 0.7rem;
+  }
+  .addExamForm .input {
+    padding: 0.2rem;
+  }
+  .addExamForm .title {
+    font-size: 1rem;
+  }
+  .addExamForm .header {
+    margin-bottom: 0rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .addExamForm .modalContent {
+    padding: 1rem;
   }
 }

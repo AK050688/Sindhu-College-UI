@@ -211,7 +211,35 @@ td {
 .addCourseModal .submitButton:hover {
   background-color: rgb(0, 191, 255);
 }
-/* Adjustments for smaller screens */
+.adminCoursesContainer .pagination {
+  border: none;
+  color: black;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  /* width: 3%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid red; */
+}
+.adminCoursesContainer .pagination button {
+  border: none;
+}
+
+.adminCoursesContainer .pagination button:hover {
+  background-color: #3498db;
+}
+
+.adminCoursesContainer .pagination span {
+  margin: 0 10px;
+}
+
 @media screen and (max-width: 768px) {
   .addCourseModal .modalContent {
     width: 90%;
@@ -227,5 +255,8 @@ td {
   }
   .addCourseModal .submitButton {
     width: 100%;
+  }
+  .addCourseModal .modalForm {
+    margin-top: 0rem;
   }
 }
