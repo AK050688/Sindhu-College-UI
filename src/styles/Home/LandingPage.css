@@ -138,6 +138,8 @@
   box-sizing: border-box;
   color: #666;
   animation: fadeInBottom 1s forwards;
+  display: flex;  
+  flex-direction: row;
 }
 
 .landing-page .section {
@@ -569,5 +571,10 @@
   .landing-page .tool-details .read-more {
     width: 45%;
     font-size: 10px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .landing-page .section-container {
+    flex-direction: column;
   }
 }

@@ -10,8 +10,9 @@ const ExamEditModel = ({
   onEditExam,
   setShowEditForm
 }) => {
-  const [formData, setFormData] = useState(initialExamData);
+
   const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState(initialExamData);
 
   useEffect(() => {
     setFormData(initialExamData);

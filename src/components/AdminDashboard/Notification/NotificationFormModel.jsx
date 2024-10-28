@@ -4,12 +4,15 @@ import "react-toastify/dist/ReactToastify.css";
 import { FiX } from "react-icons/fi";
 
 const NotificationFormModel = ({ onAddNotification, setShowForm }) => {
+  
   const [formData, setFormData] = useState({
     Title: "",
     Subject: "",
     Description: ""
   });
+
   const [loading, setLoading] = useState(false);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;

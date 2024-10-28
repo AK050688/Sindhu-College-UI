@@ -9,13 +9,16 @@ const NotificationEditModel = ({
   onEditNotification,
   setShowEditForm
 }) => {
+  
   const [formData, setFormData] = useState(initialNotificationData);
   const [loading, setLoading] = useState(false);
+
 
   useEffect(() => {
     setFormData(initialNotificationData);
   }, [initialNotificationData]);
 
+ 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });

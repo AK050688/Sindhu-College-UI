@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { loginUser } from "../../Redux/features/userSlice"; // Adjust the path based on your file structure
 import "../../styles/AdminDashboard/Login.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,9 +11,11 @@ function AdminLogin() {
     userName: "",
     password: ""
   });
-  const [loading, setLoading] = useState(false);
 
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  
+  const { user, loading, error } = useSelector((state) => state.users);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,46 +24,19 @@ function AdminLogin() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
-    setLoading(true);
-
-    fetch(
-      `https://university-project-paresh.onrender.com/University/Admin/signIn`,
-      {
-        method: "POST",
-        body: JSON.stringify(formData),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-    )
-      .then((res) => res.json())
-      .then((res) => {
-        console.log(res);
-        toast.error(res.error);
-        // alert(res.error);
-        if (res.message) {
-          localStorage.setItem("token", res.accessToken);
-          toast.success(res.message);
-          alert(res.message);
-          navigate("/admin-dashboard/profile");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        toast.error(err);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-
-    setFormData({
-      userName: "",
-      password: ""
-    });
+    dispatch(loginUser(formData));
   };
 
-  const { userName, password } = formData;
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem("token", user.accessToken);
+      toast.success("Login successful!");
+      navigate("/admin-dashboard/profile");
+    }
+    if (error) {
+      toast.error(error);
+    }
+  }, [user, error, navigate]);
 
   return (
     <section className="adminLoginContainer">
@@ -78,14 +55,14 @@ function AdminLogin() {
               type="text"
               placeholder="USERNAME"
               name="userName"
-              value={userName}
+              value={formData.userName}
               onChange={handleChange}
             />
             <input
               type="password"
               placeholder="PASSWORD"
               name="password"
-              value={password}
+              value={formData.password}
               onChange={handleChange}
             />
             <button type="submit" className="opacity" disabled={loading}>

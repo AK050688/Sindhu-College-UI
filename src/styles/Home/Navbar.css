@@ -18,6 +18,7 @@
   cursor: pointer;
   transition: transform 0.5s ease;
 }
+
 .navbarContainer .logo:hover {
   transform: scale(1.01);
 }
@@ -74,6 +75,7 @@
   cursor: pointer;
 }
 
+/* Mobile menu behavior */
 @media (max-width: 900px) {
   .navbarContainer .menu {
     display: none;
@@ -84,10 +86,11 @@
     width: 100%;
     background-color: rgb(244, 201, 83);
     font-size: 16px;
-    /* margin-top: 20px; */
+    z-index: 999; /* Ensures menu stays on top */
   }
 
-  .navbarContainer .menu-open .menu {
+  /* Make the menu visible when toggled */
+  .menu-open .menu {
     display: flex;
   }
 
@@ -112,15 +115,15 @@
     transition: 0.4s;
   }
 
-  .navbarContainer .menu-open .bar:nth-child(1) {
+  .menu-open .bar:nth-child(1) {
     transform: rotate(-45deg) translate(-5px, 6px);
   }
 
-  .navbarContainer .menu-open .bar:nth-child(2) {
+  .menu-open .bar:nth-child(2) {
     opacity: 0;
   }
 
-  .navbarContainer .menu-open .bar:nth-child(3) {
+  .menu-open .bar:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
   }
 }

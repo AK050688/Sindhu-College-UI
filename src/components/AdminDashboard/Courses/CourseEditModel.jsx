@@ -10,8 +10,9 @@ const CourseEditModel = ({
   onEditCourse,
   setShowEditForm
 }) => {
-  const [formData, setFormData] = useState(initialCourseData);
+  
   const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState(initialCourseData);
 
   useEffect(() => {
     setFormData(initialCourseData);

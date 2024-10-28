@@ -9,9 +9,10 @@ const ShowSubmissionDetailsModal = ({
   submittedDetails,
   assignmentId
 }) => {
+  
+  //   console.log("id", assignmentId, submittedDetails);
   const [marks, setMarks] = useState(0);
   const studentId = localStorage.getItem("studentId");
-  //   console.log("id", assignmentId, submittedDetails);
 
   useEffect(() => {
     getMarks();

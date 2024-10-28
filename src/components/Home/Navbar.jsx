@@ -5,6 +5,7 @@ import "../../styles/Home/Navbar.css";
 import logoImage from "../../assets/logo.png";
 
 const Navbar = () => {
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -25,6 +26,7 @@ const Navbar = () => {
         className={`menu-icon ${menuOpen ? "open" : ""}`}
         onClick={toggleMenu}
       >
+        
         <div className="bar"></div>
         <div className="bar"></div>
         <div className="bar"></div>

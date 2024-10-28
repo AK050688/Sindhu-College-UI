@@ -6,10 +6,12 @@ import Navbar from "./Navbar";
 import axios from "axios";
 
 const ProfileForm = () => {
+ 
   const [adminData, setAdminData] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [editedData, setEditedData] = useState({});
   const [image, setImage] = useState(null);
+
 
   useEffect(() => {
     handleGetData();

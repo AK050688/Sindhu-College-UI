@@ -1,6 +1,4 @@
-/* .container {
-  display: flex;
-} */
+
 
 .adminMain {
   overflow-x: hidden;
@@ -14,8 +12,9 @@
 }
 
 .adminSidebarContainer .sidebar-section {
-  background: rgb(244, 201, 83);
+  
   color: black;
+  background: rgb(244, 201, 83);
   height: 97vh;
   width: 200px;
   transition: all 0.5s;

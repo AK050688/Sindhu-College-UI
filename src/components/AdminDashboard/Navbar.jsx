@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import "../../styles/AdminDashboard/Navbar.css";
-import { FaRegCalendarAlt } from "react-icons/fa";
-import { MdNotifications } from "react-icons/md";
-import { Link } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { MdNotifications } from "react-icons/md";
+import "../../styles/AdminDashboard/Navbar.css";
 
 const Navbar = () => {
-  const [toggleProfile, setToggleProfile] = useState(false);
-  const [adminImage, setAdminImage] = useState(null);
-  const [notifications, setNotifications] = useState([]);
-  const [calendar, setCalendar] = useState([]);
-  const [adminName, setAdminName] = useState("");
+
+
+ const [adminName, setAdminName] = useState("");
+ const [toggleProfile, setToggleProfile] = useState(false);
+ const [adminImage, setAdminImage] = useState(null);
+ const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
     const adminImageFromStorage = localStorage.getItem("adminImage");
@@ -30,7 +30,7 @@ const Navbar = () => {
       );
       setNotifications(response.data);
       console.log(response.data, res.data.Events);
-      setCalendar(res.data.Events);
+      
     } catch (error) {
       console.error("Error fetching notifications:", error);
     }
@@ -46,14 +46,7 @@ const Navbar = () => {
       </div>
       <div className="rightSection">
         <div className="navbarIcons">
-          <Link to={"/admin-calendar"}>
-            <span className="calendarIcon">
-              <FaRegCalendarAlt />
-              {calendar.length > 0 && (
-                <span className="calendarBadge">{calendar.length}</span>
-              )}
-            </span>
-          </Link>
+          
           <Link to={"/admin-notifications"}>
             <span className="notificationIcon">
               <MdNotifications />

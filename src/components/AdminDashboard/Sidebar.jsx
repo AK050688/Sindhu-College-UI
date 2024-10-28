@@ -51,8 +51,8 @@ const Sidebar = ({ children }) => {
     { path: "/admin-teacher", name: "Teachers", icon: <FaUserAlt /> },
     { path: "/admin-admission", name: "Admission", icon: <FaGraduationCap /> },
     { path: "/admin-schedule", name: "Schedule", icon: <FaFileAlt /> },
-    { path: "/admin-attendance", name: "Attendance", icon: <FaUserCheck /> },
-    { path: "/admin-assignment", name: "Assignment", icon: <FaFileAlt /> },
+    // { path: "/admin-attendance", name: "Attendance", icon: <FaUserCheck /> },
+    // { path: "/admin-assignment", name: "Assignment", icon: <FaFileAlt /> },
 
     // {
     //   path: "/admin-notifications",

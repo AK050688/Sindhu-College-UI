@@ -14,8 +14,8 @@ const ExamFormModel = ({ onAddExam, setShowForm }) => {
     examDate: "",
     examQuestion: ""
   });
-  const [loading, setLoading] = useState(false);
 
+  const [loading, setLoading] = useState(false);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });

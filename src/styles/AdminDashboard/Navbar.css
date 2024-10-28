@@ -3,14 +3,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: row;
+  padding: 10px;
   padding: 10px 15px;
   margin: 10px;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: rgb(244, 201, 83);
   color: black;
-  flex-direction: row;
-  padding: 10px;
 }
 
 .adminNavbarContainer .leftSection {
@@ -123,8 +123,9 @@
 
 .adminNavbarContainer .navPopup ul li:hover {
   color: #fff;
-  cursor: pointer;
   background-color: rgb(244, 201, 83);
+  cursor: pointer;
+  
 }
 
 .adminNavbarContainer .show {

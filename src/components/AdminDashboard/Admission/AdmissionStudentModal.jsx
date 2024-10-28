@@ -1,4 +1,7 @@
 import React from "react";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
+import "./Admission.css"
 import {
   FaCalendarAlt,
   FaClipboardCheck,
@@ -24,7 +27,22 @@ import {
 import { FiX } from "react-icons/fi";
 
 const AdmissionStudentModal = ({ admission, onClose }) => {
-  console.log("data", admission);
+
+
+  const handleDownloadPdf = () => {
+    const input = document.getElementById('admission-details');
+    
+    html2canvas(input, { useCORS: true }).then(canvas => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF();
+      const imgWidth = 190;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+      pdf.addImage(imgData, 'PNG', 10, 10, imgWidth, imgHeight);
+      pdf.save("admission-details.pdf");
+    });
+  };
+
   return (
     <div className="adminAdmissionModalContainer">
       <div className="modalContainer">
@@ -34,23 +52,25 @@ const AdmissionStudentModal = ({ admission, onClose }) => {
             <FiX />
           </button>
         </div>
-        <div className="gridContainer">
+
+        {/* Add the ID for html2canvas to capture */}
+        <div id="admission-details" className="gridContainer styled-pdf">
           <div className="gridItem">
             <FaUser className="icon" />
             <p className="text">
-              <strong>Name:</strong> {admission.Name}
+              <strong>Name:</strong> {admission.name}
             </p>
           </div>
           <div className="gridItem">
             <FaRegAddressBook className="icon" />
             <p className="text">
-              <strong>Father's Name:</strong> {admission.fatherName}
+              <strong>Father's Name:</strong> {admission.fathersName}
             </p>
           </div>
           <div className="gridItem">
             <FaRegAddressCard className="icon" />
             <p className="text">
-              <strong>Mother's Name:</strong> {admission.motherName}
+              <strong>Mother's Name:</strong> {admission.mothersName}
             </p>
           </div>
           <div className="gridItem">
@@ -62,7 +82,7 @@ const AdmissionStudentModal = ({ admission, onClose }) => {
           <div className="gridItem">
             <FaPhone className="icon" />
             <p className="text">
-              <strong>Mobile No:</strong> {admission.mobileNo}
+              <strong>Mobile No:</strong> {admission.mobileNumber}
             </p>
           </div>
           <div className="gridItem">
@@ -86,7 +106,7 @@ const AdmissionStudentModal = ({ admission, onClose }) => {
           <div className="gridItem">
             <FaRegHospital className="icon" />
             <p className="text">
-              <strong>City/Village:</strong> {admission.cityORVillage}
+              <strong>City/Village:</strong> {admission.cityOrVillage}
             </p>
           </div>
           <div className="gridItem">
@@ -110,7 +130,7 @@ const AdmissionStudentModal = ({ admission, onClose }) => {
           <div className="gridItem">
             <FaUniversity className="icon" />
             <p className="text">
-              <strong>Date Of Birth:</strong> {admission.DOB}
+              <strong>Date Of Birth:</strong> {admission.dob}
             </p>
           </div>
           <div className="gridItem">
@@ -140,14 +160,13 @@ const AdmissionStudentModal = ({ admission, onClose }) => {
           <div className="gridItem">
             <FaCalendarAlt className="icon" />
             <p className="text">
-              <strong>10th Passout Year:</strong> {admission.tenth_passoutYear}
+              <strong>10th Passout Year:</strong> {admission.yearOf10thPassout}
             </p>
           </div>
           <div className="gridItem">
             <FaClipboardCheck className="icon" />
             <p className="text">
-              <strong>Application Form Status:</strong>{" "}
-              {admission.applicationFormStatus}
+              <strong>Application Form Status:</strong> {admission.applicationFormStatus}
             </p>
           </div>
           <div className="gridItem">
@@ -157,6 +176,11 @@ const AdmissionStudentModal = ({ admission, onClose }) => {
             </p>
           </div>
         </div>
+        
+        {/* PDF Download Button */}
+        <button onClick={handleDownloadPdf} className="pdfBtn">
+          Download PDF
+        </button>
       </div>
     </div>
   );

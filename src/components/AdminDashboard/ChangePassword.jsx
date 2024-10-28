@@ -6,12 +6,13 @@ import style from "../../styles/AdminDashboard/ChangePassword.module.css";
 import axios from "axios";
 
 const ChangePassword = () => {
+
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     oldPassword: "",
     newPassword: "",
     confirmPassword: ""
   });
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
