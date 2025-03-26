@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./Assignment.css";
 import axios from "axios";
-import Navbar from "../../../components/AdminDashboard/Navbar";
-import ShowSubmissionDetailsModal from "../../../components/AdminDashboard/Assignmnet/ShowSubmissionDetailsModal";
+import Navbar from "../../../Components/AdminDashboard/Navbar";
+import ShowSubmissionDetailsModal from "../../../Components/AdminDashboard/Assignmnet/ShowSubmissionDetailsModal";
 
 function Assignment() {
   const [assignment, setAssignment] = useState([]);

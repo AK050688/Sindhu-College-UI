@@ -1,7 +1,7 @@
 import React from "react";
-import LandingPage from "../components/Home/LandingPage";
-import Footer from "../components/Home/Footer";
-import Navbar from "../components/Home/Navbar";
+import LandingPage from "../Components/Home/LandingPage";
+import Footer from "../Components/Home/Footer";
+import Navbar from "../Components/Home/Navbar";
 
 const Home = () => {
   return (

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/Login.css";
-import Footer from "../components/Home/Footer";
-import Navbar from "../components/Home/Navbar";
+import Footer from "../Components/Home/Footer";
+import Navbar from "../Components/Home/Navbar";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 

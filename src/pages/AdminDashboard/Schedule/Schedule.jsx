@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./../../../styles/AdminDashboard/Schedule.css";
-import Navbar from "../../../components/AdminDashboard/Navbar";
+import Navbar from "../../../Components/AdminDashboard/Navbar";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Schedule = () => {

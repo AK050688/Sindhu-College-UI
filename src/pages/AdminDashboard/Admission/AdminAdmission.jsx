@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAdmissions } from "../../../Redux/features/admissionSlice"; // Adjust the path as necessary
-import { deleteAdmission } from  "../../../Redux/features/admissionSlice"; // Adjust the path as necessary
+import { deleteAdmission } from "../../../Redux/features/admissionSlice"; // Adjust the path as necessary
 
 import "./../../../styles/AdminDashboard/AdminAdmission.css";
-import Navbar from "../../../components/AdminDashboard/Navbar";
+import Navbar from "../../../Components/AdminDashboard/Navbar";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import AdmissionStudentModal from "../../../components/AdminDashboard/Admission/AdmissionStudentModal";
+import AdmissionStudentModal from "../../../Components/AdminDashboard/Admission/AdmissionStudentModal";
 import axios from 'axios';
 
 const AdminAdmission = () => {
@@ -46,13 +46,13 @@ const AdminAdmission = () => {
         name: admission.Name,
         email: admission.email,
       });
-      
+
       alert(`Student registered! Mobile No: ${response.data.mobileNo}, Password: ${response.data.password}`);
     } catch (error) {
       console.error("Error registering student", error);
     }
   };
-  
+
   return (
     <>
       <Navbar />

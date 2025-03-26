@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../../components/AdminDashboard/Navbar";
+import Navbar from "../../Components/AdminDashboard/Navbar";
 import {
   FaBell,
   FaBook,

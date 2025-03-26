@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "../../../styles/AdminDashboard/student.css";
-import Navbar from "../../../components/AdminDashboard/Navbar";
+import Navbar from "../../../Components/AdminDashboard/Navbar";
 import StudentModal from "./StudentModal";
 import axios from "axios";
 

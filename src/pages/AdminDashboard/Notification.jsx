@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Navbar from "../../components/AdminDashboard/Navbar";
-import NotificationFormModel from "../../components/AdminDashboard/Notification/NotificationFormModel";
-import NotificationEditModel from "../../components/AdminDashboard/Notification/NotificationEditModel";
+import Navbar from "../../Components/AdminDashboard/Navbar";
+import NotificationFormModel from "../../Components/AdminDashboard/Notification/NotificationFormModel";
+import NotificationEditModel from "../../Components/AdminDashboard/Notification/NotificationEditModel";
 import "../../styles/AdminDashboard/Notification.css";
 import axios from "axios";
 

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import Navbar from "../../components/AdminDashboard/Navbar";
+import Navbar from "../../Components/AdminDashboard/Navbar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import CourseFormModel from "../../components/AdminDashboard/Courses/CourseFormModel";
-import CourseEditModel from "../../components/AdminDashboard/Courses/CourseEditModel";
+import CourseFormModel from "../../Components/AdminDashboard/Courses/CourseFormModel";
+import CourseEditModel from "../../Components/AdminDashboard/Courses/CourseEditModel";
 import "../../styles/AdminDashboard/Courses.css";
 import axios from "axios";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";

@@ -7,7 +7,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 import listPlugin from "@fullcalendar/list";
 import { formatDate } from "@fullcalendar/core";
 import "../../styles/AdminDashboard/Calendar.css";
-import Navbar from "../../components/AdminDashboard/Navbar";
+import Navbar from "../../Components/AdminDashboard/Navbar";
 import { FaTrash, FaEdit } from "react-icons/fa";
 
 const Calendar = () => {

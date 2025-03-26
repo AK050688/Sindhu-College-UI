@@ -8,16 +8,16 @@ import OurCampus from "../OurCampus";
 import ContactUs from "../ContactUs";
 import Login from "../Login";
 
-import AdminLogin from "../../pages/AdminDashboard/Login";
-import Sidebar from "../../components/AdminDashboard/Sidebar";
+import AdminLogin from "../../Pages/AdminDashboard/Login";
+import Sidebar from "../../Components/AdminDashboard/Sidebar";
 import Dashboard from "../AdminDashboard/Dashboard";
 import Student from "../AdminDashboard/Student/Student";
 import Teachers from "../AdminDashboard/Teacher/Teachers";
 import Registration from "../AdminDashboard/Registration/Registration";
-import ChangePassword from "../../components/AdminDashboard/ChangePassword";
+import ChangePassword from "../../Components/AdminDashboard/ChangePassword";
 import Notification from "../AdminDashboard/Notification";
 import Courses from "../AdminDashboard/Courses";
-import ProfileForm from "../../components/AdminDashboard/ProfileForm";
+import ProfileForm from "../../Components/AdminDashboard/ProfileForm";
 import Exam from "../AdminDashboard/Exam";
 import Calendar from "../AdminDashboard/Calendar";
 import Fees from "../AdminDashboard/Fees";
@@ -26,8 +26,8 @@ import Schedule from "../AdminDashboard/Schedule/Schedule";
 import Assignment from "../AdminDashboard/Assignment/Assignment";
 import AdminAdmission from "../AdminDashboard/Admission/AdminAdmission";
 
-import StudentSidebar from "../../components/StudentDashboard/StudentSidebar/StudentSidebar";
-import StudentNavbar from "../../components/StudentDashboard/StudentNavbar/StudentNavbar";
+import StudentSidebar from "../../Components/StudentDashboard/StudentSidebar/StudentSidebar";
+import StudentNavbar from "../../Components/StudentDashboard/StudentNavbar/StudentNavbar";
 import StudentDashboard from "../StudentDashboard/Dashboard/StudentDashboard";
 import StudentSchedule from "../StudentDashboard/Schedule/StudentSchedule";
 import Students from "../StudentDashboard/Student/Students";
@@ -43,8 +43,8 @@ import StudentQuestionPaperPage from "../StudentDashboard/QuestionPaper/StudentQ
 import StudentSyllabusPage from "../StudentDashboard/Syllabus/StudentSyllabusPage";
 import StudentTestPage from "../StudentDashboard/Test/StudentTestPage";
 
-import TeacherSidebar from "../../components/TeacherDashboard/Sidebar/TeacherSidebar";
-import TeacherNavbar from "../../components/TeacherDashboard/Navbar/TeacherNavbar";
+import TeacherSidebar from "../../Components/TeacherDashboard/Sidebar/TeacherSidebar";
+import TeacherNavbar from "../../Components/TeacherDashboard/Navbar/TeacherNavbar";
 import TeacherDashboard from "../TeacherDashboard/Dashboard/TeacherDashboard";
 import TeacherSchedule from "../TeacherDashboard/Schedule/TeacherSchedule";
 import TeacherStudent from "../TeacherDashboard/Student/TeacherStudent";

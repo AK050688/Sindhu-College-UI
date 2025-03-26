@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "../../styles/AdminDashboard/Attendance.module.css";
-import Navbar from "../../components/AdminDashboard/Navbar";
+import Navbar from "../../Components/AdminDashboard/Navbar";
 
 function Attendance() {
   const [students, setStudents] = useState([]);

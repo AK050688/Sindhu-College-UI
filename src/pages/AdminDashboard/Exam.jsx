@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Navbar from "../../components/AdminDashboard/Navbar";
-import ExamFormModel from "../../components/AdminDashboard/Exam/ExamFormModel copy";
-import ExamEditModel from "../../components/AdminDashboard/Exam/ExamEditModel";
+import Navbar from "../../Components/AdminDashboard/Navbar";
+import ExamFormModel from "../../Components/AdminDashboard/Exam/ExamFormModel copy";
+import ExamEditModel from "../../Components/AdminDashboard/Exam/ExamEditModel";
 import "../../styles/AdminDashboard/Exam.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 

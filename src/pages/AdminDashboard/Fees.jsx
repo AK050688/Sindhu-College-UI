@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../../components/AdminDashboard/Navbar";
+import Navbar from "../../Components/AdminDashboard/Navbar";
 import "../../styles/AdminDashboard/Fees.css";
 
 const Fees = () => {
@@ -88,7 +88,7 @@ const Fees = () => {
           <h1>All Fees Lists</h1>
           <button
             className="addButton"
-            // onClick={() => setShowForm(true)}
+          // onClick={() => setShowForm(true)}
           >
             Add Fees
           </button>

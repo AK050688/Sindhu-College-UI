@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/AboutUs.css";
-import Footer from "../components/Home/Footer";
-import Navbar from "../components/Home/Navbar";
+import Footer from "../Components/Home/Footer";
+import Navbar from "../Components/Home/Navbar";
 
 const AboutUs = () => {
   return (

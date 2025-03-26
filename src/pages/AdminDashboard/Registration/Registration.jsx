@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Navbar from "../../../components/AdminDashboard/Navbar";
-import StudentForm from "../../../components/AdminDashboard/Registration/StudentForm";
-import TeacherForm from "../../../components/AdminDashboard/Registration/TeacherForm";
+import Navbar from "../../../Components/AdminDashboard/Navbar";
+import StudentForm from "../../../Components/AdminDashboard/Registration/StudentForm";
+import TeacherForm from "../../../Components/AdminDashboard/Registration/TeacherForm";
 import "../../../styles/AdminDashboard/Registration.css";
 
 function Registration() {

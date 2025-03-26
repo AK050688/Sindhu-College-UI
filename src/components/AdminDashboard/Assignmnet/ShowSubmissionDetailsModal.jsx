@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FiX } from "react-icons/fi";
 import axios from "axios";
-import "../../../pages/AdminDashboard/Assignment/Assignment.css";
+import "../../../Pages/AdminDashboard/Assignment/Assignment.css";
 
 const ShowSubmissionDetailsModal = ({
   show,
@@ -9,7 +9,7 @@ const ShowSubmissionDetailsModal = ({
   submittedDetails,
   assignmentId
 }) => {
-  
+
   //   console.log("id", assignmentId, submittedDetails);
   const [marks, setMarks] = useState(0);
   const studentId = localStorage.getItem("studentId");
