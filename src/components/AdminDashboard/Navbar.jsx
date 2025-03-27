@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MdNotifications } from "react-icons/md";
 import "../../styles/AdminDashboard/Navbar.css";
+import { logout } from "../../Utils/auth";
 
 const Navbar = () => {
 
 
- const [adminName, setAdminName] = useState("");
- const [toggleProfile, setToggleProfile] = useState(false);
- const [adminImage, setAdminImage] = useState(null);
- const [notifications, setNotifications] = useState([]);
+  const [adminName, setAdminName] = useState("");
+  const [toggleProfile, setToggleProfile] = useState(false);
+  const [adminImage, setAdminImage] = useState(null);
+  const [notifications, setNotifications] = useState([]);
+  const navigate = useNavigate()
 
   useEffect(() => {
     const adminImageFromStorage = localStorage.getItem("adminImage");
@@ -19,6 +21,12 @@ const Navbar = () => {
     setAdminName(adminNameFromStorage);
     fetchNotifications();
   }, []);
+
+  const handleLogout = () => {
+    logout()
+    navigate('/')
+  }
+
 
   const fetchNotifications = async () => {
     try {
@@ -30,7 +38,7 @@ const Navbar = () => {
       );
       setNotifications(response.data);
       console.log(response.data, res.data.Events);
-      
+
     } catch (error) {
       console.error("Error fetching notifications:", error);
     }
@@ -46,7 +54,7 @@ const Navbar = () => {
       </div>
       <div className="rightSection">
         <div className="navbarIcons">
-          
+
           <Link to={"/admin-notifications"}>
             <span className="notificationIcon">
               <MdNotifications />
@@ -71,8 +79,8 @@ const Navbar = () => {
             <Link to={"/admin-dashboard/profile"}>Profile</Link>
           </li>
 
-          <li>
-            <Link to={"/"}>Log Out</Link>
+          <li onClick={handleLogout}>
+            Log Out
           </li>
         </ul>
       </div>

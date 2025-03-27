@@ -3,8 +3,9 @@ import "./StudentNavbar.css";
 import { RiMenu2Line } from "react-icons/ri";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { MdNotifications } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { logout } from "../../../Utils/auth";
 
 const StudentNavbar = ({ toggleSidbarStudent, setToggelSidebarStudent }) => {
   const [toggleProfile, setToggleProfile] = useState(false);
@@ -20,6 +21,14 @@ const StudentNavbar = ({ toggleSidbarStudent, setToggelSidebarStudent }) => {
     setStudentName(studentNameFromStorage);
     fetchNotifications();
   }, []);
+
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    logout()
+    navigate('/')
+  }
+
 
   const fetchNotifications = async () => {
     try {
@@ -84,9 +93,9 @@ const StudentNavbar = ({ toggleSidbarStudent, setToggelSidebarStudent }) => {
           <li>
             <Link to={"/student-dashboard/profile"}>Profile</Link>
           </li>
-          <Link to={"/"}>
-            <li>Log Out</li>
-          </Link>
+
+          <li onClick={handleLogout}>Log Out</li>
+
         </ul>
       </div>
     </div>

@@ -1,16 +1,23 @@
 // Navbar.jsx
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../styles/Home/Navbar.css";
 import logoImage from "../../assets/logo.png";
+import { isAuthenticated, logout } from "../../Utils/auth";
 
 const Navbar = () => {
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate()
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  const handleLogout = () => {
+    logout()
+    navigate('/')
+  }
 
   return (
     <nav className={`navbarContainer ${menuOpen ? "menu-open" : ""}`}>
@@ -26,7 +33,7 @@ const Navbar = () => {
         className={`menu-icon ${menuOpen ? "open" : ""}`}
         onClick={toggleMenu}
       >
-        
+
         <div className="bar"></div>
         <div className="bar"></div>
         <div className="bar"></div>
@@ -50,9 +57,12 @@ const Navbar = () => {
         <li>
           <a href="/contact-us">Contact Us</a>
         </li>
-        <li>
-          <a href="/login">Login</a>
-        </li>
+        {isAuthenticated() ? <li onClick={handleLogout}>
+          Logout
+        </li> : <li>
+          <a href="/student/login">Login</a>
+        </li>}
+
       </ul>
     </nav>
   );
